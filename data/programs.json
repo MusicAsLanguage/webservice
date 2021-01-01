@@ -1,0 +1,39 @@
+[{
+    "ID": 1,
+    "Name":"Music As Language",
+    "Description":"",
+    "Phases":[
+        {
+            "ID": 1,
+            "Name": "Phase 1",
+            "Description":"",
+            "Lessons":[
+                {
+                    "ID": 1,
+                    "Name": "Lesson 1",
+                    "Description": "",
+                    "Activities": [
+                        {
+                            "ID": 1,
+                            "Name": "Activity 1",
+                            "Description": "",
+                            "Videos":[
+                                {
+                                    "ID": 1,
+                                    "Name": "Stats about NonVerbal",
+                                    "Description": "Stats about NonVerbal disability among childrens.",
+                                    "Url": "https://mascontent.blob.core.windows.net/videos/Bernadette - Stats about NonVerbal 30 seconds.mp4"
+                                }
+                            ],
+                            "Images": [],
+                            "Text": ""
+                        }
+                    ]
+                }
+
+            ]
+        }
+        
+    ]
+
+}]
