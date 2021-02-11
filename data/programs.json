@@ -12,6 +12,16 @@
                     "ID": 1,
                     "Name": "Lesson 1",
                     "Description": "",
+                    "ImageUrl": "",
+                    "AudioUrl": "",
+                    "IntroVideo":
+                    {
+                        "ID": 1,
+                        "Name": "Stats about NonVerbal",
+                        "Description": "Stats about NonVerbal disability among childrens.",
+                        "Url": "https://mascontent.blob.core.windows.net/videos/Bernadette - Stats about NonVerbal 30 seconds.mp4",
+                        "LengthInSeconds": 30
+                    },
                     "Activities": [
                         {
                             "ID": 1,
@@ -19,15 +29,15 @@
                             "Description": "",
                             "Videos":[
                                 {
-                                    "ID": 1,
-                                    "Name": "Stats about NonVerbal",
-                                    "Description": "Stats about NonVerbal disability among childrens.",
-                                    "Url": "https://mascontent.blob.core.windows.net/videos/Bernadette - Stats about NonVerbal 30 seconds.mp4",
-                                    "LengthInSeconds": 30
+                                    "ID": 2,
+                                    "Name": "",
+                                    "Description": "",
+                                    "Url": "",
+                                    "LengthInSeconds": 5
                                 }
                             ],
-                            "Images": [],
-                            "Text": ""
+                            "ImageUrls": [],
+                            "Instructions": ""
                         }
                     ]
                 }
