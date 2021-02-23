@@ -8,6 +8,7 @@ import logging.config
 import os
 from database.db import initialize_db
 from resources.routes import initialize_routes
+from resources.errors import errors
 from cache import cache
 import config
 
@@ -27,7 +28,7 @@ env = os.getenv('APP_ENV', 'dev')
 logger.info("Running mode:" + env)
 app.config.from_object(configs[env])
 
-api = Api(app)
+api = Api(app, errors=errors)
 bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 
