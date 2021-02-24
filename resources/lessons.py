@@ -1,9 +1,11 @@
 from flask_restful import Resource
+from flask_jwt_extended import jwt_required
 import logging
 import logging.config
 import json
 import traceback
 from cache import cache
+from resources.errors import InternalServerError
 
 logging.config.fileConfig("logging.conf")
 logger = logging.getLogger("web")
@@ -25,5 +27,5 @@ class GetLessonsApi(Resource):
         except Exception:
             error = traceback.format_exc()
             logger.info(error)
-            return {"error": error}, 555
+            raise InternalServerError
 
