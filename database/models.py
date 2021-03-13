@@ -3,6 +3,7 @@ from flask_bcrypt import generate_password_hash, check_password_hash
 
 
 class User(db.Document):
+    name = db.StringField(required=True, max_length=100)
     email = db.EmailField(required=True, unique=True, max_length=100)
     password = db.StringField(required=True, min_length=6, max_length=100)
 
@@ -24,6 +25,8 @@ class Activity(db.EmbeddedDocument):
     _id = db.IntField(required=True)
     Name = db.StringField(required=True, unique=True, max_length=128)
     Description = db.StringField(required=False, max_length=1024)
+    BackgroundColor = db.StringField(required=False, max_length=30)
+    ImageUrl = db.URLField(required=False)
     Videos = db.ListField(db.EmbeddedDocumentField('Video'))
     Instructions = db.StringField(required=False, max_length=10240)
 

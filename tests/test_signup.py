@@ -6,6 +6,7 @@ class TestUserSignup(BaseCase):
     def test_successful_signup(self):
         # Given
         payload = json.dumps({
+            "name": "Jane Doe",
             "email": "jane@gmail.com",
             "password": "mycoolpassword"
         })
@@ -61,6 +62,7 @@ class TestUserSignup(BaseCase):
     def test_creating_already_existing_user(self):
         #Given
         payload = json.dumps({
+            "name": "Jane Doe",
             "email": "jane2@gmail.com",
             "password": "mycoolpassword"
         })
