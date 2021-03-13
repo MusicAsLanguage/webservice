@@ -24,7 +24,7 @@ configs = {
 }
 
 #get APP_ENV from environment setting, dev/test/prod, default to dev if not set
-env = os.getenv('APP_ENV', 'dev')
+env = os.getenv('APP_ENV', 'test')
 logger.info("Running mode:" + env)
 app.config.from_object(configs[env])
 

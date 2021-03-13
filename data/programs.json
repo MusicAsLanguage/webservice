@@ -1,50 +1,46 @@
 [{
-    "ID": 1,
+    "_id": 1,
     "Name":"Music As Language",
     "Description":"",
     "Phases":[
         {
-            "ID": 1,
+            "_id": 1,
             "Name": "Phase 1",
             "Description":"",
             "Lessons":[
                 {
-                    "ID": 1,
+                    "_id": 1,
                     "Name": "Lesson 1",
                     "Description": "",
-                    "ImageUrl": "",
-                    "AudioUrl": "",
+                    "ImageUrl": "https://mascontent.blob.core.windows.net/imgs/lesson-1.img",
                     "IntroVideo":
                     {
-                        "ID": 1,
+                        "_id": 1,
                         "Name": "Stats about NonVerbal",
                         "Description": "Stats about NonVerbal disability among childrens.",
-                        "Url": "https://mascontent.blob.core.windows.net/videos/Bernadette - Stats about NonVerbal 30 seconds.mp4",
+                        "Url": "https://mascontent.blob.core.windows.net/videos/Bernadette-Stats-about-NonVerbal.mp4",
                         "LengthInSeconds": 30
                     },
                     "Activities": [
                         {
-                            "ID": 1,
+                            "_id": 1,
                             "Name": "Activity 1",
                             "Description": "",
                             "Videos":[
                                 {
-                                    "ID": 2,
-                                    "Name": "",
-                                    "Description": "",
-                                    "Url": "",
-                                    "LengthInSeconds": 5
+                                    "_id": 2,
+                                    "Name": "video-1",
+                                    "Description": "Stats about NonVerbal disability among childrens.",
+                                    "Url": "https://mascontent.blob.core.windows.net/videos/Bernadette-Stats-about-NonVerbal.mp4",
+                                    "LengthInSeconds": 30
                                 }
                             ],
-                            "ImageUrls": [],
                             "Instructions": ""
                         }
                     ]
                 }
 
             ]
-        }
-        
+        }        
     ]
-
 }]
