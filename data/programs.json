@@ -26,6 +26,8 @@
                             "_id": 1,
                             "Name": "Activity 1",
                             "Description": "",
+                            "BackgroundColor": "",
+                            "ImageUrl": "https://mascontent.blob.core.windows.net/imgs/lesson-1.img",
                             "Videos":[
                                 {
                                     "_id": 2,
