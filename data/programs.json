@@ -1,48 +1,146 @@
-[{
+[
+  {
     "_id": 1,
-    "Name":"Music As Language",
-    "Description":"",
-    "Phases":[
-        {
+    "Name": "Music As Language",
+    "Description": "",
+    "Phases": [
+      {
+        "_id": 1,
+        "Name": "Phase 1",
+        "Description": "",
+        "Lessons": [
+          {
             "_id": 1,
-            "Name": "Phase 1",
-            "Description":"",
-            "Lessons":[
-                {
-                    "_id": 1,
-                    "Name": "Lesson 1",
-                    "Description": "",
-                    "ImageUrl": "https://mascontent.blob.core.windows.net/imgs/lesson-1.img",
-                    "IntroVideo":
-                    {
-                        "_id": 1,
-                        "Name": "Stats about NonVerbal",
-                        "Description": "Stats about NonVerbal disability among childrens.",
-                        "Url": "https://mascontent.blob.core.windows.net/videos/Bernadette-Stats-about-NonVerbal.mp4",
-                        "LengthInSeconds": 30
-                    },
-                    "Activities": [
-                        {
-                            "_id": 1,
-                            "Name": "Activity 1",
-                            "Description": "",
-                            "BackgroundColor": "",
-                            "ImageUrl": "https://mascontent.blob.core.windows.net/imgs/lesson-1.img",
-                            "Videos":[
-                                {
-                                    "_id": 2,
-                                    "Name": "video-1",
-                                    "Description": "Stats about NonVerbal disability among childrens.",
-                                    "Url": "https://mascontent.blob.core.windows.net/videos/Bernadette-Stats-about-NonVerbal.mp4",
-                                    "LengthInSeconds": 30
-                                }
-                            ],
-                            "Instructions": ""
-                        }
-                    ]
-                }
-
+            "Name": "Introduction",
+            "Description": "",
+            "ImageUrl": "https://github.com/MusicAsLanguage/mobileapp/blob/main/AppCode/app/assets/welcome_background.jpg",
+            "IntroVideo": {
+              "_id": 1,
+              "Name": "Stats about NonVerbal",
+              "Description": "Stats about NonVerbal disability among childrens.",
+              "Url": "https://github.com/MusicAsLanguage/mobileapp/blob/main/AppCode/app/assets/sample_video.mp4",
+              "LengthInSeconds": 30
+            },
+            "Activities": [
+              {
+                "_id": 1,
+                "Name": "",
+                "Description": "",
+                "BackgroundColor": "",
+                "ImageUrl": "https://github.com/MusicAsLanguage/mobileapp/blob/main/AppCode/app/assets/welcome_background.jpg",
+                "Videos": [
+                  {
+                    "_id": 2,
+                    "Name": "video-1",
+                    "Description": "Stats about NonVerbal disability among childrens.",
+                    "Url": "https://github.com/MusicAsLanguage/mobileapp/blob/main/AppCode/app/videos/Bernadette-Stats-about-NonVerbal.mp4",
+                    "LengthInSeconds": 30
+                  }
+                ],
+                "Instructions": ""
+              }
             ]
-        }        
+          },
+          {
+            "_id": 2,
+            "Name": "Lesson 1",
+            "Description": "Lesson 1 description",
+            "ImageUrl": "https://github.com/MusicAsLanguage/mobileapp/blob/main/AppCode/app/assets/children-singing.jpg",
+            "IntroVideo": {
+              "_id": 1,
+              "Name": "Stats about NonVerbal",
+              "Description": "Stats about NonVerbal disability among childrens.",
+              "Url": "https://github.com/MusicAsLanguage/mobileapp/blob/main/AppCode/app/assets/sample_video.mp4",
+              "LengthInSeconds": 30
+            },
+            "Activities": [
+              {
+                "_id": 1,
+                "Name": "Activity 1",
+                "Description": "Jaw Exercise",
+                "BackgroundColor": "#fc5c65",
+                "ImageUrl": "https://github.com/MusicAsLanguage/mobileapp/blob/main/AppCode/app/assets/jaw_exercise.jpg",
+                "Videos": [
+                  {
+                    "_id": 1,
+                    "Name": "video-1",
+                    "Description": "Stats about NonVerbal disability among childrens.",
+                    "Url": "https://github.com/MusicAsLanguage/mobileapp/blob/main/AppCode/app/assets/jaw_exercise.mov",
+                    "LengthInSeconds": 1200
+                  }
+                ],
+                "Instructions": ""
+              },
+              {
+                "_id": 2,
+                "Name": "Activity 2",
+                "Description": "Vowels",
+                "BackgroundColor": "#fc5c65",
+                "ImageUrl": "https://github.com/MusicAsLanguage/mobileapp/blob/main/AppCode/app/assets/vowels.jpg",
+                "Videos": [
+                  {
+                    "_id": 1,
+                    "Name": "video-1",
+                    "Description": "Stats about NonVerbal disability among childrens.",
+                    "Url": "https://github.com/MusicAsLanguage/mobileapp/blob/main/AppCode/app/assets/vowels.mov",
+                    "LengthInSeconds": 1200
+                  }
+                ],
+                "Instructions": ""
+              },
+              {
+                "_id": 3,
+                "Name": "Activity 3",
+                "Description": "Breathing",
+                "BackgroundColor": "#fc5c65",
+                "ImageUrl": "https://github.com/MusicAsLanguage/mobileapp/blob/main/AppCode/app/assets/breathing.jpg",
+                "Videos": [
+                  {
+                    "_id": 1,
+                    "Name": "video-1",
+                    "Description": "Stats about NonVerbal disability among childrens.",
+                    "Url": "https://github.com/MusicAsLanguage/mobileapp/blob/main/AppCode/app/assets/breathing.mov",
+                    "LengthInSeconds": 1200
+                  }
+                ],
+                "Instructions": ""
+              }
+            ]
+          },
+          {
+            "_id": 3,
+            "Name": "Lesson 2",
+            "Description": "Lesson 2 description",
+            "ImageUrl": "https://github.com/MusicAsLanguage/mobileapp/blob/main/AppCode/app/assets/children-singing.jpg",
+            "IntroVideo": {
+              "_id": 1,
+              "Name": "Stats about NonVerbal",
+              "Description": "Stats about NonVerbal disability among childrens.",
+              "Url": "https://github.com/MusicAsLanguage/mobileapp/blob/main/AppCode/app/assets/sample_video.mp4",
+              "LengthInSeconds": 30
+            },
+            "Activities": [
+              {
+                "_id": 1,
+                "Name": "Activity 1",
+                "Description": "",
+                "BackgroundColor": "",
+                "ImageUrl": "https://github.com/MusicAsLanguage/mobileapp/blob/main/AppCode/app/assets/welcome_background.jpg",
+                "Videos": [
+                  {
+                    "_id": 2,
+                    "Name": "video-1",
+                    "Description": "Stats about NonVerbal disability among childrens.",
+                    "Url": "https://github.com/MusicAsLanguage/mobileapp/blob/main/AppCode/app/videos/Bernadette-Stats-about-NonVerbal.mp4",
+                    "LengthInSeconds": 30
+                  }
+                ],
+                "Instructions": ""
+              }
+            ]
+          }
+        ]
+      }
     ]
-}]
+  }
+]
