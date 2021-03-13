@@ -33,7 +33,7 @@ class LoginApi(Resource):
 
             expires = datetime.timedelta(days=7)
             access_token = create_access_token(identity=str(user.id), expires_delta=expires)
-            return {'token': access_token}, 200
+            return {'token': access_token, 'user': user.to_json()}, 200
         except (UnauthorizedError, DoesNotExist):
             raise UnauthorizedError
         except Exception as e:
