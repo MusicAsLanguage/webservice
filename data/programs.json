@@ -12,7 +12,7 @@
           {
             "_id": 1,
             "Name": "Introduction",
-            "Description": "",
+            "Description": "Introduction to Music as Language",
             "ImageUrl": "https://pythia.blob.core.windows.net/public/assets/welcome_background.jpg",
             "IntroVideo": {
               "_id": 1,
@@ -24,8 +24,8 @@
             "Activities": [
               {
                 "_id": 1,
-                "Name": "",
-                "Description": "",
+                "Name": "Activity 1",
+                "Description": "Activity 1 description",
                 "BackgroundColor": "",
                 "ImageUrl": "https://pythia.blob.core.windows.net/public/assets/welcome_background.jpg",
                 "Videos": [
@@ -33,7 +33,7 @@
                     "_id": 2,
                     "Name": "video-1",
                     "Description": "Stats about NonVerbal disability among childrens.",
-                    "Url": "https://github.com/MusicAsLanguage/mobileapp/blob/main/AppCode/app/videos/Bernadette-Stats-about-NonVerbal.mp4",
+                    "Url": "https://pythia.blob.core.windows.net/public/assets/jaw_exercise.mov",
                     "LengthInSeconds": 30
                   }
                 ],
@@ -123,7 +123,7 @@
               {
                 "_id": 1,
                 "Name": "Activity 1",
-                "Description": "",
+                "Description": "Activity 1 description",
                 "BackgroundColor": "",
                 "ImageUrl": "https://pythia.blob.core.windows.net/public/assets/welcome_background.jpg",
                 "Videos": [
@@ -131,7 +131,7 @@
                     "_id": 2,
                     "Name": "video-1",
                     "Description": "Stats about NonVerbal disability among childrens.",
-                    "Url": "https://github.com/MusicAsLanguage/mobileapp/blob/main/AppCode/app/videos/Bernadette-Stats-about-NonVerbal.mp4",
+                    "Url": "https://pythia.blob.core.windows.net/public/assets/jaw_exercise.mov",
                     "LengthInSeconds": 30
                   }
                 ],
