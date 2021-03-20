@@ -26,15 +26,22 @@ class LoginApi(Resource):
     def post(self):
         try:
             body = request.get_json()
-            user = User.objects.get(email=body.get('email'))
-            authorized = user.check_password(body.get('password'))
+            user = User(**body)
+
+            activeUser = User.objects.get(email = user.email)            
+            authorized = activeUser.check_password(user.password)
+            
             if not authorized:
                 raise UnauthorizedError
 
-            expires = datetime.timedelta(days=7)
-            access_token = create_access_token(identity=str(user.id), expires_delta=expires)
-            return {'token': access_token, 'user': user.to_json()}, 200
+            expires = datetime.timedelta(days=7)                       
+            access_token = create_access_token(identity = activeUser.to_json(), expires_delta = expires)
+            return {'token': access_token}, 200
         except (UnauthorizedError, DoesNotExist):
             raise UnauthorizedError
         except Exception as e:
             raise InternalServerError
+            
+            
+            
+            
