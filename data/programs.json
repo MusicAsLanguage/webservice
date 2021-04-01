@@ -13,12 +13,12 @@
             "_id": 1,
             "Name": "Introduction",
             "Description": "Introduction to Music as Language",
-            "ImageUrl": "https://pythia.blob.core.windows.net/public/assets/welcome_background.jpg",
+            "ImageUrl": "https://malstore.blob.core.windows.net/assets/welcome_background.jpg",
             "IntroVideo": {
               "_id": 1,
               "Name": "Stats about NonVerbal",
               "Description": "Stats about NonVerbal disability among childrens.",
-              "Url": "https://pythia.blob.core.windows.net/public/assets/sample_video.mp4",
+              "Url": "https://malstore.blob.core.windows.net/assets/sample_video.mp4",
               "LengthInSeconds": 30
             },
             "Activities": [
@@ -27,13 +27,13 @@
                 "Name": "Activity 1",
                 "Description": "Activity 1 description",
                 "BackgroundColor": "",
-                "ImageUrl": "https://pythia.blob.core.windows.net/public/assets/welcome_background.jpg",
+                "ImageUrl": "https://malstore.blob.core.windows.net/assets/welcome_background.jpg",
                 "Videos": [
                   {
                     "_id": 2,
                     "Name": "video-1",
                     "Description": "Stats about NonVerbal disability among childrens.",
-                    "Url": "https://pythia.blob.core.windows.net/public/assets/jaw_exercise.mov",
+                    "Url": "https://malstore.blob.core.windows.net/assets/jaw_exercise.mov",
                     "LengthInSeconds": 30
                   }
                 ],
@@ -45,12 +45,12 @@
             "_id": 2,
             "Name": "Lesson 1",
             "Description": "Lesson 1 description",
-            "ImageUrl": "https://pythia.blob.core.windows.net/public/assets/children-singing.jpg",
+            "ImageUrl": "https://malstore.blob.core.windows.net/assets/children-singing.jpg",
             "IntroVideo": {
               "_id": 1,
               "Name": "Stats about NonVerbal",
               "Description": "Stats about NonVerbal disability among childrens.",
-              "Url": "https://pythia.blob.core.windows.net/public/assets/sample_video.mp4",
+              "Url": "https://malstore.blob.core.windows.net/assets/sample_video.mp4",
               "LengthInSeconds": 30
             },
             "Activities": [
@@ -59,13 +59,13 @@
                 "Name": "Activity 1",
                 "Description": "Jaw Exercise",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://pythia.blob.core.windows.net/public/assets/jaw_exercise.jpg",
+                "ImageUrl": "https://malstore.blob.core.windows.net/assets/jaw_exercise.jpg",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "video-1",
                     "Description": "Stats about NonVerbal disability among childrens.",
-                    "Url": "https://pythia.blob.core.windows.net/public/assets/jaw_exercise.mov",
+                    "Url": "https://malstore.blob.core.windows.net/assets/jaw_exercise.mov",
                     "LengthInSeconds": 1200
                   }
                 ],
@@ -76,13 +76,13 @@
                 "Name": "Activity 2",
                 "Description": "Vowels",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://pythia.blob.core.windows.net/public/assets/vowels.jpg",
+                "ImageUrl": "https://malstore.blob.core.windows.net/assets/vowels.jpg",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "video-1",
                     "Description": "Stats about NonVerbal disability among childrens.",
-                    "Url": "https://pythia.blob.core.windows.net/public/assets/vowels.mov",
+                    "Url": "https://malstore.blob.core.windows.net/assets/vowels.mov",
                     "LengthInSeconds": 1200
                   }
                 ],
@@ -93,13 +93,13 @@
                 "Name": "Activity 3",
                 "Description": "Breathing",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://pythia.blob.core.windows.net/public/assets/breathing.jpg",
+                "ImageUrl": "https://malstore.blob.core.windows.net/assets/breathing.jpg",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "video-1",
                     "Description": "Stats about NonVerbal disability among childrens.",
-                    "Url": "https://pythia.blob.core.windows.net/public/assets/breathing.mov",
+                    "Url": "https://malstore.blob.core.windows.net/assets/breathing.mov",
                     "LengthInSeconds": 1200
                   }
                 ],
@@ -111,12 +111,12 @@
             "_id": 3,
             "Name": "Lesson 2",
             "Description": "Lesson 2 description",
-            "ImageUrl": "https://pythia.blob.core.windows.net/public/assets/children-singing.jpg",
+            "ImageUrl": "https://malstore.blob.core.windows.net/assets/children-singing.jpg",
             "IntroVideo": {
               "_id": 1,
               "Name": "Stats about NonVerbal",
               "Description": "Stats about NonVerbal disability among childrens.",
-              "Url": "https://pythia.blob.core.windows.net/public/assets/sample_video.mp4",
+              "Url": "https://malstore.blob.core.windows.net/assets/sample_video.mp4",
               "LengthInSeconds": 30
             },
             "Activities": [
@@ -125,13 +125,13 @@
                 "Name": "Activity 1",
                 "Description": "Activity 1 description",
                 "BackgroundColor": "",
-                "ImageUrl": "https://pythia.blob.core.windows.net/public/assets/welcome_background.jpg",
+                "ImageUrl": "https://malstore.blob.core.windows.net/assets/welcome_background.jpg",
                 "Videos": [
                   {
                     "_id": 2,
                     "Name": "video-1",
                     "Description": "Stats about NonVerbal disability among childrens.",
-                    "Url": "https://pythia.blob.core.windows.net/public/assets/jaw_exercise.mov",
+                    "Url": "https://malstore.blob.core.windows.net/assets/jaw_exercise.mov",
                     "LengthInSeconds": 30
                   }
                 ],
