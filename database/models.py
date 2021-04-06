@@ -16,14 +16,14 @@ class User(db.Document):
 
 class Video(db.EmbeddedDocument):
     _id = db.IntField(required=True)
-    Name = db.StringField(required=True, unique=True, max_length=128)
-    Url = db.URLField(required=True, unique=True)
+    Name = db.StringField(required=True, max_length=128)
+    Url = db.URLField(required=True)
     Description = db.StringField(required=False, max_length=1024)
     LengthInSeconds = db.IntField()
 
 class Activity(db.EmbeddedDocument):
     _id = db.IntField(required=True)
-    Name = db.StringField(required=True, unique=True, max_length=128)
+    Name = db.StringField(required=True, max_length=128)
     Description = db.StringField(required=False, max_length=1024)
     BackgroundColor = db.StringField(required=False, max_length=30)
     ImageUrl = db.URLField(required=False)
@@ -32,7 +32,7 @@ class Activity(db.EmbeddedDocument):
 
 class Lesson(db.EmbeddedDocument):
     _id = db.IntField(required=True)
-    Name = db.StringField(required=True, unique=True, max_length=128)
+    Name = db.StringField(required=True, max_length=128)
     Description = db.StringField(required=False, max_length=1024)
     ImageUrl = db.URLField(required=False)
     IntroVideo = db.EmbeddedDocumentField('Video')
@@ -40,7 +40,7 @@ class Lesson(db.EmbeddedDocument):
 
 class Phase(db.EmbeddedDocument):
     _id = db.IntField(required=True)
-    Name = db.StringField(required=True, unique=True, max_length=128)
+    Name = db.StringField(required=True, max_length=128)
     Description = db.StringField(required=False, max_length=1024)
     Lessons = db.ListField(db.EmbeddedDocumentField('Lesson'))
 
