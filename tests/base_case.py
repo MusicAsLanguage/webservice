@@ -16,3 +16,8 @@ class BaseCase(unittest.TestCase):
         # Delete Database collections after the test is complete
         for collection in self.db.list_collection_names():
             self.db.drop_collection(collection)
+    
+    def read_file(self, path):
+        directory_path = os.getcwd()
+        with open(os.path.join(directory_path, path), 'r') as json_file:
+            return json_file.read()
