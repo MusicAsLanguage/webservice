@@ -49,3 +49,10 @@ class Program(db.Document):
     Name = db.StringField(required=True, unique=True, max_length=128)
     Description = db.StringField(required=False, max_length=1024)
     Phases = db.ListField(db.EmbeddedDocumentField('Phase'))
+
+class ActivityStatus(db.Document):
+    #scale 0-10, 0 means not started, 10 means completed
+    CompletionStatus = db.IntField(required=True)
+    User = db.ReferenceField(User, required=True, dbref=True)
+    ActivityId = db.IntField(required=True)
+    LessonId = db.IntField(required=True)

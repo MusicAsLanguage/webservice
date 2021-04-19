@@ -4,11 +4,6 @@ from tests.base_case import BaseCase
 
 class TestLessonsAPI(BaseCase):
 
-    def read_file(self, path):
-        directory_path = os.getcwd()
-        with open(os.path.join(directory_path, path), 'r') as json_file:
-            return json_file.read()
-
     def test_create_lessons(self):
         # Given
         payload = self.read_file('data/programs.json')            
