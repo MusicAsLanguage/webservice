@@ -44,63 +44,80 @@
           {
             "_id": 2,
             "Name": "Lesson 1",
-            "Description": "Lesson 1 description",
+            "Description": "Get ready to learn",
             "ImageUrl": "https://malstore.blob.core.windows.net/assets/children-singing.jpg",
             "IntroVideo": {
               "_id": 1,
-              "Name": "Stats about NonVerbal",
-              "Description": "Stats about NonVerbal disability among childrens.",
+              "Name": "Get ready to learn",
+              "Description": "Get ready to learn",
               "Url": "https://malstore.blob.core.windows.net/assets/sample_video.mp4",
               "LengthInSeconds": 30
             },
             "Activities": [
               {
                 "_id": 1,
-                "Name": "Activity 1",
-                "Description": "Jaw Exercise",
+                "Name": "Pick a song",
+                "Description": "Pick a song",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstore.blob.core.windows.net/assets/jaw_exercise.jpg",
+                "ImageUrl": "https://malstore.blob.core.windows.net/assets/pick_a_song.jpg",
                 "Videos": [
                   {
                     "_id": 1,
-                    "Name": "video-1",
-                    "Description": "Stats about NonVerbal disability among childrens.",
-                    "Url": "https://malstore.blob.core.windows.net/assets/jaw_exercise.mov",
-                    "LengthInSeconds": 1200
+                    "Name": "Lesson 1 / Activity 1",
+                    "Description": "Pick a song you like",
+                    "Url": "https://malstore.blob.core.windows.net/assets/pick_a_song.mp4",
+                    "LengthInSeconds": 75
                   }
                 ],
                 "Instructions": ""
               },
               {
                 "_id": 2,
-                "Name": "Activity 2",
-                "Description": "Vowels",
+                "Name": "Read the lyrics",
+                "Description": "Read the lyrics",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstore.blob.core.windows.net/assets/vowels.jpg",
+                "ImageUrl": "https://malstore.blob.core.windows.net/assets/read_the_lyrics.jpg",
                 "Videos": [
                   {
                     "_id": 1,
-                    "Name": "video-1",
-                    "Description": "Stats about NonVerbal disability among childrens.",
-                    "Url": "https://malstore.blob.core.windows.net/assets/vowels.mov",
-                    "LengthInSeconds": 1200
+                    "Name": "Lesson 1 / Activity 2",
+                    "Description": "How to read the lyrics",
+                    "Url": "https://malstore.blob.core.windows.net/assets/read_the_lyrics.mp4",
+                    "LengthInSeconds": 60
                   }
                 ],
                 "Instructions": ""
               },
               {
                 "_id": 3,
-                "Name": "Activity 3",
-                "Description": "Breathing",
+                "Name": "Verbal exercise",
+                "Description": "Verbal exercise",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstore.blob.core.windows.net/assets/breathing.jpg",
+                "ImageUrl": "https://malstore.blob.core.windows.net/assets/verbal_exercise.jpg",
                 "Videos": [
                   {
                     "_id": 1,
-                    "Name": "video-1",
-                    "Description": "Stats about NonVerbal disability among childrens.",
-                    "Url": "https://malstore.blob.core.windows.net/assets/breathing.mov",
-                    "LengthInSeconds": 1200
+                    "Name": "Lesson 1 / Activity 3",
+                    "Description": "How to perform verbal exercise",
+                    "Url": "https://malstore.blob.core.windows.net/assets/verbal_exercise.mp4",
+                    "LengthInSeconds": 60
+                  }
+                ],
+                "Instructions": ""
+              },
+              {
+                "_id": 4,
+                "Name": "Match my mouth",
+                "Description": "Match my mouth",
+                "BackgroundColor": "#fc5c65",
+                "ImageUrl": "https://malstore.blob.core.windows.net/assets/match_my_mouth.jpg",
+                "Videos": [
+                  {
+                    "_id": 1,
+                    "Name": "Lesson 1 / Activity 4",
+                    "Description": "Follow me and match my mouth",
+                    "Url": "https://malstore.blob.core.windows.net/assets/match_my_mouth.mp4",
+                    "LengthInSeconds": 60
                   }
                 ],
                 "Instructions": ""
