@@ -72,9 +72,9 @@ class UpdateActivityStatusApi(Resource):
             lessonId = activityStatus.LessonId                 
             try:
                 existActivityStatus = ActivityStatus.objects.get(User = user, ActivityId = activityId, LessonId = lessonId)
-                if existActivityStatus:
-                    existActivityStatus.update()
-                    activityStatus = existActivityStatus
+                if existActivityStatus.CompletionStatus != activityStatus.CompletionStatus:
+                    existActivityStatus.update(CompletionStatus = activityStatus.CompletionStatus)
+                activityStatus = existActivityStatus
             except DoesNotExist:
                 activityStatus.User = user
                 activityStatus.save()
