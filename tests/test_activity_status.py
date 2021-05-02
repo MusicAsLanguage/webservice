@@ -29,6 +29,8 @@ class TestUserLogin(BaseCase):
             "ActivityId": 1,
             "LessonId": 1
         })
+
+        # create status
         response = self.app.post('/api/activity/updateStatus', headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"}, data=payload)
 
         # Then
@@ -39,6 +41,27 @@ class TestUserLogin(BaseCase):
         response = self.app.get('/api/activity/getStatus', headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"})
 
         # Then
-        print(response.get_json())
+        self.assertEqual(response.get_json()[0]['CompletionStatus'], 5)
+
+
+        # When
+        payload = json.dumps({
+            "CompletionStatus": 6,
+            "ActivityId": 1,
+            "LessonId": 1
+        })
+        
+        # update status
+        response = self.app.post('/api/activity/updateStatus', headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"}, data=payload)
+
+        # Then
+        self.assertEqual(str, type(response.json['id']))
+        self.assertEqual(200, response.status_code)
+
+        # Get activity status
+        response = self.app.get('/api/activity/getStatus', headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"})
+
+        # Then
+        self.assertEqual(response.get_json()[0]['CompletionStatus'], 6)
         self.assertEqual(200, response.status_code)
     
