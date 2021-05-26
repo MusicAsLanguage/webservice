@@ -20,8 +20,16 @@ class TestUserLogin(BaseCase):
 
         # Then
         self.assertEqual(str, type(response.json['token']))
+        self.assertEqual(str, type(response.json['refresh_token']))
         self.assertEqual(200, response.status_code)
 
+        # use refresh token
+        refreshToken = response.json['refresh_token']
+        response = self.app.post('/api/auth/tokenRefresh', headers={"Content-Type": "application/json", "Authorization": f"Bearer {refreshToken}"}, data=None)
+        
+        # Then
+        self.assertEqual(str, type(response.json['token']))
+        self.assertEqual(200, response.status_code)
     def test_login_with_invalid_email(self):
         # Given
         email = "jane@gmail.com"
