@@ -2,12 +2,12 @@ from flask import Flask, request, Response, jsonify
 from flask_bcrypt import Bcrypt
 from flask_jwt_extended import JWTManager
 from flask_restful import Api
+from flask_mail import Mail
 
 import logging
 import logging.config
 import os
 from database.db import initialize_db
-from resources.routes import initialize_routes
 from resources.errors import errors
 from cache import cache
 import config
@@ -27,12 +27,14 @@ configs = {
 env = os.getenv('APP_ENV', 'test')
 logger.info("Running mode:" + env)
 app.config.from_object(configs[env])
+mail = Mail(app)
 
 api = Api(app, errors=errors)
 bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 
 initialize_db(app)
+from resources.routes import initialize_routes
 initialize_routes(api)
 
 app.config['CACHE_TYPE'] = 'simple'

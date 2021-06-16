@@ -48,7 +48,7 @@ class LoginApi(Resource):
 class TokenRefreshApi(Resource):
     @jwt_required(refresh=True)
     def post(self):
-        try:
+        try:            
             # retrive the user's identity from the refresh token using a Flask-JWT-Extended built-in method    
             userId = get_jwt_identity() 
             user = User.objects.get(id=userId)
