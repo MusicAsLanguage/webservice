@@ -1,5 +1,5 @@
 from flask import request, render_template
-from flask_jwt_extended import create_access_token, decode_token
+from flask_jwt_extended import create_access_token
 from database.models import User
 from flask_restful import Resource
 import datetime
@@ -7,10 +7,11 @@ from resources.errors import SchemaValidationError, InternalServerError, \
     EmailDoesnotExistsError, BadTokenError
 from jwt.exceptions import DecodeError, InvalidTokenError
 from services.mail_service import send_email
+from database.utils import db_reset_pwd
 
 class ForgotPassword(Resource):
     def post(self):
-        url = request.host_url + 'resetPwd/?token='
+        url = request.host_url + 'resetPwd/'
         try:
             body = request.get_json()
             email = body.get('email')
@@ -39,7 +40,6 @@ class ForgotPassword(Resource):
         except Exception as e:
             raise InternalServerError
 
-
 class ResetPassword(Resource):
     def post(self):
         try:
@@ -50,18 +50,7 @@ class ResetPassword(Resource):
             if not reset_token or not password:
                 raise SchemaValidationError
 
-            user_id = decode_token(reset_token)['sub']
-            user = User.objects.get(id=user_id)
-
-            user.modify(password=password)
-            user.hash_password()
-            user.save()
-
-            send_email('[MusicAsLanguage] Password reset successful',
-                            sender='musicaslanguage@sf-ns.org',
-                            recipients=[user.email],
-                            text_body='Password reset was successful',
-                            html_body='<p>Password reset was successful</p>')
+            db_reset_pwd(reset_token, password)            
             return {'status': 'Password reset was successful!'}, 200
         except SchemaValidationError:
             raise SchemaValidationError
