@@ -3,8 +3,10 @@ name: App service Build and Deploy Python package to Azure Web App
 on:
   push:
     branches:
-      - main
-
+    - main
+  pull_request:
+    branches:
+    - main
 # CONFIGURATION
 # For help, go to https://github.com/Azure/Actions
 #
