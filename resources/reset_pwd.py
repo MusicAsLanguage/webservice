@@ -8,10 +8,14 @@ from resources.errors import SchemaValidationError, InternalServerError, \
 from jwt.exceptions import DecodeError, InvalidTokenError
 from services.mail_service import send_email
 from database.utils import db_reset_pwd
+import os
 
+env = os.getenv('APP_ENV', 'test')
 class ForgotPassword(Resource):
     def post(self):
         url = request.host_url + 'resetPwd/'
+        if env == 'prod':
+            url = url.replace("http:", "https:")
         try:
             body = request.get_json()
             email = body.get('email')
