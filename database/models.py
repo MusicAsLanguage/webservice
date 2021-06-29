@@ -56,3 +56,8 @@ class ActivityStatus(db.Document):
     User = db.ReferenceField(User, required=True, dbref=True)
     ActivityId = db.IntField(required=True)
     LessonId = db.IntField(required=True)
+
+class IncomeMessage(db.Document):
+    Msg = db.StringField(required=True)
+    User = db.ReferenceField(User, required=True, dbref=True)
+    

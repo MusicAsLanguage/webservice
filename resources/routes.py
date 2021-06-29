@@ -1,6 +1,7 @@
 from .auth import SignupApi, LoginApi, TokenRefreshApi
 from .lessons import GetLessonsApi, CreateLessonsApi, GetActivityStatusApi, UpdateActivityStatusApi
 from .reset_pwd import ForgotPassword, ResetPassword
+from .message import SendMsgApi
 
 def initialize_routes(api):    
     api.add_resource(SignupApi, '/api/auth/signup')
@@ -12,3 +13,4 @@ def initialize_routes(api):
     api.add_resource(CreateLessonsApi, '/api/lesson/createLessons')
     api.add_resource(GetActivityStatusApi, '/api/activity/getStatus')
     api.add_resource(UpdateActivityStatusApi, '/api/activity/updateStatus')
+    api.add_resource(SendMsgApi, '/api/msg/send')
