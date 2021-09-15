@@ -18,8 +18,8 @@ class SendMsgApi(Resource):
             msgObj.User = user
             msgObj.save()
             try:
-                send_email('Message from ' + user.name,
-                                sender=user.email,
+                send_email('Message from ' + user.name + '<' + user.email + '>',
+                                sender='musicaslanguage@sf-ns.org',
                                 recipients=['musicaslanguage@sf-ns.org'],
                                 text_body=msgObj.Msg,
                                 html_body=msgObj.Msg)
