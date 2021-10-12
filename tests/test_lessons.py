@@ -23,6 +23,6 @@ class TestLessonsAPI(BaseCase):
         response = self.app.post('/api/lesson/createLessons', headers={"Content-Type": "application/json"}, data=payload)
         response = self.app.get('/api/lesson/getLessons')
         print(response.get_json())       
-        
+        self.assertEqual(8, len(response.json[0]['Songs']))
         # Then
         self.assertEqual(200, response.status_code)
