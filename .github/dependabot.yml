@@ -10,3 +10,9 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    assignees: # Specify assignees for pull requests
+      - '${{secrets.PR_APPROVER_1}}'
+      - '${{secrets.PR_APPROVER_2}}'
+    reviewers: # Specify reviewers for pull requests
+      - '${{secrets.PR_APPROVER_1}}'
+      - '${{secrets.PR_APPROVER_2}}'
