@@ -44,10 +44,18 @@ class Phase(db.EmbeddedDocument):
     Description = db.StringField(required=False, max_length=1024)
     Lessons = db.ListField(db.EmbeddedDocumentField('Lesson'))
 
+class Song(db.EmbeddedDocument):
+    _id = db.IntField(required=True)
+    Name = db.StringField(required=True, max_length=128)
+    Url = db.URLField(required=True)
+    Description = db.StringField(required=False, max_length=1024)
+    LengthInSeconds = db.IntField()
+
 class Program(db.Document):
     _id = db.IntField(required=True)
     Name = db.StringField(required=True, unique=True, max_length=128)
     Description = db.StringField(required=False, max_length=1024)
+    Songs = db.ListField(db.EmbeddedDocumentField('Song'))
     Phases = db.ListField(db.EmbeddedDocumentField('Phase'))
 
 class ActivityStatus(db.Document):
