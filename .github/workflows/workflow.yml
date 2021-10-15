@@ -3,7 +3,7 @@ name: App service Build and Deploy Python package to Azure Web App
 on:
   push:
     branches:
-    - main
+    - shengyu/FixDeploymentBreak
 # CONFIGURATION
 # For help, go to https://github.com/Azure/Actions
 #
