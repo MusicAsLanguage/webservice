@@ -15,7 +15,7 @@ on:
 env:
   AZURE_WEBAPP_NAME: malservice   # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  PYTHON_VERSION: '3.9'                # set this to the Python version to use
+  PYTHON_VERSION: '3.7'                # set this to the Python version to use
 
 jobs:
   build:
