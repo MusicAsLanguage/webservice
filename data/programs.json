@@ -59,6 +59,76 @@
         "Description": "The Way You Make Me Feel",
         "Url": "https://malstore.blob.core.windows.net/assets/songs/The_Way_You_Make_Me_Feel.mp3",
         "LengthInSeconds": 295
+      },
+      {
+        "_id": 9,
+        "Name": "Be My Baby - Loop",
+        "Description": "Be My Baby - Loop",
+        "Url": "https://malstore.blob.core.windows.net/assets/songs/Be_My_Little_Baby_Loop.mp3",
+        "LengthInSeconds": 59
+      },
+      {
+        "_id": 10,
+        "Name": "Bye Bye Bye - Loop",
+        "Description": "Bye Bye Bye - Loop",
+        "Url": "https://malstore.blob.core.windows.net/assets/songs/ByeByeBye_Loop.mp3",
+        "LengthInSeconds": 74
+      },
+      {
+        "_id": 11,
+        "Name": "Lovely Day - Loop",
+        "Description": "Lovely Day - Loop",
+        "Url": "https://malstore.blob.core.windows.net/assets/songs/Lovely_Day_Loop.mp3",
+        "LengthInSeconds": 58
+      },
+      {
+        "_id": 12,
+        "Name": "Never Going To Give You Up - Loop",
+        "Description": "Never Going To Give You Up - Loop",
+        "Url": "https://malstore.blob.core.windows.net/assets/songs/Never_Going_to_Give_You_Up_Loop.mp3",
+        "LengthInSeconds": 51
+      },
+      {
+        "_id": 13,
+        "Name": "The Way You Make Me Feel - Loop",
+        "Description": "The Way You Make Me Feel - Loop",
+        "Url": "https://malstore.blob.core.windows.net/assets/songs/The_Way_You_Make_Me_Feel_Loop.mp3",
+        "LengthInSeconds": 70
+      },
+      {
+        "_id": 14,
+        "Name": "Hotel California - Loop",
+        "Description": "Hotel California - Loop",
+        "Url": "https://malstore.blob.core.windows.net/assets/songs/Hotel_California_Loop.mp3",
+        "LengthInSeconds": 83
+      },
+      {
+        "_id": 15,
+        "Name": "Country Road - Loop",
+        "Description": "Country Road - Loop",
+        "Url": "https://malstore.blob.core.windows.net/assets/songs/Country_Road_Loop.mp3",
+        "LengthInSeconds": 70
+      },
+      {
+        "_id": 16,
+        "Name": "Metronome 60 BPM",
+        "Description": "Metronome 60 BPM",
+        "Url": "https://malstore.blob.core.windows.net/assets/songs/60_BPM.mp3",
+        "LengthInSeconds": 90
+      },
+      {
+        "_id": 17,
+        "Name": "Metronome 80 BPM",
+        "Description": "Metronome 80 BPM",
+        "Url": "https://malstore.blob.core.windows.net/assets/songs/80_BPM.mp3",
+        "LengthInSeconds": 90
+      },
+      {
+        "_id": 18,
+        "Name": "Metronome 120 BPM",
+        "Description": "Metronome 120 BPM",
+        "Url": "https://malstore.blob.core.windows.net/assets/songs/120_BPM.mp3",
+        "LengthInSeconds": 90
       }
     ],
     "Phases": [
