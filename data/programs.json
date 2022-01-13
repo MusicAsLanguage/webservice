@@ -129,7 +129,50 @@
         "Description": "Metronome 120 BPM",
         "Url": "https://malstore.blob.core.windows.net/assets/songs/120_BPM.mp3",
         "LengthInSeconds": 90
+      },
+      {
+        "_id": 19,
+        "Name": "Encouragement With Beat",
+        "Description": "Encouragement With Beat",
+        "Url": "https://malstore.blob.core.windows.net/assets/songs/Encouragement_With_Beat.mp3",
+        "LengthInSeconds": 116
+      },
+      {
+        "_id": 20,
+        "Name": "Encouragement",
+        "Description": "Encouragement",
+        "Url": "https://malstore.blob.core.windows.net/assets/songs/Encouragement.mp3",
+        "LengthInSeconds": 82
+      },
+      {
+        "_id": 21,
+        "Name": "For The Toolbox",
+        "Description": "For The Toolbox",
+        "Url": "https://malstore.blob.core.windows.net/assets/songs/For_The_Toolbox.mp3",
+        "LengthInSeconds": 186
+      },
+      {
+        "_id": 22,
+        "Name": "Hotel California",
+        "Description": "Hotel California",
+        "Url": "https://malstore.blob.core.windows.net/assets/songs/Hotel_California.mp3",
+        "LengthInSeconds": 143
+      },
+      {
+        "_id": 23,
+        "Name": "Hotel California Loop",
+        "Description": "Hotel California Loop",
+        "Url": "https://malstore.blob.core.windows.net/assets/songs/Hotel_California_Loop_With_Lyric.mp3",
+        "LengthInSeconds": 86
+      },
+      {
+        "_id": 24,
+        "Name": "My_Only_Baby",
+        "Description": "My Only Baby",
+        "Url": "https://malstore.blob.core.windows.net/assets/songs/My_Only_Baby.mp3",
+        "LengthInSeconds": 118
       }
+
     ],
     "Phases": [
       {
