@@ -210,15 +210,15 @@
             "Activities": [
               {
                 "_id": 1,
-                "Name": "Verbal exciters (part 1)",
-                "Description": "Verbal exciters (part 1)",
+                "Name": "Verbal exciters - 1",
+                "Description": "Verbal exciters - 1",
                 "BackgroundColor": "#fc5c65",
                 "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson1_Activity1.png",
                 "Videos": [
                   {
                     "_id": 1,
-                    "Name": "Verbal exciters (part 1)",
-                    "Description": "Verbal exciters (part 1)",
+                    "Name": "Verbal exciters - 1",
+                    "Description": "Verbal exciters - 1",
                     "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_50sec_Lesson_1_Activity_1_verbalexciters1.mp4",
                     "LengthInSeconds": 110
                   }
@@ -227,15 +227,15 @@
               },
               {
                 "_id": 2,
-                "Name": "Verbal exciters (part 2)",
-                "Description": "Verbal exciters (part 2)",
+                "Name": "Verbal exciters - 2",
+                "Description": "Verbal exciters - 2",
                 "BackgroundColor": "#fc5c65",
                 "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson1_Activity2.jpg",
                 "Videos": [
                   {
                     "_id": 1,
-                    "Name": "Verbal exciters (part 2)",
-                    "Description": "Verbal exciters (part 2)",
+                    "Name": "Verbal exciters - 2",
+                    "Description": "Verbal exciters - 2",
                     "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_6min_13sec_Lesson_1_Activity_2_verbalexciters2.mp4",
                     "LengthInSeconds": 313
                   }
