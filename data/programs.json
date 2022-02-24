@@ -8,168 +8,168 @@
         "_id": 1,
         "Name": "Be My Baby",
         "Description": "Be My Baby",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/Be_My_Baby05142021.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Be_My_Baby05142021.mp3",
         "LengthInSeconds": 162
       },
       {
         "_id": 2,
         "Name": "Bye Bye Bye",
         "Description": "Bye Bye Bye",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/Bye_Bye_ByeRev_1.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Bye_Bye_ByeRev_1.mp3",
         "LengthInSeconds": 201
       },
       {
         "_id": 3,
         "Name": "Lovely Day",
         "Description": "Lovely Day",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/Lovely_Day.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Lovely_Day.mp3",
         "LengthInSeconds": 239
       },
       {
         "_id": 4,
         "Name": "Man In The Mirror",
         "Description": "Man In The Mirror",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/Man_In_The_Mirror05132021.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Man_In_The_Mirror05132021.mp3",
         "LengthInSeconds": 238
       },
       {
         "_id": 5,
         "Name": "Me Too",
         "Description": "Me Too",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/Me_Too.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Me_Too.mp3",
         "LengthInSeconds": 180
       },
       {
         "_id": 6,
         "Name": "Never Going To Give You Up",
         "Description": "Never Going To Give You Up",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/Never_Going_To_Give_You_Up_vocalup.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Never_Going_To_Give_You_Up_vocalup.mp3",
         "LengthInSeconds": 218
       },
       {
         "_id": 7,
         "Name": "God Must Have Spent",
         "Description": "God Must Have Spent",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/NSYNC_God_Must_Have_Spent.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/NSYNC_God_Must_Have_Spent.mp3",
         "LengthInSeconds": 241
       },
       {
         "_id": 8,
         "Name": "The Way You Make Me Feel",
         "Description": "The Way You Make Me Feel",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/The_Way_You_Make_Me_Feel.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/The_Way_You_Make_Me_Feel.mp3",
         "LengthInSeconds": 295
       },
       {
         "_id": 9,
         "Name": "Be My Baby - Loop",
         "Description": "Be My Baby - Loop",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/Be_My_Little_Baby_Loop.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Be_My_Little_Baby_Loop.mp3",
         "LengthInSeconds": 59
       },
       {
         "_id": 10,
         "Name": "Bye Bye Bye - Loop",
         "Description": "Bye Bye Bye - Loop",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/ByeByeBye_Loop.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/ByeByeBye_Loop.mp3",
         "LengthInSeconds": 74
       },
       {
         "_id": 11,
         "Name": "Lovely Day - Loop",
         "Description": "Lovely Day - Loop",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/Lovely_Day_Loop.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Lovely_Day_Loop.mp3",
         "LengthInSeconds": 58
       },
       {
         "_id": 12,
         "Name": "Never Going To Give You Up - Loop",
         "Description": "Never Going To Give You Up - Loop",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/Never_Going_to_Give_You_Up_Loop.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Never_Going_to_Give_You_Up_Loop.mp3",
         "LengthInSeconds": 51
       },
       {
         "_id": 13,
         "Name": "The Way You Make Me Feel - Loop",
         "Description": "The Way You Make Me Feel - Loop",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/The_Way_You_Make_Me_Feel_Loop.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/The_Way_You_Make_Me_Feel_Loop.mp3",
         "LengthInSeconds": 70
       },
       {
         "_id": 14,
         "Name": "Hotel California - Loop",
         "Description": "Hotel California - Loop",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/Hotel_California_Loop.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Hotel_California_Loop.mp3",
         "LengthInSeconds": 83
       },
       {
         "_id": 15,
         "Name": "Country Road - Loop",
         "Description": "Country Road - Loop",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/Country_Road_Loop.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Country_Road_Loop.mp3",
         "LengthInSeconds": 70
       },
       {
         "_id": 16,
         "Name": "Metronome 60 BPM",
         "Description": "Metronome 60 BPM",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/60_BPM.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/60_BPM.mp3",
         "LengthInSeconds": 90
       },
       {
         "_id": 17,
         "Name": "Metronome 80 BPM",
         "Description": "Metronome 80 BPM",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/80_BPM.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/80_BPM.mp3",
         "LengthInSeconds": 90
       },
       {
         "_id": 18,
         "Name": "Metronome 120 BPM",
         "Description": "Metronome 120 BPM",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/120_BPM.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/120_BPM.mp3",
         "LengthInSeconds": 90
       },
       {
         "_id": 19,
         "Name": "Encouragement With Beat",
         "Description": "Encouragement With Beat",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/Encouragement_With_Beat.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Encouragement_With_Beat.mp3",
         "LengthInSeconds": 116
       },
       {
         "_id": 20,
         "Name": "Encouragement",
         "Description": "Encouragement",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/Encouragement.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Encouragement.mp3",
         "LengthInSeconds": 82
       },
       {
         "_id": 21,
         "Name": "For The Toolbox",
         "Description": "For The Toolbox",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/For_The_Toolbox.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/For_The_Toolbox.mp3",
         "LengthInSeconds": 186
       },
       {
         "_id": 22,
         "Name": "Hotel California",
         "Description": "Hotel California",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/Hotel_California.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Hotel_California.mp3",
         "LengthInSeconds": 143
       },
       {
         "_id": 23,
         "Name": "Hotel California Loop",
         "Description": "Hotel California Loop",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/Hotel_California_Loop_With_Lyric.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Hotel_California_Loop_With_Lyric.mp3",
         "LengthInSeconds": 86
       },
       {
         "_id": 24,
         "Name": "My_Only_Baby",
         "Description": "My Only Baby",
-        "Url": "https://malstore.blob.core.windows.net/assets/songs/My_Only_Baby.mp3",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/My_Only_Baby.mp3",
         "LengthInSeconds": 118
       }
 
@@ -184,12 +184,12 @@
             "_id": 1,
             "Name": "Welcome to MusicAsLanguage",
             "Description": "Welcome to MusicAsLanguage",
-            "ImageUrl": "https://malstore.blob.core.windows.net/assets/lessons/Intro_thumbnail.png",
+            "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Intro_thumbnail.jpg",
             "IntroVideo": {
               "_id": 1,
               "Name": "Welcome to MusicAsLanguage",
               "Description": "Welcome to MusicAsLanguage",
-              "Url": "https://malstore.blob.core.windows.net/assets/lessons/V_1min_00sec_App_intro.mp4",
+              "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_00sec_App_intro.mp4",
               "LengthInSeconds": 60
             },
             "Activities": [              
@@ -199,27 +199,27 @@
             "_id": 2,
             "Name": "Lesson 1 Introduction",
             "Description": "Lesson 1 Introduction",
-            "ImageUrl": "https://malstore.blob.core.windows.net/assets/children-singing.jpg",
+            "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Intro_thumbnail.jpg",
             "IntroVideo": {
               "_id": 1,
               "Name": "Lesson 1 Introduction",
               "Description": "Lesson 1 Introduction",
-              "Url": "https://malstore.blob.core.windows.net/assets/lessons/V_1min_20sec_Lesson_1_Introduction.mp4",
+              "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_20sec_Lesson_1_Introduction.mp4",
               "LengthInSeconds": 80
             },
             "Activities": [
               {
                 "_id": 1,
-                "Name": "Verbal exciters (part 1)",
-                "Description": "Verbal exciters (part 1)",
+                "Name": "Verbal exciters - 1",
+                "Description": "Verbal exciters - 1",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstore.blob.core.windows.net/assets/lessons/Lesson1_Activity1.png",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson1_Activity1.png",
                 "Videos": [
                   {
                     "_id": 1,
-                    "Name": "Verbal exciters (part 1)",
-                    "Description": "Verbal exciters (part 1)",
-                    "Url": "https://malstore.blob.core.windows.net/assets/lessons/V_1min_50sec_Lesson_1_Activity_1_verbalexciters1.mp4",
+                    "Name": "Verbal exciters - 1",
+                    "Description": "Verbal exciters - 1",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_50sec_Lesson_1_Activity_1_verbalexciters1.mp4",
                     "LengthInSeconds": 110
                   }
                 ],
@@ -227,16 +227,16 @@
               },
               {
                 "_id": 2,
-                "Name": "Verbal exciters (part 2)",
-                "Description": "Verbal exciters (part 2)",
+                "Name": "Verbal exciters - 2",
+                "Description": "Verbal exciters - 2",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstore.blob.core.windows.net/assets/lessons/Lesson1_Activity2.png",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson1_Activity2.jpg",
                 "Videos": [
                   {
                     "_id": 1,
-                    "Name": "Verbal exciters (part 2)",
-                    "Description": "Verbal exciters (part 2)",
-                    "Url": "https://malstore.blob.core.windows.net/assets/lessons/V_6min_13sec_Lesson_1_Activity_2_verbalexciters2.mp4",
+                    "Name": "Verbal exciters - 2",
+                    "Description": "Verbal exciters - 2",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_6min_13sec_Lesson_1_Activity_2_verbalexciters2.mp4",
                     "LengthInSeconds": 313
                   }
                 ],
@@ -247,13 +247,13 @@
                 "Name": "Verbal exercise",
                 "Description": "Verbal exercise",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstore.blob.core.windows.net/assets/lessons/Lesson1_Activity3.png",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson1_Activity3.jpg",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "Verbal exercises",
                     "Description": "Verbal exercises",
-                    "Url": "https://malstore.blob.core.windows.net/assets/lessons/V_3min_12sec_Lesson_1_Activity_3_verbalexercises.mp4",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_3min_12sec_Lesson_1_Activity_3_verbalexercises.mp4",
                     "LengthInSeconds": 192
                   }
                 ],
@@ -264,13 +264,13 @@
                 "Name": "Pick your music",
                 "Description": "Pick your music",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstore.blob.core.windows.net/assets/lessons/Lesson1_Activity4.png",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson1_Activity4.jpg",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "Pick your music",
                     "Description": "Pick your music",
-                    "Url": "https://malstore.blob.core.windows.net/assets/lessons/V_1min_26sec_Lesson_1_Activity_4_pickmusic.mp4",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_26sec_Lesson_1_Activity_4_pickmusic.mp4",
                     "LengthInSeconds": 86
                   }
                 ],
@@ -281,13 +281,13 @@
                 "Name": "Read the lyrics",
                 "Description": "Read the lyrics",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstore.blob.core.windows.net/assets/lessons/Lesson1_Activity5.png",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson1_Activity5.jpg",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "Read the lyrics",
                     "Description": "Read the lyrics",
-                    "Url": "https://malstore.blob.core.windows.net/assets/lessons/V_4min_55sec_Lesson_1_Activity_5_readlyrics.mp4",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_4min_55sec_Lesson_1_Activity_5_readlyrics.mp4",
                     "LengthInSeconds": 295
                   }
                 ],
