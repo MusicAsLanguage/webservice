@@ -4,15 +4,17 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 import logging
 import logging.config
 from cache import cache
-from resources.errors import InternalServerError, SchemaValidationError
+from resources.errors import InternalServerError, SchemaValidationError, UnauthorizedError
 from mongoengine.errors import FieldDoesNotExist, NotUniqueError, DoesNotExist
 from database.models import Program, ActivityStatus, User
 from json import JSONEncoder
 import json
+import os
 
 logging.config.fileConfig("logging.conf")
 logger = logging.getLogger("web")
 
+ADMIN_USERS = os.getenv('ADMIN_USERS', 'AdminUser@mal.com').lower()
 
 @cache.cached(timeout=0, key_prefix='lesson_metadata')
 def get_lesson_metadata():
@@ -28,8 +30,14 @@ class GetLessonsApi(Resource):
             raise InternalServerError
 
 class CreateLessonsApi(Resource):
+    @jwt_required()
     def post(self):
         try:
+            userId = json.loads(get_jwt_identity())
+            user = User.objects.get(id=userId['_id']['$oid'])
+            if user.email.lower() not in ADMIN_USERS:
+                raise UnauthorizedError
+                
             programs = request.get_json()
             ids = []
             if len(programs) > 0:
@@ -44,6 +52,8 @@ class CreateLessonsApi(Resource):
                     program.save()
                     ids.append(program._id)
             return {'id': str(ids)}, 200
+        except UnauthorizedError as e:
+            raise e
         except FieldDoesNotExist:
             raise SchemaValidationError
         except Exception as e:
