@@ -6,152 +6,180 @@
     "Songs": [
       {
         "_id": 1,
-        "Name": "Be My Baby",
-        "Description": "Be My Baby",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Be_My_Baby05142021.mp3",
-        "LengthInSeconds": 162
+        "Name": "Instructions for Care Givers",
+        "Description": "Instructions for Care Givers",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Instructions.mp3",
+        "LengthInSeconds": 265,
+        "Category": "Instruction"
       },
       {
         "_id": 2,
-        "Name": "Bye Bye Bye",
-        "Description": "Bye Bye Bye",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Bye_Bye_ByeRev_1.mp3",
-        "LengthInSeconds": 201
+        "Name": "Read with music (Instructions for Care Givers)",
+        "Description": "Read with music (Instructions for Care Givers)",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/My_Only_Baby_Instructions.mp3",
+        "LengthInSeconds": 118,
+        "Category": "Instruction"
       },
       {
         "_id": 3,
-        "Name": "Lovely Day",
-        "Description": "Lovely Day",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Lovely_Day.mp3",
-        "LengthInSeconds": 239
+        "Name": "60 Beats Per Minute Metronome",
+        "Description": "60 Beats Per Minute Metronome",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/60_BPM.mp3",
+        "LengthInSeconds": 90,
+        "Category": "Metronome"
       },
       {
         "_id": 4,
-        "Name": "Man In The Mirror",
-        "Description": "Man In The Mirror",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Man_In_The_Mirror05132021.mp3",
-        "LengthInSeconds": 238
+        "Name": "80 Beats Per Minute Metronome",
+        "Description": "80 Beats Per Minute Metronome",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/80_BPM.mp3",
+        "LengthInSeconds": 90,
+        "Category": "Metronome"
       },
       {
         "_id": 5,
-        "Name": "Me Too",
-        "Description": "Me Too",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Me_Too.mp3",
-        "LengthInSeconds": 180
+        "Name": "120 Beats Per Minute Metronome",
+        "Description": "120 Beats Per Minute Metronome",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/120_BPM.mp3",
+        "LengthInSeconds": 90,
+        "Category": "Metronome"
       },
       {
         "_id": 6,
-        "Name": "Never Going To Give You Up",
-        "Description": "Never Going To Give You Up",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Never_Going_To_Give_You_Up_vocalup.mp3",
-        "LengthInSeconds": 218
-      },
-      {
-        "_id": 7,
-        "Name": "God Must Have Spent",
-        "Description": "God Must Have Spent",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/NSYNC_God_Must_Have_Spent.mp3",
-        "LengthInSeconds": 241
-      },
-      {
-        "_id": 8,
-        "Name": "The Way You Make Me Feel",
-        "Description": "The Way You Make Me Feel",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/The_Way_You_Make_Me_Feel.mp3",
-        "LengthInSeconds": 295
-      },
-      {
-        "_id": 9,
         "Name": "Be My Baby - Loop",
         "Description": "Be My Baby - Loop",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/Be_My_Little_Baby_Loop.mp3",
-        "LengthInSeconds": 59
+        "LengthInSeconds": 59,
+        "Category": "Beginner"
+      },      
+      {
+        "_id": 7,
+        "Name": "Be My Baby",
+        "Description": "Be My Baby",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Be_My_Baby05142021.mp3",
+        "LengthInSeconds": 162,
+        "Category": "Beginner"
+      },
+      {
+        "_id": 8,
+        "Name": "Lovely Day - Loop",
+        "Description": "Lovely Day - Loop",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Lovely_Day_Loop.mp3",
+        "LengthInSeconds": 58,
+        "Category": "Beginner"
+      },
+      {
+        "_id": 9,
+        "Name": "Lovely Day",
+        "Description": "Lovely Day",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Lovely_Day.mp3",
+        "LengthInSeconds": 239,
+        "Category": "Beginner"
       },
       {
         "_id": 10,
         "Name": "Bye Bye Bye - Loop",
         "Description": "Bye Bye Bye - Loop",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/ByeByeBye_Loop.mp3",
-        "LengthInSeconds": 74
+        "LengthInSeconds": 74,
+        "Category": "Intermediate"
       },
       {
         "_id": 11,
-        "Name": "Lovely Day - Loop",
-        "Description": "Lovely Day - Loop",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Lovely_Day_Loop.mp3",
-        "LengthInSeconds": 58
+        "Name": "Bye Bye Bye",
+        "Description": "Bye Bye Bye",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Bye_Bye_ByeRev_1.mp3",
+        "LengthInSeconds": 201,
+        "Category": "Intermediate"
       },
       {
         "_id": 12,
         "Name": "Never Going To Give You Up - Loop",
         "Description": "Never Going To Give You Up - Loop",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/Never_Going_to_Give_You_Up_Loop.mp3",
-        "LengthInSeconds": 51
+        "LengthInSeconds": 51,
+        "Category": "Intermediate"
       },
       {
         "_id": 13,
-        "Name": "The Way You Make Me Feel - Loop",
-        "Description": "The Way You Make Me Feel - Loop",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/The_Way_You_Make_Me_Feel_Loop.mp3",
-        "LengthInSeconds": 70
+        "Name": "Never Going To Give You Up",
+        "Description": "Never Going To Give You Up",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Never_Going_To_Give_You_Up_vocalup.mp3",
+        "LengthInSeconds": 218,
+        "Category": "Intermediate"
       },
       {
         "_id": 14,
-        "Name": "Hotel California - Loop",
-        "Description": "Hotel California - Loop",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Hotel_California_Loop.mp3",
-        "LengthInSeconds": 83
+        "Name": "God Must Have Spent a little More Time",
+        "Description": "God Must Have Spent a little More Time",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/NSYNC_God_Must_Have_Spent.mp3",
+        "LengthInSeconds": 241,
+        "Category": "Intermediate"
       },
       {
         "_id": 15,
-        "Name": "Country Road - Loop",
-        "Description": "Country Road - Loop",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Country_Road_Loop.mp3",
-        "LengthInSeconds": 70
-      },
-      {
-        "_id": 16,
-        "Name": "Metronome 60 BPM",
-        "Description": "Metronome 60 BPM",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/60_BPM.mp3",
-        "LengthInSeconds": 90
-      },
-      {
-        "_id": 17,
-        "Name": "Metronome 80 BPM",
-        "Description": "Metronome 80 BPM",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/80_BPM.mp3",
-        "LengthInSeconds": 90
-      },
-      {
-        "_id": 18,
-        "Name": "Metronome 120 BPM",
-        "Description": "Metronome 120 BPM",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/120_BPM.mp3",
-        "LengthInSeconds": 90
-      },
-      {
-        "_id": 19,
-        "Name": "Hotel California",
-        "Description": "Hotel California",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Hotel_California.mp3",
-        "LengthInSeconds": 143
-      },
-      {
-        "_id": 20,
         "Name": "Hotel California Loop",
         "Description": "Hotel California Loop",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/Hotel_California_Loop_With_Lyric.mp3",
-        "LengthInSeconds": 86
+        "LengthInSeconds": 86,
+        "Category": "Intermediate"
+      },
+      {
+        "_id": 16,
+        "Name": "Hotel California",
+        "Description": "Hotel California",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Hotel_California.mp3",
+        "LengthInSeconds": 143,
+        "Category": "Intermediate"
+      },
+      {
+        "_id": 17,
+        "Name": "Man In The Mirror",
+        "Description": "Man In The Mirror",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Man_In_The_Mirror05132021.mp3",
+        "LengthInSeconds": 238,
+        "Category": "Superstar"
+      },
+      {
+        "_id": 18,
+        "Name": "Me Too",
+        "Description": "Me Too",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Me_Too.mp3",
+        "LengthInSeconds": 180,
+        "Category": "Superstar"
+      },
+      {
+        "_id": 19,
+        "Name": "The Way You Make Me Feel - Loop",
+        "Description": "The Way You Make Me Feel - Loop",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/The_Way_You_Make_Me_Feel_Loop.mp3",
+        "LengthInSeconds": 70,
+        "Category": "Superstar"
+      },
+      {
+        "_id": 20,
+        "Name": "The Way You Make Me Feel",
+        "Description": "The Way You Make Me Feel",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/The_Way_You_Make_Me_Feel.mp3",
+        "LengthInSeconds": 295,
+        "Category": "Superstar"
       },
       {
         "_id": 21,
-        "Name": "My_Only_Baby",
-        "Description": "My Only Baby",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/My_Only_Baby.mp3",
-        "LengthInSeconds": 118
+        "Name": "Memories",
+        "Description": "Memories",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/Memories.mp3",
+        "LengthInSeconds": 212,
+        "Category": "Legend"
+      },
+      {
+        "_id": 22,
+        "Name": "What the world needs now",
+        "Description": "What the world needs now",
+        "Url": "https://malstorecdn.azureedge.net/assets/songs/What_The_World_Needs_Now.mp3",
+        "LengthInSeconds": 196,
+        "Category": "Legend"
       }
-
     ],
     "Phases": [
       {

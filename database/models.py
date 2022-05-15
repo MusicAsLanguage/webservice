@@ -50,6 +50,8 @@ class Song(db.EmbeddedDocument):
     Url = db.URLField(required=True)
     Description = db.StringField(required=False, max_length=1024)
     LengthInSeconds = db.IntField()
+    #Instruction/Metronome/Beginner/Intermediate/Superstar/Legend
+    Category = db.StringField(max_length=50)
 
 class Program(db.Document):
     _id = db.IntField(required=True)
