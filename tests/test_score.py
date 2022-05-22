@@ -2,7 +2,7 @@ import json
 
 from tests.base_case import BaseCase
 
-class TestUserLogin(BaseCase):
+class TestUserScore(BaseCase):
 
     def test_update_score(self):
         # Given
