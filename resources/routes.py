@@ -5,6 +5,7 @@ from .lessons import GetLessonsApi, CreateLessonsApi, \
 from .score import  GetUserScoreApi, UpdateUserScoreApi
 from .reset_pwd import ForgotPassword, ResetPassword
 from .message import SendMsgApi
+from .user import DeleteUserAndDataApi
 
 def initialize_routes(api):    
     api.add_resource(SignupApi, '/api/auth/signup')
@@ -20,4 +21,5 @@ def initialize_routes(api):
     api.add_resource(UpdateSongPlayingStatusApi, '/api/activity/updateSongPlayingStatus')
     api.add_resource(GetUserScoreApi, '/api/user/getUserScore')
     api.add_resource(UpdateUserScoreApi, '/api/user/updateUserScore')
+    api.add_resource(DeleteUserAndDataApi, '/api/user/deleteUserAndData')
     api.add_resource(SendMsgApi, '/api/msg/send')
