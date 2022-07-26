@@ -30,6 +30,7 @@ class Activity(db.EmbeddedDocument):
     Videos = db.ListField(db.EmbeddedDocumentField('Video'))
     Instructions = db.StringField(required=False, max_length=10240)
     Score = db.IntField(required=True)
+    PracticeMode = db.BooleanField(required=False, default=False)
 
 class Lesson(db.EmbeddedDocument):
     _id = db.IntField(required=True)
