@@ -7,8 +7,8 @@
       {
         "_id": 1,
         "Name": "Instructions for Care Givers",
-        "Description": "Instructions for Care Givers",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/Instructions.mp3",
+        "Description": "Instructions for Care Givers",
         "LengthInSeconds": 265,
         "Category": "Instruction",
         "Score": 100
@@ -16,8 +16,8 @@
       {
         "_id": 2,
         "Name": "Read with music (Instructions for Care Givers)",
-        "Description": "Read with music (Instructions for Care Givers)",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/My_Only_Baby_Instructions.mp3",
+        "Description": "Read with music (Instructions for Care Givers)",
         "LengthInSeconds": 118,
         "Category": "Instruction",
         "Score": 100
@@ -25,8 +25,8 @@
       {
         "_id": 3,
         "Name": "60 Beats Per Minute Metronome",
-        "Description": "60 Beats Per Minute Metronome",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/60_BPM.mp3",
+        "Description": "60 Beats Per Minute Metronome",
         "LengthInSeconds": 90,
         "Category": "Metronome",
         "Score": 100
@@ -34,8 +34,8 @@
       {
         "_id": 4,
         "Name": "80 Beats Per Minute Metronome",
-        "Description": "80 Beats Per Minute Metronome",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/80_BPM.mp3",
+        "Description": "80 Beats Per Minute Metronome",
         "LengthInSeconds": 90,
         "Category": "Metronome",
         "Score": 100
@@ -43,8 +43,8 @@
       {
         "_id": 5,
         "Name": "120 Beats Per Minute Metronome",
-        "Description": "120 Beats Per Minute Metronome",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/120_BPM.mp3",
+        "Description": "120 Beats Per Minute Metronome",
         "LengthInSeconds": 90,
         "Category": "Metronome",
         "Score": 100
@@ -52,17 +52,17 @@
       {
         "_id": 6,
         "Name": "Be My Baby - Loop",
-        "Description": "Be My Baby - Loop",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/Be_My_Little_Baby_Loop.mp3",
+        "Description": "Be My Baby - Loop",
         "LengthInSeconds": 59,
         "Category": "Beginner",
         "Score": 100
-      },      
+      },
       {
         "_id": 7,
         "Name": "Be My Baby",
-        "Description": "Be My Baby",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/Be_My_Baby05142021.mp3",
+        "Description": "Be My Baby",
         "LengthInSeconds": 162,
         "Category": "Beginner",
         "Score": 100
@@ -70,8 +70,8 @@
       {
         "_id": 8,
         "Name": "Lovely Day - Loop",
-        "Description": "Lovely Day - Loop",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/Lovely_Day_Loop.mp3",
+        "Description": "Lovely Day - Loop",
         "LengthInSeconds": 58,
         "Category": "Beginner",
         "Score": 100
@@ -79,8 +79,8 @@
       {
         "_id": 9,
         "Name": "Lovely Day",
-        "Description": "Lovely Day",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/Lovely_Day.mp3",
+        "Description": "Lovely Day",
         "LengthInSeconds": 239,
         "Category": "Beginner",
         "Score": 100
@@ -88,8 +88,8 @@
       {
         "_id": 10,
         "Name": "Bye Bye Bye - Loop",
-        "Description": "Bye Bye Bye - Loop",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/ByeByeBye_Loop.mp3",
+        "Description": "Bye Bye Bye - Loop",
         "LengthInSeconds": 74,
         "Category": "Intermediate",
         "Score": 200
@@ -97,8 +97,8 @@
       {
         "_id": 11,
         "Name": "Bye Bye Bye",
-        "Description": "Bye Bye Bye",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/Bye_Bye_ByeRev_1.mp3",
+        "Description": "Bye Bye Bye",
         "LengthInSeconds": 201,
         "Category": "Intermediate",
         "Score": 200
@@ -106,8 +106,8 @@
       {
         "_id": 12,
         "Name": "Never Going To Give You Up - Loop",
-        "Description": "Never Going To Give You Up - Loop",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/Never_Going_to_Give_You_Up_Loop.mp3",
+        "Description": "Never Going To Give You Up - Loop",
         "LengthInSeconds": 51,
         "Category": "Intermediate",
         "Score": 200
@@ -115,8 +115,8 @@
       {
         "_id": 13,
         "Name": "Never Going To Give You Up",
-        "Description": "Never Going To Give You Up",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/Never_Going_To_Give_You_Up_vocalup.mp3",
+        "Description": "Never Going To Give You Up",
         "LengthInSeconds": 218,
         "Category": "Intermediate",
         "Score": 200
@@ -124,8 +124,8 @@
       {
         "_id": 14,
         "Name": "God Must Have Spent a little More Time",
-        "Description": "God Must Have Spent a little More Time",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/NSYNC_God_Must_Have_Spent.mp3",
+        "Description": "God Must Have Spent a little More Time",
         "LengthInSeconds": 241,
         "Category": "Intermediate",
         "Score": 200
@@ -133,8 +133,8 @@
       {
         "_id": 15,
         "Name": "Hotel California Loop",
-        "Description": "Hotel California Loop",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/Hotel_California_Loop_With_Lyric.mp3",
+        "Description": "Hotel California Loop",
         "LengthInSeconds": 86,
         "Category": "Intermediate",
         "Score": 200
@@ -142,8 +142,8 @@
       {
         "_id": 16,
         "Name": "Hotel California",
-        "Description": "Hotel California",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/Hotel_California.mp3",
+        "Description": "Hotel California",
         "LengthInSeconds": 143,
         "Category": "Intermediate",
         "Score": 200
@@ -151,8 +151,8 @@
       {
         "_id": 17,
         "Name": "Man In The Mirror",
-        "Description": "Man In The Mirror",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/Man_In_The_Mirror05132021.mp3",
+        "Description": "Man In The Mirror",
         "LengthInSeconds": 238,
         "Category": "Superstar",
         "Score": 500
@@ -160,8 +160,8 @@
       {
         "_id": 18,
         "Name": "Me Too",
-        "Description": "Me Too",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/Me_Too.mp3",
+        "Description": "Me Too",
         "LengthInSeconds": 180,
         "Category": "Superstar",
         "Score": 500
@@ -169,8 +169,8 @@
       {
         "_id": 19,
         "Name": "The Way You Make Me Feel - Loop",
-        "Description": "The Way You Make Me Feel - Loop",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/The_Way_You_Make_Me_Feel_Loop.mp3",
+        "Description": "The Way You Make Me Feel - Loop",
         "LengthInSeconds": 70,
         "Category": "Superstar",
         "Score": 500
@@ -178,8 +178,8 @@
       {
         "_id": 20,
         "Name": "The Way You Make Me Feel",
-        "Description": "The Way You Make Me Feel",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/The_Way_You_Make_Me_Feel.mp3",
+        "Description": "The Way You Make Me Feel",
         "LengthInSeconds": 295,
         "Category": "Superstar",
         "Score": 500
@@ -187,8 +187,8 @@
       {
         "_id": 21,
         "Name": "Memories",
-        "Description": "Memories",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/Memories.mp3",
+        "Description": "Memories",
         "LengthInSeconds": 212,
         "Category": "Legend",
         "Score": 1000
@@ -196,8 +196,8 @@
       {
         "_id": 22,
         "Name": "What the world needs now",
-        "Description": "What the world needs now",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/What_The_World_Needs_Now.mp3",
+        "Description": "What the world needs now",
         "LengthInSeconds": 196,
         "Category": "Legend",
         "Score": 1000
@@ -217,12 +217,11 @@
             "IntroVideo": {
               "_id": 1,
               "Name": "Welcome to MusicAsLanguage",
+              "Url": "https://malstore.blob.core.windows.net/assets/lessons/MusicAsLanguageIntroV2.mp4",
               "Description": "Welcome to MusicAsLanguage",
-              "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_00sec_App_intro.mp4",
               "LengthInSeconds": 60
             },
-            "Activities": [              
-            ]
+            "Activities": []
           },
           {
             "_id": 2,
@@ -232,8 +231,8 @@
             "IntroVideo": {
               "_id": 1,
               "Name": "Lesson 1 Introduction",
-              "Description": "Lesson 1 Introduction",
               "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_20sec_Lesson_1_Introduction.mp4",
+              "Description": "Lesson 1 Introduction",
               "LengthInSeconds": 80
             },
             "Activities": [
@@ -247,13 +246,14 @@
                   {
                     "_id": 1,
                     "Name": "Verbal exciters - 1",
-                    "Description": "Verbal exciters - 1",
                     "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_50sec_Lesson_1_Activity_1_verbalexciters1.mp4",
+                    "Description": "Verbal exciters - 1",
                     "LengthInSeconds": 110
                   }
                 ],
                 "Instructions": "",
-                "Score": 200
+                "Score": 200,
+                "PracticeMode": false
               },
               {
                 "_id": 2,
@@ -265,13 +265,14 @@
                   {
                     "_id": 1,
                     "Name": "Verbal exciters - 2",
-                    "Description": "Verbal exciters - 2",
                     "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_6min_13sec_Lesson_1_Activity_2_verbalexciters2.mp4",
+                    "Description": "Verbal exciters - 2",
                     "LengthInSeconds": 313
                   }
                 ],
                 "Instructions": "",
-                "Score": 400
+                "Score": 400,
+                "PracticeMode": false
               },
               {
                 "_id": 3,
@@ -283,13 +284,14 @@
                   {
                     "_id": 1,
                     "Name": "Verbal exercises",
-                    "Description": "Verbal exercises",
                     "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_3min_12sec_Lesson_1_Activity_3_verbalexercises.mp4",
+                    "Description": "Verbal exercises",
                     "LengthInSeconds": 192
                   }
                 ],
                 "Instructions": "",
-                "Score": 600
+                "Score": 600,
+                "PracticeMode": false
               },
               {
                 "_id": 4,
@@ -301,13 +303,14 @@
                   {
                     "_id": 1,
                     "Name": "Pick your music",
-                    "Description": "Pick your music",
                     "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_26sec_Lesson_1_Activity_4_pickmusic.mp4",
+                    "Description": "Pick your music",
                     "LengthInSeconds": 86
                   }
                 ],
                 "Instructions": "",
-                "Score": 800
+                "Score": 800,
+                "PracticeMode": false
               },
               {
                 "_id": 5,
@@ -319,29 +322,83 @@
                   {
                     "_id": 1,
                     "Name": "Read the lyrics",
-                    "Description": "Read the lyrics",
                     "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_4min_55sec_Lesson_1_Activity_5_readlyrics.mp4",
+                    "Description": "Read the lyrics",
                     "LengthInSeconds": 295
                   }
                 ],
                 "Instructions": "",
-                "Score": 1000
+                "Score": 1000,
+                "PracticeMode": false
+              }
+            ]
+          },
+          {
+            "_id": 3,
+            "Name": "Lesson 2 Practice",
+            "Description": "Practice with Songs",
+            "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson2_thumbnail.jpg",
+            "IntroVideo": {
+              "_id": 1,
+              "Name": "Lesson 2 Practice",
+              "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_0min_15sec_Lesson2_Introduction.mp4",
+              "Description": "Lesson 2 Practice",
+              "LengthInSeconds": 15
+            },
+            "Activities": [
+              {
+                "_id": 1,
+                "Name": "Verbal Practice",
+                "Description": "Verbal Practice",
+                "BackgroundColor": "#fc5c65",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson2_Activity1.jpg",
+                "Videos": [
+                  {
+                    "_id": 1,
+                    "Name": "Verbal Practice",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_3min_9sec_Lesson2_Activity_1_VerbalExercise.mp4",
+                    "Description": "Verbal Practice",
+                    "LengthInSeconds": 189
+                  }
+                ],
+                "Instructions": "",
+                "Score": 200,
+                "PracticeMode": true
+              },
+              {
+                "_id": 2,
+                "Name": "Be My Baby",
+                "Description": "Be My Baby",
+                "BackgroundColor": "#fc5c65",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson2_Activity2.jpg",
+                "Videos": [
+                  {
+                    "_id": 1,
+                    "Name": "Be My Baby",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_2min_44sec_Lesson2_Activity_2_BeMyBaby.mp4",
+                    "Description": "Be My Baby",
+                    "LengthInSeconds": 164
+                  }
+                ],
+                "Instructions": "",
+                "Score": 400,
+                "PracticeMode": true
               }
             ]
           }
         ]
       }
     ],
-    "RewardConfig":{
+    "RewardConfig": {
       "_id": 1,
-      "ActivityRepeat":0.1,
-      "SongRepeat":0.1,
-      "Trophies":[
+      "ActivityRepeat": 0.1,
+      "SongRepeat": 0.1,
+      "Trophies": [
         {
           "_id": 1,
           "Name": "Golden Microphone",
-          "Description": "",
           "Url": "https://malstorecdn.azureedge.net/assets/trophy/golden_mic.png",
+          "Description": "",
           "ScoreThrehold": 1000
         }
       ]

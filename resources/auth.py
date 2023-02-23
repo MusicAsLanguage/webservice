@@ -35,10 +35,9 @@ class LoginApi(Resource):
             if not authorized:
                 raise UnauthorizedError
 
-            expires = datetime.timedelta(days=7)
             activeUser.password = ""                       
-            access_token = create_access_token(identity = activeUser.to_json(), expires_delta = expires, fresh = True)            
-            refresh_token = create_refresh_token(str(activeUser.id))
+            access_token = create_access_token(identity = activeUser.to_json(), expires_delta = False, fresh = True)            
+            refresh_token = create_refresh_token(identity = str(activeUser.id), expires_delta = False)
             return {'token': access_token, 'refresh_token': refresh_token}, 200
         except (UnauthorizedError, DoesNotExist):
             raise UnauthorizedError
