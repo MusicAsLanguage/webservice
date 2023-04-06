@@ -35,6 +35,7 @@ class TestUserLogin(BaseCase):
         email = "jane@gmail.com"
         password = "mycoolpassword"
         payload = {
+            "name": "Jane Doe",
             "email": email,
             "password": password
         }
@@ -53,6 +54,7 @@ class TestUserLogin(BaseCase):
         email = "jane@gmail.com"
         password = "mycoolpassword"
         payload = {
+            "name": "Jane Doe",
             "email": email,
             "password": password
         }
