@@ -1,5 +1,6 @@
 from .db import db
 from flask_bcrypt import generate_password_hash, check_password_hash
+from datetime import datetime
 
 
 class User(db.Document):
@@ -7,6 +8,7 @@ class User(db.Document):
     email = db.EmailField(required=True, unique=True, max_length=100)
     password = db.StringField(required=True, min_length=6, max_length=100)
     score = db.IntField(required=False, default=0)
+    UpdateTime = db.DateTimeField(required=False, default=datetime.utcnow)
 
     def hash_password(self):
         self.password = generate_password_hash(self.password).decode('utf8')
@@ -84,6 +86,7 @@ class ActivityStatus(db.Document):
     ActivityId = db.IntField(required=True)
     LessonId = db.IntField(required=True)
     Repeats = db.IntField(required=False, default=0)
+    UpdateTime = db.DateTimeField(required=False, default=datetime.utcnow)
 
 class SongPlayingStatus(db.Document):   
     User = db.ReferenceField(User, required=True, dbref=True)
@@ -92,6 +95,7 @@ class SongPlayingStatus(db.Document):
     #scale 0-10, 0 means not started, 10 means completed
     CompletionStatus = db.IntField(required=True)
     Repeats = db.IntField(required=False, default=0)
+    UpdateTime = db.DateTimeField(required=False, default=datetime.utcnow)
 
 class IncomeMessage(db.Document):
     Msg = db.StringField(required=True)
