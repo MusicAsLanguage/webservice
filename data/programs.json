@@ -383,6 +383,82 @@
                 "Instructions": "",
                 "Score": 400,
                 "PracticeMode": true
+              },
+              {
+                "_id": 3,
+                "Name": "Be My Baby - Loop",
+                "Description": "Be My Baby - Loop (Audio only)",
+                "BackgroundColor": "#fc5c65",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson2_Activity3.png",
+                "Videos": [
+                  {
+                    "_id": 1,
+                    "Name": "Be My Baby - Loop",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_0min_59sec_Lesson2_Activity3_BeMyBaby_Loop.mp4",
+                    "Description": "Be My Baby - Loop (Audio only) ",
+                    "LengthInSeconds": 59
+                  }
+                ],
+                "Instructions": "",
+                "Score": 400,
+                "PracticeMode": true
+              },
+              {
+                "_id": 4,
+                "Name": "Lovely Day - Loop",
+                "Description": "Lovely Day - Loop (Audio only)",
+                "BackgroundColor": "#fc5c65",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson2_Activity4.png",
+                "Videos": [
+                  {
+                    "_id": 1,
+                    "Name": "Lovely Day - Loop",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_13sec_Lesson2_Activity4_LovelyDay_Loop.mp4",
+                    "Description": "Lovely Day - Loop (Audio only)",
+                    "LengthInSeconds": 73
+                  }
+                ],
+                "Instructions": "",
+                "Score": 400,
+                "PracticeMode": true
+              },
+              {
+                "_id": 5,
+                "Name": "Hotel California - Loop",
+                "Description": "Hotel California - Loop (Audio only)",
+                "BackgroundColor": "#fc5c65",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson2_Activity5.png",
+                "Videos": [
+                  {
+                    "_id": 1,
+                    "Name": "Hotel California - Loop",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_40sec_Lesson2_Activity5_HotelCalifornia_Loop.mp4",
+                    "Description": "Hotel California - Loop (Audio only)",
+                    "LengthInSeconds": 100
+                  }
+                ],
+                "Instructions": "",
+                "Score": 500,
+                "PracticeMode": true
+              },
+              {
+                "_id": 6,
+                "Name": "The Way You Make Me Feel - Loop",
+                "Description": "The Way You Make Me Feel  - Loop (Audio only)",
+                "BackgroundColor": "#fc5c65",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson2_Activity6.png",
+                "Videos": [
+                  {
+                    "_id": 1,
+                    "Name": "Hotel California - Loop",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_25sec_Lesson2_Activity6_TheWayYouMakeMeFeel_Loop.mp4",
+                    "Description": "Hotel California - Loop (Audio only)",
+                    "LengthInSeconds": 85
+                  }
+                ],
+                "Instructions": "",
+                "Score": 600,
+                "PracticeMode": true
               }
             ]
           }
