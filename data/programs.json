@@ -330,6 +330,44 @@
                 "Instructions": "",
                 "Score": 1000,
                 "PracticeMode": false
+              },
+              {
+                "_id": 6,
+                "Name": "Preformance Preparation - 1",
+                "Description": "Preformance Preparation - 1",
+                "BackgroundColor": "#fc5c65",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson1_Activity6.jpg",
+                "Videos": [
+                  {
+                    "_id": 1,
+                    "Name": "Preformance Preparation - 1",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_2min_49sec_Lesson_1_Activity6_Performance_Preparation.mp4",
+                    "Description": "Preformance Preparation - 1",
+                    "LengthInSeconds": 169
+                  }
+                ],
+                "Instructions": "",
+                "Score": 1000,
+                "PracticeMode": false
+              },
+              {
+                "_id": 7,
+                "Name": "Preformance Preparation - 2",
+                "Description": "Preformance Preparation - 2",
+                "BackgroundColor": "#fc5c65",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson1_Activity7.jpg",
+                "Videos": [
+                  {
+                    "_id": 1,
+                    "Name": "Preformance Preparation - 2",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_4min_34sec_Lesson_1_Activity7_Performance_Preparation.mp4",
+                    "Description": "Preformance Preparation - 2",
+                    "LengthInSeconds": 274
+                  }
+                ],
+                "Instructions": "",
+                "Score": 1000,
+                "PracticeMode": false
               }
             ]
           },
