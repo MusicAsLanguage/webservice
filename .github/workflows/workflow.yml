@@ -13,7 +13,8 @@ on:
 # 2. Change these variables for your configuration:
 
 env:
-  AZURE_WEBAPP_NAME: malservice/ppe   # set this to your application's name
+  AZURE_WEBAPP_NAME: malservice   # set this to your application's name
+  SLOT_NAME: ppe
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   PYTHON_VERSION: '3.9'                # set this to the Python version to use
 
@@ -30,4 +31,5 @@ jobs:
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         publish-profile: ${{ secrets.PPE_PUBLISH_PROFILE }}
+        slot-name: ${{ env.SLOT_NAME }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
