@@ -330,44 +330,6 @@
                 "Instructions": "",
                 "Score": 1000,
                 "PracticeMode": false
-              },
-              {
-                "_id": 6,
-                "Name": "Performance Preparation - 1",
-                "Description": "Performance Preparation - 1",
-                "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson1_Activity6.jpg",
-                "Videos": [
-                  {
-                    "_id": 1,
-                    "Name": "Performance Preparation - 1",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_2min_49sec_Lesson_1_Activity6_Performance_Preparation.mp4",
-                    "Description": "Performance Preparation - 1",
-                    "LengthInSeconds": 169
-                  }
-                ],
-                "Instructions": "",
-                "Score": 1000,
-                "PracticeMode": false
-              },
-              {
-                "_id": 7,
-                "Name": "Performance Preparation - 2",
-                "Description": "Performance Preparation - 2",
-                "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson1_Activity7.jpg",
-                "Videos": [
-                  {
-                    "_id": 1,
-                    "Name": "Performance Preparation - 2",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_4min_34sec_Lesson_1_Activity7_Performance_Preparation.mp4",
-                    "Description": "Performance Preparation - 2",
-                    "LengthInSeconds": 274
-                  }
-                ],
-                "Instructions": "",
-                "Score": 1000,
-                "PracticeMode": false
               }
             ]
           },
@@ -421,18 +383,52 @@
                 "Instructions": "",
                 "Score": 400,
                 "PracticeMode": true
+              }
+            ]
+          },
+          {
+            "_id": 4,
+            "Name": "Lesson 3 Match My Mouth",
+            "Description": "Match My Mouth",
+            "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson3_Introduction.png",
+            "IntroVideo": {
+              "_id": 1,
+              "Name": "Lesson 3 Practice",
+              "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_0min_27sec_Lesson3_Introduction.mp4",
+              "Description": "Lesson 3 Match My Mouth",
+              "LengthInSeconds": 27
+            },
+            "Activities": [
+              {
+                "_id": 1,
+                "Name": "Be My Baby - Intro",
+                "Description": "Be My Baby - Intro",
+                "BackgroundColor": "#fc5c65",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson3_Activity1.png",
+                "Videos": [
+                  {
+                    "_id": 1,
+                    "Name": "Be My Baby - Intro",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_0min_37sec_Lesson3_Activity1_BeByMyBaby_Intro.mp4",
+                    "Description": "Be My Baby - Intro",
+                    "LengthInSeconds": 37
+                  }
+                ],
+                "Instructions": "",
+                "Score": 200,
+                "PracticeMode": false
               },
               {
-                "_id": 3,
+                "_id": 2,
                 "Name": "Be My Baby - Loop",
                 "Description": "Be My Baby - Loop (Audio only)",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson2_Activity3.png",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson3_Activity2.png",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "Be My Baby - Loop",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_0min_59sec_Lesson2_Activity3_BeMyBaby_Loop.mp4",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_0min_59sec_Lesson3_Activity2_BeMyBaby_Loop.mp4",
                     "Description": "Be My Baby - Loop (Audio only) ",
                     "LengthInSeconds": 59
                   }
@@ -442,16 +438,35 @@
                 "PracticeMode": true
               },
               {
+                "_id": 3,
+                "Name": "Lovely Day - Intro",
+                "Description": "Lovely Day - Intro",
+                "BackgroundColor": "#fc5c65",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson3_Activity3.png",
+                "Videos": [
+                  {
+                    "_id": 1,
+                    "Name": "Be My Baby - Loop",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_0min_41sec_Lesson3_Activity3_LovelyDay_Intro.mp4",
+                    "Description": "Lovely Day - Intro",
+                    "LengthInSeconds": 41
+                  }
+                ],
+                "Instructions": "",
+                "Score": 400,
+                "PracticeMode": false
+              },
+              {
                 "_id": 4,
                 "Name": "Lovely Day - Loop",
                 "Description": "Lovely Day - Loop (Audio only)",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson2_Activity4.png",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson3_Activity4.png",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "Lovely Day - Loop",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_13sec_Lesson2_Activity4_LovelyDay_Loop.mp4",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_13sec_Lesson3_Activity4_LovelyDay_Loop.mp4",
                     "Description": "Lovely Day - Loop (Audio only)",
                     "LengthInSeconds": 73
                   }
@@ -462,15 +477,34 @@
               },
               {
                 "_id": 5,
+                "Name": "Hotel California - Intro",
+                "Description": "Hotel California - Intro",
+                "BackgroundColor": "#fc5c65",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson3_Activity5.png",
+                "Videos": [
+                  {
+                    "_id": 1,
+                    "Name": "Be My Baby - Loop",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_0min_42sec_Lesson3_Activity5_HotelCalifornia_Intro.mp4",
+                    "Description": "Hotel California - Intro",
+                    "LengthInSeconds": 42
+                  }
+                ],
+                "Instructions": "",
+                "Score": 400,
+                "PracticeMode": false
+              },
+              {
+                "_id": 6,
                 "Name": "Hotel California - Loop",
                 "Description": "Hotel California - Loop (Audio only)",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson2_Activity5.png",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson3_Activity6.png",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "Hotel California - Loop",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_40sec_Lesson2_Activity5_HotelCalifornia_Loop.mp4",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_40sec_Lesson3_Activity6_HotelCalifornia_Loop.mp4",
                     "Description": "Hotel California - Loop (Audio only)",
                     "LengthInSeconds": 100
                   }
@@ -480,17 +514,36 @@
                 "PracticeMode": true
               },
               {
-                "_id": 6,
-                "Name": "The Way You Make Me Feel - Loop",
-                "Description": "The Way You Make Me Feel  - Loop (Audio only)",
+                "_id": 7,
+                "Name": "The Way You Make Me Feel - Intro",
+                "Description": "The Way You Make Me Feel - Intro",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson2_Activity6.png",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson3_Activity7.png",
                 "Videos": [
                   {
                     "_id": 1,
-                    "Name": "Hotel California - Loop",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_25sec_Lesson2_Activity6_TheWayYouMakeMeFeel_Loop.mp4",
-                    "Description": "Hotel California - Loop (Audio only)",
+                    "Name": "Be My Baby - Loop",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_0min_50sec_Lesson3_Activity7_TheWayYouMakeMeFeel_Intro.mp4",
+                    "Description": "The Way You Make Me Feel - Intro",
+                    "LengthInSeconds": 50
+                  }
+                ],
+                "Instructions": "",
+                "Score": 400,
+                "PracticeMode": false
+              },
+              {
+                "_id": 8,
+                "Name": "The Way You Make Me Feel - Loop",
+                "Description": "The Way You Make Me Feel  - Loop (Audio only)",
+                "BackgroundColor": "#fc5c65",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson3_Activity8.png",
+                "Videos": [
+                  {
+                    "_id": 1,
+                    "Name": "The Way You Make Me Feel - Loop",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_25sec_Lesson3_Activity8_TheWayYouMakeMeFeel_Loop.mp4",
+                    "Description": "The Way You Make Me Feel - Loop(Audio only)",
                     "LengthInSeconds": 85
                   }
                 ],
