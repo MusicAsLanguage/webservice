@@ -6,7 +6,7 @@
     "Songs": [
       {
         "_id": 1,
-        "Name": "Instructions for Care Givers",
+        "Name": "Instructions for Caregivers",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/Instructions.mp3",
         "Description": "Instructions for Care Givers",
         "LengthInSeconds": 265,
@@ -15,7 +15,7 @@
       },
       {
         "_id": 2,
-        "Name": "Read with music (Instructions for Care Givers)",
+        "Name": "Read with music (for Caregivers)",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/My_Only_Baby_Instructions.mp3",
         "Description": "Read with music (Instructions for Care Givers)",
         "LengthInSeconds": 118,
@@ -24,7 +24,7 @@
       },
       {
         "_id": 3,
-        "Name": "60 Beats Per Minute Metronome",
+        "Name": "60 Beats Per Minute Metronome (for Caregivers)",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/60_BPM.mp3",
         "Description": "60 Beats Per Minute Metronome",
         "LengthInSeconds": 90,
@@ -33,7 +33,7 @@
       },
       {
         "_id": 4,
-        "Name": "80 Beats Per Minute Metronome",
+        "Name": "80 Beats Per Minute Metronome (for Caregivers)",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/80_BPM.mp3",
         "Description": "80 Beats Per Minute Metronome",
         "LengthInSeconds": 90,
@@ -42,7 +42,7 @@
       },
       {
         "_id": 5,
-        "Name": "120 Beats Per Minute Metronome",
+        "Name": "120 Beats Per Minute Metronome (for Caregivers)",
         "Url": "https://malstorecdn.azureedge.net/assets/songs/120_BPM.mp3",
         "Description": "120 Beats Per Minute Metronome",
         "LengthInSeconds": 90,
@@ -213,7 +213,7 @@
             "_id": 1,
             "Name": "Welcome to MusicAsLanguage",
             "Description": "Welcome to MusicAsLanguage",
-            "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Intro_thumbnail.jpg",
+            "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Intro_thumbnail.png",
             "IntroVideo": {
               "_id": 1,
               "Name": "Welcome to MusicAsLanguage",
@@ -227,7 +227,7 @@
             "_id": 2,
             "Name": "Lesson 1 Introduction",
             "Description": "Lesson 1 Introduction",
-            "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Intro_thumbnail.jpg",
+            "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Intro_thumbnail.png",
             "IntroVideo": {
               "_id": 1,
               "Name": "Lesson 1 Introduction",
@@ -238,7 +238,7 @@
             "Activities": [
               {
                 "_id": 1,
-                "Name": "Verbal exciters - 1",
+                "Name": "Verbal exciters - 1 (for Caregivers)",
                 "Description": "Verbal exciters - 1",
                 "BackgroundColor": "#fc5c65",
                 "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson1_Activity1.png",
@@ -257,7 +257,7 @@
               },
               {
                 "_id": 2,
-                "Name": "Verbal exciters - 2",
+                "Name": "Verbal exciters - 2 (for Caregivers)",
                 "Description": "Verbal exciters - 2",
                 "BackgroundColor": "#fc5c65",
                 "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson1_Activity2.jpg",
@@ -325,6 +325,44 @@
                     "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_4min_55sec_Lesson_1_Activity_5_readlyrics.mp4",
                     "Description": "Read the lyrics",
                     "LengthInSeconds": 295
+                  }
+                ],
+                "Instructions": "",
+                "Score": 1000,
+                "PracticeMode": false
+              },
+              {
+                "_id": 6,
+                "Name": "Performance Preparation - 1",
+                "Description": "Performance Preparation - 1",
+                "BackgroundColor": "#fc5c65",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson1_Activity6.jpg",
+                "Videos": [
+                  {
+                    "_id": 1,
+                    "Name": "Performance Preparation - 1",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_2min_49sec_Lesson_1_Activity6_Performance_Preparation.mp4",
+                    "Description": "Performance Preparation - 1",
+                    "LengthInSeconds": 169
+                  }
+                ],
+                "Instructions": "",
+                "Score": 1000,
+                "PracticeMode": false
+              },
+              {
+                "_id": 7,
+                "Name": "Performance Preparation - 2",
+                "Description": "Performance Preparation - 2",
+                "BackgroundColor": "#fc5c65",
+                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson1_Activity7.jpg",
+                "Videos": [
+                  {
+                    "_id": 1,
+                    "Name": "Performance Preparation - 2",
+                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_4min_34sec_Lesson_1_Activity7_Performance_Preparation.mp4",
+                    "Description": "Performance Preparation - 2",
+                    "LengthInSeconds": 274
                   }
                 ],
                 "Instructions": "",
