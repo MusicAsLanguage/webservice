@@ -58,23 +58,22 @@ class SpeechScoreApi(Resource):
                 return {'message': 'No music_file in the request form'}, 400
     
             file = request.files['music_file']
-            if file.filename == '':
+            if file is None or file.filename == '':
                 return {'message': 'No selected file'}, 400
 
-            if file:
-                # Create a temporary file within the Flask application context
-                with tempfile.NamedTemporaryFile(delete=False) as temp:
-                    file.save(temp.name)
-                    result = model.transcribe(temp.name)
-                    score = SpeechScoreApi.score(expected_speech_text, result["text"])
-                    logger.info(f'Expected: {expected_speech_text}, Recognized: {result["text"]}, Similarity: {score}')
-                # Clean up the temporary file after processing
-                os.unlink(temp.name)
-                # Update user score
-                userId = json.loads(get_jwt_identity())
-                user = User.objects.get(id=userId['_id']['$oid'])
-                user.update(score=(user.score + score))
-            return {'score': score}, 200
+            # Create a temporary file within the Flask application context
+            with tempfile.NamedTemporaryFile(delete=False) as temp:
+                file.save(temp.name)
+                result = model.transcribe(temp.name)
+                score = SpeechScoreApi.score(expected_speech_text, result["text"])
+                logger.info(f'Expected: {expected_speech_text}, Recognized: {result["text"]}, Similarity: {score}')
+            # Clean up the temporary file after processing
+            os.unlink(temp.name)
+            # Update user score
+            userId = json.loads(get_jwt_identity())
+            user = User.objects.get(id=userId['_id']['$oid'])
+            user.update(score=(user.score + score))
+            return {'text': result["text"], 'score': score}, 200
         except PermissionError as e:
             raise FilePermissionError(e)
         except Exception as e:
