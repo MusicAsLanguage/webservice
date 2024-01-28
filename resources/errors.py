@@ -16,6 +16,9 @@ class EmailDoesnotExistsError(Exception):
 class BadTokenError(Exception):
     pass
 
+class FilePermissionError(Exception):
+    pass
+
 errors = {
     "InternalServerError": {
         "message": "Something went wrong",
@@ -40,5 +43,9 @@ errors = {
      "UnauthorizedError": {
          "message": "Invalid username or password",
          "status": 401
+     },
+     "FilePermissionError": {
+         "message": "File system permission error",
+         "status": 402
      }
 }

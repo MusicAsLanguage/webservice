@@ -6,6 +6,7 @@ from .score import  GetUserScoreApi, UpdateUserScoreApi
 from .reset_pwd import ForgotPassword, ResetPassword
 from .message import SendMsgApi
 from .user import DeleteUserAndDataApi
+from .speech import SpeechScoreApi
 
 def initialize_routes(api):    
     api.add_resource(SignupApi, '/api/auth/signup')
@@ -23,3 +24,4 @@ def initialize_routes(api):
     api.add_resource(UpdateUserScoreApi, '/api/user/updateUserScore')
     api.add_resource(DeleteUserAndDataApi, '/api/user/deleteUserAndData')
     api.add_resource(SendMsgApi, '/api/msg/send')
+    api.add_resource(SpeechScoreApi, '/api/user/speechScore')

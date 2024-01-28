@@ -1,9 +1,10 @@
-flask==2.1.1
-numpy==1.22.3
-Flask-Caching==1.10.1
+flask==2.2.5
+Flask-Caching==2.1.0
 flask-mongoengine==1.0.0
 Bcrypt-Flask==1.0.2
-flask_jwt_extended==4.3.1
-flask-restful==0.3.9
-sendgrid==6.9.7
-Werkzeug==2.2.2
+flask-jwt-extended==4.6.0
+flask-restful==0.3.10
+sendgrid==6.11.0
+Werkzeug==3.0.1
+openai-whisper==20231117
+numpy==1.26.3

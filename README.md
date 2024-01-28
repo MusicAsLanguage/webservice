@@ -4,7 +4,7 @@ Web service code for the MusicAsLanguage project.
 
 ## Development
 - Local development
-    1. Install Python 3.7 or higher.
+    1. Install Python 3.11 or higher.
     2. Install MongoDB community edition from https://www.mongodb.com/try/download/community, choose the right bits for your OS. 
        Run following commands to create the local db and user:
           ```
@@ -45,32 +45,46 @@ Web service code for the MusicAsLanguage project.
         - Linux Bash
            ```
            export APP_ENV=test
-           python -m unittest
+           pytest tests
+           pytest tests/test_signup.py::TestUserSignup::test_creating_already_existing_user
            ```
         - Windows CMD
            ```
            set APP_ENV=test
-           python -m unittest
+           pytest tests
+           pytest tests/test_signup.py::TestUserSignup::test_creating_already_existing_user
            ```
     5. Run the development server.
         - Linux Bash
             ```
             export APP_ENV=dev
-            flask run
+            python app.py
             ``` 
         - Windows CMD
             ```
             set APP_ENV=dev
-            flask run
+            python app.py
             ``` 
-    1. Following APIs are live:
-       - GET: http://127.0.0.1:5000/api/lesson/getLessons
+    6. Build/run a docker container for local development:
+        - Install docker engine from https://docs.docker.com/engine/install/
+        - Linux Bash
+            ```
+            docker_build_dev.sh
+            docker_run_dev.sh
+            ``` 
+        - Windows CMD
+            ```
+            docker_build_dev.bat
+            docker_run_dev.bat
+            ``` 
+    6. Following APIs are live:
+       - GET: http://127.0.0.1:8000/api/lesson/getLessons
 
-       - POST: http://127.0.0.1:5000/api/auth/signup
+       - POST: http://127.0.0.1:8000/api/auth/signup
          - example body: {"email":"xxxxx@microsoft.com", "password":"xxxxx"}
          - example response: {"id": "602cc4a466b4a9edb913f9c2"}
 
-       - POST: http://127.0.0.1:5000/api/auth/login
+       - POST: http://127.0.0.1:8000/api/auth/login
          - example body: {"email":"xxxxx@microsoft.com", "password":"xxxxx"}
          - example response: {"token": "xxx"}
        - If you are accessing the APIs above from android/iphone emulator, replace 127.0.0.1 with the emulator ip.
