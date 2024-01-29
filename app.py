@@ -72,5 +72,5 @@ def reset_pwd_action():
     return render_template('web/pwd_reset.html', form=form)
 
 if __name__ == "__main__":
-    logger.info("server starts at port 5000")
-    app.run()
+    logger.info("server starts at port 8000")
+    app.run(host='0.0.0.0', port=8000)

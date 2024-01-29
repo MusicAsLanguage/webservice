@@ -1,4 +1,4 @@
-name: App service Build and Deploy Python package to Azure Web App
+name: Deploy to PPE
 
 on:
   push:
@@ -16,7 +16,7 @@ env:
   AZURE_WEBAPP_NAME: malservice   # set this to your application's name
   SLOT_NAME: ppe
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  PYTHON_VERSION: '3.9'                # set this to the Python version to use
+  PYTHON_VERSION: '3.11'                # set this to the Python version to use
 
 jobs:
   build:
@@ -24,12 +24,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Building web app
-      uses: azure/appservice-build@v2
+
+    - uses: azure/docker-login@v1
+      with:
+        login-server: malcontainerregistry.azurecr.io
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+
+    - run: |
+        docker build . -t malcontainerregistry.azurecr.io/${{ env.AZURE_WEBAPP_NAME }}:${{ github.sha }}
+        docker push malcontainerregistry.azurecr.io/${{ env.AZURE_WEBAPP_NAME }}:${{ github.sha }}  
+
     - name: Deploy web App using GH Action azure/webapps-deploy
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         publish-profile: ${{ secrets.PPE_PUBLISH_PROFILE }}
         slot-name: ${{ env.SLOT_NAME }}
-        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+        images: 'malcontainerregistry.azurecr.io/${{ env.AZURE_WEBAPP_NAME }}:${{ github.sha }}'

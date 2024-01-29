@@ -29,7 +29,7 @@ class Activity(db.EmbeddedDocument):
     Description = db.StringField(required=False, max_length=1024)
     BackgroundColor = db.StringField(required=False, max_length=30)
     ImageUrl = db.URLField(required=False)
-    Videos = db.ListField(db.EmbeddedDocumentField('Video'))
+    Videos = db.EmbeddedDocumentListField(Video)
     Instructions = db.StringField(required=False, max_length=10240)
     Score = db.IntField(required=True)
     PracticeMode = db.BooleanField(required=False, default=False)
@@ -39,14 +39,14 @@ class Lesson(db.EmbeddedDocument):
     Name = db.StringField(required=True, max_length=128)
     Description = db.StringField(required=False, max_length=1024)
     ImageUrl = db.URLField(required=False)
-    IntroVideo = db.EmbeddedDocumentField('Video')
-    Activities = db.ListField(db.EmbeddedDocumentField('Activity'))
+    IntroVideo = db.EmbeddedDocumentField(Video)
+    Activities = db.EmbeddedDocumentListField(Activity)
 
 class Phase(db.EmbeddedDocument):
     _id = db.IntField(required=True)
     Name = db.StringField(required=True, max_length=128)
     Description = db.StringField(required=False, max_length=1024)
-    Lessons = db.ListField(db.EmbeddedDocumentField('Lesson'))
+    Lessons = db.EmbeddedDocumentListField(Lesson)
 
 class Song(db.EmbeddedDocument):
     _id = db.IntField(required=True)
@@ -69,15 +69,15 @@ class RewardConfig(db.EmbeddedDocument):
     _id = db.IntField(required=True)
     ActivityRepeat = db.FloatField(required=False)
     SongRepeat = db.FloatField(required=False)
-    Trophies = db.ListField(db.EmbeddedDocumentField("Trophy"))
+    Trophies = db.EmbeddedDocumentListField(Trophy)
 
 class Program(db.Document):
     _id = db.IntField(required=True)
     Name = db.StringField(required=True, unique=True, max_length=128)
     Description = db.StringField(required=False, max_length=1024)
-    Songs = db.ListField(db.EmbeddedDocumentField('Song'))
-    Phases = db.ListField(db.EmbeddedDocumentField('Phase'))
-    RewardConfig = db.EmbeddedDocumentField("RewardConfig")
+    Songs = db.EmbeddedDocumentListField(Song)
+    Phases = db.EmbeddedDocumentListField(Phase)
+    RewardConfig = db.EmbeddedDocumentField(RewardConfig)
 
 class ActivityStatus(db.Document):
     #scale 0-10, 0 means not started, 10 means completed

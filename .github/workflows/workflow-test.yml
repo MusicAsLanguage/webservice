@@ -17,7 +17,7 @@
 # For more information on the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # For more samples to get started with GitHub Action workflows to deploy to Azure: https://github.com/Azure/actions-workflow-samples
 
-name: App service Build and Deploy Python package to Azure Web App
+name: Deploy To Test
 
 on:
   pull_request:
@@ -35,7 +35,7 @@ on:
 env:
   AZURE_WEBAPP_NAME: mal-test   # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  PYTHON_VERSION: '3.9'                # set this to the Python version to use
+  PYTHON_VERSION: '3.11'                # set this to the Python version to use
 
 jobs:
   build:
@@ -43,11 +43,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Building web app
-      uses: azure/appservice-build@v2
+
+    - uses: azure/docker-login@v1
+      with:
+        login-server: malcontainerregistry.azurecr.io
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+
+    - run: |
+        docker build . -t malcontainerregistry.azurecr.io/${{ env.AZURE_WEBAPP_NAME }}:${{ github.sha }}
+        docker push malcontainerregistry.azurecr.io/${{ env.AZURE_WEBAPP_NAME }}:${{ github.sha }}     
+
     - name: Deploy web App using GH Action azure/webapps-deploy
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         publish-profile: ${{ secrets.TEST_PUBLISH_PROFILE }}
-        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+        images: 'malcontainerregistry.azurecr.io/${{ env.AZURE_WEBAPP_NAME }}:${{ github.sha }}'
