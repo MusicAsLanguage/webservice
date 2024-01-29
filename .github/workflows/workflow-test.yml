@@ -55,7 +55,7 @@ jobs:
         docker push malcontainerregistry.azurecr.io/${{ env.AZURE_WEBAPP_NAME }}:${{ github.sha }}     
 
     - name: Deploy web App using GH Action azure/webapps-deploy
-      uses: azure/webapps-deploy@v2
+      uses: azure/webapps-deploy@v3
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         publish-profile: ${{ secrets.TEST_PUBLISH_PROFILE }}
