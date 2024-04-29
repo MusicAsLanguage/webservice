@@ -14,7 +14,7 @@ Web service code for the MusicAsLanguage project.
           db.createUser(
             {
                 user: "maluser",
-                pwd: "Mal123!",
+                pwd: "xxxxxxxx",
                 roles: [ { role: "readWrite", db: "MusicAsLanguage" } ]
             }
            )
@@ -22,7 +22,7 @@ Web service code for the MusicAsLanguage project.
           db.createUser(
             {
                 user: "maluser",
-                pwd: "Mal123!",
+                pwd: "xxxxxxxx",
                 roles: [ { role: "readWrite", db: "testdb" } ]
             }
            )
