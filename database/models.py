@@ -52,6 +52,7 @@ class Song(db.EmbeddedDocument):
     _id = db.IntField(required=True)
     Name = db.StringField(required=True, max_length=128)
     Url = db.URLField(required=True)
+    CaptionUrl = db.URLField(required=False)
     Description = db.StringField(required=False, max_length=1024)
     LengthInSeconds = db.IntField()
     #Instruction/Metronome/Beginner/Intermediate/Superstar/Legend
