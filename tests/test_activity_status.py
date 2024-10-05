@@ -6,7 +6,7 @@ class TestUserLogin(BaseCase):
 
     def test_update_activity_status(self):
         # Given
-        email = "jane@gmail.com"
+        email = "AdminUser@mal.com"
         password = "mycoolpassword"
         payload = json.dumps({
             "name": "Jane Doe",
@@ -21,7 +21,7 @@ class TestUserLogin(BaseCase):
 
         payload = self.read_file('data/programs.json') 
 
-        response = self.app.post('/api/lesson/createLessons', headers={"Content-Type": "application/json"}, data=payload)
+        response = self.app.post('/api/lesson/createLessons', headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"}, data=payload)
 
         # When
         payload = json.dumps({
@@ -42,7 +42,7 @@ class TestUserLogin(BaseCase):
 
         # Then
         self.assertEqual(response.get_json()[0]['CompletionStatus'], 5)
-
+        updateTime = response.get_json()[0]['UpdateTime']['$date']
 
         # When
         payload = json.dumps({
@@ -61,6 +61,8 @@ class TestUserLogin(BaseCase):
 
         # Get activity status
         response = self.app.get('/api/activity/getStatus', headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"})
+        updateTimeNew = response.get_json()[0]['UpdateTime']['$date']
+        self.assertGreater(updateTimeNew, updateTime)
 
         # Then
         self.assertEqual(response.get_json()[0]['CompletionStatus'], 6)
@@ -69,7 +71,7 @@ class TestUserLogin(BaseCase):
     
     def test_update_song_status(self):
         # Given
-        email = "jane@gmail.com"
+        email = "AdminUser@mal.com"
         password = "mycoolpassword"
         payload = json.dumps({
             "name": "Jane Doe",
@@ -84,7 +86,7 @@ class TestUserLogin(BaseCase):
 
         payload = self.read_file('data/programs.json') 
 
-        response = self.app.post('/api/lesson/createLessons', headers={"Content-Type": "application/json"}, data=payload)
+        response = self.app.post('/api/lesson/createLessons', headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"}, data=payload)
 
         # When
         payload = json.dumps({            
@@ -105,6 +107,7 @@ class TestUserLogin(BaseCase):
 
         # Then
         self.assertEqual(response.get_json()[0]['CompletionStatus'], 5)
+        updateTime = response.get_json()[0]['UpdateTime']['$date']
 
 
         # When
@@ -117,13 +120,17 @@ class TestUserLogin(BaseCase):
         
         # update status
         response = self.app.post('/api/activity/updateSongPlayingStatus', headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"}, data=payload)
+        
 
         # Then
         self.assertEqual(str, type(response.json['id']))
         self.assertEqual(200, response.status_code)
+        
 
         # Get activity status
         response = self.app.get('/api/activity/getSongPlayingStatus', headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"})
+        updateTimeNew = response.get_json()[0]['UpdateTime']['$date']
+        self.assertGreater(updateTimeNew, updateTime)
 
         # Then
         self.assertEqual(response.get_json()[0]['CompletionStatus'], 6)

@@ -16,6 +16,7 @@ import config
 logging.config.fileConfig("logging.conf")
 logger = logging.getLogger("web")
 
+
 app = Flask(__name__)
 
 configs = {
@@ -34,6 +35,8 @@ bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 
 initialize_db(app)
+logger.info("DB connected!")
+
 from resources.routes import initialize_routes
 initialize_routes(api)
 

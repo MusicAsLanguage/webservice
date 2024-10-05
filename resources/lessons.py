@@ -1,3 +1,4 @@
+from datetime import datetime, timezone
 from flask import Response, request
 from flask_restful import Resource
 from flask_jwt_extended import jwt_required, get_jwt_identity
@@ -7,7 +8,6 @@ from cache import cache
 from resources.errors import InternalServerError, SchemaValidationError, UnauthorizedError
 from mongoengine.errors import FieldDoesNotExist, NotUniqueError, DoesNotExist
 from database.models import Program, ActivityStatus, User, SongPlayingStatus
-from json import JSONEncoder
 import json
 import os
 
@@ -84,8 +84,10 @@ class UpdateActivityStatusApi(Resource):
                 existActivityStatus = ActivityStatus.objects.get(User = user, ActivityId = activityId, LessonId = lessonId)
                 if existActivityStatus.CompletionStatus != activityStatus.CompletionStatus:
                     existActivityStatus.update(CompletionStatus = activityStatus.CompletionStatus)
+                    existActivityStatus.update(UpdateTime = datetime.now(timezone.utc))
                 if existActivityStatus.Repeats != activityStatus.Repeats:
                     existActivityStatus.update(Repeats = activityStatus.Repeats)
+                    existActivityStatus.update(UpdateTime = datetime.now(timezone.utc))
                 activityStatus = existActivityStatus
             except DoesNotExist:
                 activityStatus.User = user
@@ -121,8 +123,10 @@ class UpdateSongPlayingStatusApi(Resource):
                 existSongPlayingStatus = SongPlayingStatus.objects.get(User = user, SongName = songName)
                 if existSongPlayingStatus.CompletionStatus != songPlayingStatus.CompletionStatus:
                     existSongPlayingStatus.update(CompletionStatus = songPlayingStatus.CompletionStatus)
+                    existSongPlayingStatus.update(UpdateTime = datetime.now(timezone.utc))
                 if existSongPlayingStatus.Repeats != songPlayingStatus.Repeats:
                     existSongPlayingStatus.update(Repeats = songPlayingStatus.Repeats)
+                    existSongPlayingStatus.update(UpdateTime = datetime.now(timezone.utc))
                 songPlayingStatus = existSongPlayingStatus
             except DoesNotExist:
                 songPlayingStatus.User = user

@@ -1,10 +1,12 @@
-flask==2.2.5
-Flask-Caching==2.1.0
-flask-mongoengine==1.0.0
-Bcrypt-Flask==1.0.2
+flask==3.0.3
+Flask-Caching==2.3.0
+mongoengine==0.29.1
+Flask-Bcrypt==1.0.1
 flask-jwt-extended==4.6.0
 flask-restful==0.3.10
 sendgrid==6.11.0
 Werkzeug==3.0.1
 openai-whisper==20231117
 numpy==1.26.3
+WTForms==3.1.2
+mongomock==4.0.0
