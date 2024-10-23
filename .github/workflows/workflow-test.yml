@@ -44,7 +44,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - uses: azure/docker-login@v1
+    - uses: azure/docker-login@v2
       with:
         login-server: malcontainerregistry.azurecr.io
         username: ${{ secrets.REGISTRY_USERNAME }}
