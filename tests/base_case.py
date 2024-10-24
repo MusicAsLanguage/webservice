@@ -1,21 +1,30 @@
-  
 import os
 import unittest
 
 from app import app
-from database.db import db
-
+from mongoengine import disconnect, get_db
 
 class BaseCase(unittest.TestCase):
 
     def setUp(self):
         self.app = app.test_client()
-        self.db = db.get_db()
+        self.clean_database()
+        print("Finish test setUp")
+
+    def clean_database(self):
+        # Get the database object
+        db = get_db()
+        # List all collections
+        collections = db.list_collection_names()
+        # Drop each collection
+        for collection in collections:
+            db.drop_collection(collection)
 
     def tearDown(self):
-        # Delete Database collections after the test is complete
-        for collection in self.db.list_collection_names():
-            self.db.drop_collection(collection)
+        self.clean_database()
+        disconnect()
+        print("Finish test tearDown")
+    
     
     def read_file(self, path):
         directory_path = os.getcwd()

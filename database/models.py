@@ -1,14 +1,15 @@
-from .db import db
+from mongoengine import Document, StringField, EmailField, IntField, URLField, EmbeddedDocument, \
+      EmbeddedDocumentField, EmbeddedDocumentListField, DateTimeField, BooleanField, ReferenceField, FloatField
 from flask_bcrypt import generate_password_hash, check_password_hash
 from datetime import datetime
 
 
-class User(db.Document):
-    name = db.StringField(required=True, max_length=100)
-    email = db.EmailField(required=True, unique=True, max_length=100)
-    password = db.StringField(required=True, min_length=6, max_length=100)
-    score = db.IntField(required=False, default=0)
-    UpdateTime = db.DateTimeField(required=False, default=datetime.utcnow)
+class User(Document):
+    name = StringField(required=True, max_length=100)
+    email = EmailField(required=True, unique=True, max_length=100)
+    password = StringField(required=True, min_length=6, max_length=100)
+    score = IntField(required=False, default=0)
+    UpdateTime = DateTimeField(required=False, default=datetime.utcnow)
 
     def hash_password(self):
         self.password = generate_password_hash(self.password).decode('utf8')
@@ -16,89 +17,89 @@ class User(db.Document):
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
-class Video(db.EmbeddedDocument):
-    _id = db.IntField(required=True)
-    Name = db.StringField(required=True, max_length=128)
-    Url = db.URLField(required=True)
-    Description = db.StringField(required=False, max_length=1024)
-    LengthInSeconds = db.IntField()
+class Video(EmbeddedDocument):
+    _id = IntField(required=True)
+    Name = StringField(required=True, max_length=128)
+    Url = URLField(required=True)
+    Description = StringField(required=False, max_length=1024)
+    LengthInSeconds = IntField()
 
-class Activity(db.EmbeddedDocument):
-    _id = db.IntField(required=True)
-    Name = db.StringField(required=True, max_length=128)
-    Description = db.StringField(required=False, max_length=1024)
-    BackgroundColor = db.StringField(required=False, max_length=30)
-    ImageUrl = db.URLField(required=False)
-    Videos = db.EmbeddedDocumentListField(Video)
-    Instructions = db.StringField(required=False, max_length=10240)
-    Score = db.IntField(required=True)
-    PracticeMode = db.BooleanField(required=False, default=False)
+class Activity(EmbeddedDocument):
+    _id = IntField(required=True)
+    Name = StringField(required=True, max_length=128)
+    Description = StringField(required=False, max_length=1024)
+    BackgroundColor = StringField(required=False, max_length=30)
+    ImageUrl = URLField(required=False)
+    Videos = EmbeddedDocumentListField(Video)
+    Instructions = StringField(required=False, max_length=10240)
+    Score = IntField(required=True)
+    PracticeMode = BooleanField(required=False, default=False)
 
-class Lesson(db.EmbeddedDocument):
-    _id = db.IntField(required=True)
-    Name = db.StringField(required=True, max_length=128)
-    Description = db.StringField(required=False, max_length=1024)
-    ImageUrl = db.URLField(required=False)
-    IntroVideo = db.EmbeddedDocumentField(Video)
-    Activities = db.EmbeddedDocumentListField(Activity)
+class Lesson(EmbeddedDocument):
+    _id = IntField(required=True)
+    Name = StringField(required=True, max_length=128)
+    Description = StringField(required=False, max_length=1024)
+    ImageUrl = URLField(required=False)
+    IntroVideo = EmbeddedDocumentField(Video)
+    Activities = EmbeddedDocumentListField(Activity)
 
-class Phase(db.EmbeddedDocument):
-    _id = db.IntField(required=True)
-    Name = db.StringField(required=True, max_length=128)
-    Description = db.StringField(required=False, max_length=1024)
-    Lessons = db.EmbeddedDocumentListField(Lesson)
+class Phase(EmbeddedDocument):
+    _id = IntField(required=True)
+    Name = StringField(required=True, max_length=128)
+    Description = StringField(required=False, max_length=1024)
+    Lessons = EmbeddedDocumentListField(Lesson)
 
-class Song(db.EmbeddedDocument):
-    _id = db.IntField(required=True)
-    Name = db.StringField(required=True, max_length=128)
-    Url = db.URLField(required=True)
-    CaptionUrl = db.URLField(required=False)
-    Description = db.StringField(required=False, max_length=1024)
-    LengthInSeconds = db.IntField()
+class Song(EmbeddedDocument):
+    _id = IntField(required=True)
+    Name = StringField(required=True, max_length=128)
+    Url = URLField(required=True)
+    CaptionUrl = URLField(required=False)
+    Description = StringField(required=False, max_length=1024)
+    LengthInSeconds = IntField()
     #Instruction/Metronome/Beginner/Intermediate/Superstar/Legend
-    Category = db.StringField(max_length=50)
-    Score = db.IntField(required=True)
+    Category = StringField(max_length=50)
+    Score = IntField(required=True)
 
-class Trophy(db.EmbeddedDocument):
-    _id = db.IntField(required=True)
-    Name = db.StringField(required=True, max_length=128)
-    Url = db.URLField(required=True)
-    Description = db.StringField(required=False, max_length=1024)
-    ScoreThrehold = db.IntField(required=True)
+class Trophy(EmbeddedDocument):
+    _id = IntField(required=True)
+    Name = StringField(required=True, max_length=128)
+    Url = URLField(required=True)
+    Description = StringField(required=False, max_length=1024)
+    ScoreThrehold = IntField(required=True)
 
-class RewardConfig(db.EmbeddedDocument):
-    _id = db.IntField(required=True)
-    ActivityRepeat = db.FloatField(required=False)
-    SongRepeat = db.FloatField(required=False)
-    Trophies = db.EmbeddedDocumentListField(Trophy)
+class RewardConfig(EmbeddedDocument):
+    _id = IntField(required=True)
+    ActivityRepeat = FloatField(required=False)
+    SongRepeat = FloatField(required=False)
+    Trophies = EmbeddedDocumentListField(Trophy)
 
-class Program(db.Document):
-    _id = db.IntField(required=True)
-    Name = db.StringField(required=True, unique=True, max_length=128)
-    Description = db.StringField(required=False, max_length=1024)
-    Songs = db.EmbeddedDocumentListField(Song)
-    Phases = db.EmbeddedDocumentListField(Phase)
-    RewardConfig = db.EmbeddedDocumentField(RewardConfig)
+class Program(Document):
+    _id = IntField(required=True)
+    Name = StringField(required=True, unique=True, max_length=128)
+    Description = StringField(required=False, max_length=1024)
+    Songs = EmbeddedDocumentListField(Song)
+    Phases = EmbeddedDocumentListField(Phase)
+    RewardConfig = EmbeddedDocumentField(RewardConfig)
 
-class ActivityStatus(db.Document):
+class ActivityStatus(Document):
     #scale 0-10, 0 means not started, 10 means completed
-    CompletionStatus = db.IntField(required=True)
-    User = db.ReferenceField(User, required=True, dbref=True)
-    ActivityId = db.IntField(required=True)
-    LessonId = db.IntField(required=True)
-    Repeats = db.IntField(required=False, default=0)
-    UpdateTime = db.DateTimeField(required=False, default=datetime.utcnow)
+    CompletionStatus = IntField(required=True)
+    User = ReferenceField(User, required=True, dbref=True)
+    ActivityId = IntField(required=True)
+    LessonId = IntField(required=True)
+    Repeats = IntField(required=False, default=0)
+    UpdateTime = DateTimeField(required=False, default=datetime.utcnow)
 
-class SongPlayingStatus(db.Document):   
-    User = db.ReferenceField(User, required=True, dbref=True)
-    SongName = db.StringField(required=True, max_length=128)
-    Category = db.StringField(required=True, max_length=50)
+class SongPlayingStatus(Document):   
+    User = ReferenceField(User, required=True, dbref=True)
+    SongName = StringField(required=True, max_length=128)
+    Category = StringField(required=True, max_length=50)
     #scale 0-10, 0 means not started, 10 means completed
-    CompletionStatus = db.IntField(required=True)
-    Repeats = db.IntField(required=False, default=0)
-    UpdateTime = db.DateTimeField(required=False, default=datetime.utcnow)
+    CompletionStatus = IntField(required=True)
+    Repeats = IntField(required=False, default=0)
+    UpdateTime = DateTimeField(required=False, default=datetime.utcnow)
 
-class IncomeMessage(db.Document):
-    Msg = db.StringField(required=True)
-    User = db.ReferenceField(User, required=True, dbref=True)
+class IncomeMessage(Document):
+    Msg = StringField(required=True)
+    User = ReferenceField(User, required=True, dbref=True)
     

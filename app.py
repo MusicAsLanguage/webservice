@@ -16,6 +16,7 @@ import config
 logging.config.fileConfig("logging.conf")
 logger = logging.getLogger("web")
 
+
 app = Flask(__name__)
 
 configs = {
@@ -33,7 +34,9 @@ api = Api(app, errors=errors)
 bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 
-initialize_db(app)
+initialize_db(app.config['MONGODB_SETTINGS'])
+logger.info("DB connected!")
+
 from resources.routes import initialize_routes
 initialize_routes(api)
 
