@@ -34,7 +34,7 @@ api = Api(app, errors=errors)
 bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 
-initialize_db(app)
+initialize_db(app.config['MONGODB_SETTINGS'])
 logger.info("DB connected!")
 
 from resources.routes import initialize_routes

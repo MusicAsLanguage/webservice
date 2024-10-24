@@ -1,6 +1,6 @@
 from mongoengine import connect
 
-def initialize_db(app):
+def initialize_db(db_host):
     connect(
-        app.config['MONGODB_SETTINGS']['db']
+        host=db_host
     )
