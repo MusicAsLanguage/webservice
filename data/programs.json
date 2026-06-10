@@ -7,8 +7,8 @@
       {
         "_id": 1,
         "Name": "Instructions for Caregivers",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Instructions.mp3",
-        "CaptionUrl": "https://malstorecdn.azureedge.net/assets/songs/Instructions.en.srt",
+        "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Instructions.mp3",
+        "CaptionUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Instructions.en.srt",
         "Description": "Instructions for Care Givers",
         "LengthInSeconds": 265,
         "Category": "Instruction",
@@ -17,8 +17,8 @@
       {
         "_id": 2,
         "Name": "Read with music (for Caregivers)",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/My_Only_Baby_Instructions.mp3",
-        "CaptionUrl": "https://malstorecdn.azureedge.net/assets/songs/My_Only_Baby_Instructions.en.srt",
+        "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/My_Only_Baby_Instructions.mp3",
+        "CaptionUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/My_Only_Baby_Instructions.en.srt",
         "Description": "Read with music (Instructions for Care Givers)",
         "LengthInSeconds": 118,
         "Category": "Instruction",
@@ -27,7 +27,7 @@
       {
         "_id": 3,
         "Name": "60 Beats Per Minute Metronome (for Caregivers)",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/60_BPM.mp3",
+        "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/60_BPM.mp3",
         "Description": "60 Beats Per Minute Metronome",
         "LengthInSeconds": 90,
         "Category": "Metronome",
@@ -36,7 +36,7 @@
       {
         "_id": 4,
         "Name": "80 Beats Per Minute Metronome (for Caregivers)",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/80_BPM.mp3",
+        "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/80_BPM.mp3",
         "Description": "80 Beats Per Minute Metronome",
         "LengthInSeconds": 90,
         "Category": "Metronome",
@@ -45,7 +45,7 @@
       {
         "_id": 5,
         "Name": "120 Beats Per Minute Metronome (for Caregivers)",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/120_BPM.mp3",
+        "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/120_BPM.mp3",
         "Description": "120 Beats Per Minute Metronome",
         "LengthInSeconds": 90,
         "Category": "Metronome",
@@ -54,8 +54,8 @@
       {
         "_id": 6,
         "Name": "Be My Baby - Loop",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Be_My_Little_Baby_Loop.mp3",
-        "CaptionUrl": "https://malstorecdn.azureedge.net/assets/songs/Be_My_Little_Baby_Loop.en.srt",
+        "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Be_My_Little_Baby_Loop.mp3",
+        "CaptionUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Be_My_Little_Baby_Loop.en.srt",
         "Description": "Be My Baby - Loop",
         "LengthInSeconds": 59,
         "Category": "Beginner",
@@ -64,8 +64,8 @@
       {
         "_id": 7,
         "Name": "Be My Baby",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Be_My_Baby05142021.mp3",
-        "CaptionUrl": "https://malstorecdn.azureedge.net/assets/songs/Be_My_Baby05142021.en.srt",
+        "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Be_My_Baby05142021.mp3",
+        "CaptionUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Be_My_Baby05142021.en.srt",
         "Description": "Be My Baby",
         "LengthInSeconds": 162,
         "Category": "Beginner",
@@ -74,8 +74,8 @@
       {
         "_id": 8,
         "Name": "Lovely Day - Loop",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Lovely_Day_Loop.mp3",
-        "CaptionUrl": "https://malstorecdn.azureedge.net/assets/songs/Lovely_Day_Loop.en.srt",
+        "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Lovely_Day_Loop.mp3",
+        "CaptionUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Lovely_Day_Loop.en.srt",
         "Description": "Lovely Day - Loop",
         "LengthInSeconds": 58,
         "Category": "Beginner",
@@ -84,8 +84,8 @@
       {
         "_id": 9,
         "Name": "Lovely Day",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Lovely_Day.mp3",
-        "CaptionUrl": "https://malstorecdn.azureedge.net/assets/songs/Lovely_Day.en.srt",
+        "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Lovely_Day.mp3",
+        "CaptionUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Lovely_Day.en.srt",
         "Description": "Lovely Day",
         "LengthInSeconds": 239,
         "Category": "Beginner",
@@ -94,8 +94,8 @@
       {
         "_id": 10,
         "Name": "Bye Bye Bye - Loop",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/ByeByeBye_Loop.mp3",
-        "CaptionUrl": "https://malstorecdn.azureedge.net/assets/songs/ByeByeBye_Loop.en.srt",
+        "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/ByeByeBye_Loop.mp3",
+        "CaptionUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/ByeByeBye_Loop.en.srt",
         "Description": "Bye Bye Bye - Loop",
         "LengthInSeconds": 74,
         "Category": "Intermediate",
@@ -104,8 +104,8 @@
       {
         "_id": 11,
         "Name": "Bye Bye Bye",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Bye_Bye_ByeRev_1.mp3",
-        "CaptionUrl": "https://malstorecdn.azureedge.net/assets/songs/Bye_Bye_ByeRev_1.en.srt",
+        "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Bye_Bye_ByeRev_1.mp3",
+        "CaptionUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Bye_Bye_ByeRev_1.en.srt",
         "Description": "Bye Bye Bye",
         "LengthInSeconds": 201,
         "Category": "Intermediate",
@@ -114,8 +114,8 @@
       {
         "_id": 12,
         "Name": "Never Going To Give You Up - Loop",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Never_Going_to_Give_You_Up_Loop.mp3",
-        "CaptionUrl": "https://malstorecdn.azureedge.net/assets/songs/Never_Going_to_Give_You_Up_Loop.en.srt",
+        "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Never_Going_to_Give_You_Up_Loop.mp3",
+        "CaptionUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Never_Going_to_Give_You_Up_Loop.en.srt",
         "Description": "Never Going To Give You Up - Loop",
         "LengthInSeconds": 51,
         "Category": "Intermediate",
@@ -124,8 +124,8 @@
       {
         "_id": 13,
         "Name": "Never Going To Give You Up",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Never_Going_To_Give_You_Up_vocalup.mp3",
-        "CaptionUrl": "https://malstorecdn.azureedge.net/assets/songs/Never_Going_To_Give_You_Up_vocalup.en.srt",
+        "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Never_Going_To_Give_You_Up_vocalup.mp3",
+        "CaptionUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Never_Going_To_Give_You_Up_vocalup.en.srt",
         "Description": "Never Going To Give You Up",
         "LengthInSeconds": 218,
         "Category": "Intermediate",
@@ -134,8 +134,8 @@
       {
         "_id": 14,
         "Name": "God Must Have Spent a little More Time",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/NSYNC_God_Must_Have_Spent.mp3",
-        "CaptionUrl": "https://malstorecdn.azureedge.net/assets/songs/NSYNC_God_Must_Have_Spent.en.srt",
+        "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/NSYNC_God_Must_Have_Spent.mp3",
+        "CaptionUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/NSYNC_God_Must_Have_Spent.en.srt",
         "Description": "God Must Have Spent a little More Time",
         "LengthInSeconds": 241,
         "Category": "Intermediate",
@@ -144,8 +144,8 @@
       {
         "_id": 15,
         "Name": "Hotel California Loop",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Hotel_California_Loop_With_Lyric.mp3",
-        "CaptionUrl": "https://malstorecdn.azureedge.net/assets/songs/Hotel_California_Loop_With_Lyric.en.srt",
+        "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Hotel_California_Loop_With_Lyric.mp3",
+        "CaptionUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Hotel_California_Loop_With_Lyric.en.srt",
         "Description": "Hotel California Loop",
         "LengthInSeconds": 86,
         "Category": "Intermediate",
@@ -154,8 +154,8 @@
       {
         "_id": 16,
         "Name": "Hotel California",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Hotel_California.mp3",
-        "CaptionUrl": "https://malstorecdn.azureedge.net/assets/songs/Hotel_California.en.srt",
+        "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Hotel_California.mp3",
+        "CaptionUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Hotel_California.en.srt",
         "Description": "Hotel California",
         "LengthInSeconds": 143,
         "Category": "Intermediate",
@@ -164,8 +164,8 @@
       {
         "_id": 17,
         "Name": "Man In The Mirror",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Man_In_The_Mirror05132021.mp3",
-        "CaptionUrl": "https://malstorecdn.azureedge.net/assets/songs/Man_In_The_Mirror05132021.en.srt",
+        "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Man_In_The_Mirror05132021.mp3",
+        "CaptionUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Man_In_The_Mirror05132021.en.srt",
         "Description": "Man In The Mirror",
         "LengthInSeconds": 238,
         "Category": "Superstar",
@@ -174,8 +174,8 @@
       {
         "_id": 18,
         "Name": "Me Too",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Me_Too.mp3",
-        "CaptionUrl": "https://malstorecdn.azureedge.net/assets/songs/Me_To.en.srt",
+        "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Me_Too.mp3",
+        "CaptionUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Me_To.en.srt",
         "Description": "Me Too",
         "LengthInSeconds": 180,
         "Category": "Superstar",
@@ -184,8 +184,8 @@
       {
         "_id": 19,
         "Name": "The Way You Make Me Feel - Loop",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/The_Way_You_Make_Me_Feel_Loop.mp3",
-        "CaptionUrl": "https://malstorecdn.azureedge.net/assets/songs/The_Way_You_Make_Me_Feel_Loop.en.srt",
+        "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/The_Way_You_Make_Me_Feel_Loop.mp3",
+        "CaptionUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/The_Way_You_Make_Me_Feel_Loop.en.srt",
         "Description": "The Way You Make Me Feel - Loop",
         "LengthInSeconds": 70,
         "Category": "Superstar",
@@ -194,8 +194,8 @@
       {
         "_id": 20,
         "Name": "The Way You Make Me Feel",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/The_Way_You_Make_Me_Feel.mp3",
-        "CaptionUrl": "https://malstorecdn.azureedge.net/assets/songs/The_Way_You_Make_Me_Feel.en.srt",
+        "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/The_Way_You_Make_Me_Feel.mp3",
+        "CaptionUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/The_Way_You_Make_Me_Feel.en.srt",
         "Description": "The Way You Make Me Feel",
         "LengthInSeconds": 295,
         "Category": "Superstar",
@@ -204,8 +204,8 @@
       {
         "_id": 21,
         "Name": "Memories",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/Memories.mp3",
-        "CaptionUrl": "https://malstorecdn.azureedge.net/assets/songs/Memories.en.srt",
+        "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Memories.mp3",
+        "CaptionUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/Memories.en.srt",
         "Description": "Memories",
         "LengthInSeconds": 212,
         "Category": "Legend",
@@ -214,8 +214,8 @@
       {
         "_id": 22,
         "Name": "What the world needs now",
-        "Url": "https://malstorecdn.azureedge.net/assets/songs/What_The_World_Needs_Now.mp3",
-        "CaptionUrl": "https://malstorecdn.azureedge.net/assets/songs/What_The_World_Needs_Now.en.srt",
+        "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/What_The_World_Needs_Now.mp3",
+        "CaptionUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/songs/What_The_World_Needs_Now.en.srt",
         "Description": "What the world needs now",
         "LengthInSeconds": 196,
         "Category": "Legend",
@@ -232,7 +232,7 @@
             "_id": 1,
             "Name": "Welcome to MusicAsLanguage",
             "Description": "Welcome to MusicAsLanguage",
-            "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Intro_thumbnail.png",
+            "ImageUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/Intro_thumbnail.png",
             "IntroVideo": {
               "_id": 1,
               "Name": "Welcome to MusicAsLanguage",
@@ -246,11 +246,11 @@
             "_id": 2,
             "Name": "Lesson 1 Introduction",
             "Description": "Lesson 1 Introduction",
-            "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Intro_thumbnail.png",
+            "ImageUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/Intro_thumbnail.png",
             "IntroVideo": {
               "_id": 1,
               "Name": "Lesson 1 Introduction",
-              "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_20sec_Lesson_1_Introduction-captioned.mp4",
+              "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/V_1min_20sec_Lesson_1_Introduction-captioned.mp4",
               "Description": "Lesson 1 Introduction",
               "LengthInSeconds": 80
             },
@@ -260,12 +260,12 @@
                 "Name": "Verbal exciters - 1 (for Caregivers)",
                 "Description": "Verbal exciters - 1",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson1_Activity1.png",
+                "ImageUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/Lesson1_Activity1.png",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "Verbal exciters - 1",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_50sec_Lesson_1_Activity_1_verbalexciters1-captioned.mp4",
+                    "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/V_1min_50sec_Lesson_1_Activity_1_verbalexciters1-captioned.mp4",
                     "Description": "Verbal exciters - 1",
                     "LengthInSeconds": 110
                   }
@@ -279,12 +279,12 @@
                 "Name": "Verbal exciters - 2 (for Caregivers)",
                 "Description": "Verbal exciters - 2",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson1_Activity2.jpg",
+                "ImageUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/Lesson1_Activity2.jpg",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "Verbal exciters - 2",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_6min_13sec_Lesson_1_Activity_2_verbalexciters2-captioned.mp4",
+                    "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/V_6min_13sec_Lesson_1_Activity_2_verbalexciters2-captioned.mp4",
                     "Description": "Verbal exciters - 2",
                     "LengthInSeconds": 313
                   }
@@ -298,12 +298,12 @@
                 "Name": "Verbal exercise",
                 "Description": "Verbal exercise",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson1_Activity3.jpg",
+                "ImageUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/Lesson1_Activity3.jpg",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "Verbal exercises",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_3min_12sec_Lesson_1_Activity_3_verbalexercises-captioned.mp4",
+                    "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/V_3min_12sec_Lesson_1_Activity_3_verbalexercises-captioned.mp4",
                     "Description": "Verbal exercises",
                     "LengthInSeconds": 192
                   }
@@ -317,12 +317,12 @@
                 "Name": "Pick your music",
                 "Description": "Pick your music",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson1_Activity4.jpg",
+                "ImageUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/Lesson1_Activity4.jpg",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "Pick your music",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_26sec_Lesson_1_Activity_4_pickmusic-captioned.mp4",
+                    "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/V_1min_26sec_Lesson_1_Activity_4_pickmusic-captioned.mp4",
                     "Description": "Pick your music",
                     "LengthInSeconds": 86
                   }
@@ -336,12 +336,12 @@
                 "Name": "Read the lyrics",
                 "Description": "Read the lyrics",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson1_Activity5.jpg",
+                "ImageUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/Lesson1_Activity5.jpg",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "Read the lyrics",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_4min_55sec_Lesson_1_Activity_5_readlyrics-captioned.mp4",
+                    "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/V_4min_55sec_Lesson_1_Activity_5_readlyrics-captioned.mp4",
                     "Description": "Read the lyrics",
                     "LengthInSeconds": 295
                   }
@@ -355,12 +355,12 @@
                 "Name": "Performance Preparation - 1",
                 "Description": "Performance Preparation - 1",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson1_Activity6.jpg",
+                "ImageUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/Lesson1_Activity6.jpg",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "Performance Preparation - 1",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_2min_49sec_Lesson_1_Activity6_Performance_Preparation.mp4",
+                    "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/V_2min_49sec_Lesson_1_Activity6_Performance_Preparation.mp4",
                     "Description": "Performance Preparation - 1",
                     "LengthInSeconds": 169
                   }
@@ -374,12 +374,12 @@
                 "Name": "Performance Preparation - 2",
                 "Description": "Performance Preparation - 2",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson1_Activity7.jpg",
+                "ImageUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/Lesson1_Activity7.jpg",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "Performance Preparation - 2",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_4min_34sec_Lesson_1_Activity7_Performance_Preparation.mp4",
+                    "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/V_4min_34sec_Lesson_1_Activity7_Performance_Preparation.mp4",
                     "Description": "Performance Preparation - 2",
                     "LengthInSeconds": 274
                   }
@@ -394,11 +394,11 @@
             "_id": 3,
             "Name": "Lesson 2 Practice",
             "Description": "Practice with Songs",
-            "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson2_thumbnail.jpg",
+            "ImageUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/Lesson2_thumbnail.jpg",
             "IntroVideo": {
               "_id": 1,
               "Name": "Lesson 2 Practice",
-              "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_0min_15sec_Lesson2_Introduction-captioned.mp4",
+              "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/V_0min_15sec_Lesson2_Introduction-captioned.mp4",
               "Description": "Lesson 2 Practice",
               "LengthInSeconds": 15
             },
@@ -408,12 +408,12 @@
                 "Name": "Verbal Practice",
                 "Description": "Verbal Practice",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson2_Activity1.jpg",
+                "ImageUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/Lesson2_Activity1.jpg",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "Verbal Practice",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_3min_9sec_Lesson2_Activity_1_VerbalExercise-captioned.mp4",
+                    "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/V_3min_9sec_Lesson2_Activity_1_VerbalExercise-captioned.mp4",
                     "Description": "Verbal Practice",
                     "LengthInSeconds": 189
                   }
@@ -427,12 +427,12 @@
                 "Name": "Be My Baby",
                 "Description": "Be My Baby",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson2_Activity2.jpg",
+                "ImageUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/Lesson2_Activity2.jpg",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "Be My Baby",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_2min_44sec_Lesson2_Activity_2_BeMyBaby-captioned.mp4",
+                    "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/V_2min_44sec_Lesson2_Activity_2_BeMyBaby-captioned.mp4",
                     "Description": "Be My Baby",
                     "LengthInSeconds": 164
                   }
@@ -447,11 +447,11 @@
             "_id": 4,
             "Name": "Lesson 3 Match My Mouth",
             "Description": "Match My Mouth",
-            "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson3_Introduction.png",
+            "ImageUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/Lesson3_Introduction.png",
             "IntroVideo": {
               "_id": 1,
               "Name": "Lesson 3 Practice",
-              "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_0min_27sec_Lesson3_Introduction-captioned.mp4",
+              "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/V_0min_27sec_Lesson3_Introduction-captioned.mp4",
               "Description": "Lesson 3 Match My Mouth",
               "LengthInSeconds": 27
             },
@@ -461,12 +461,12 @@
                 "Name": "Be My Baby - Intro",
                 "Description": "Be My Baby - Intro",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson3_Activity1.png",
+                "ImageUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/Lesson3_Activity1.png",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "Be My Baby - Intro",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_0min_37sec_Lesson3_Activity1_BeByMyBaby_Intro-captioned.mp4",
+                    "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/V_0min_37sec_Lesson3_Activity1_BeByMyBaby_Intro-captioned.mp4",
                     "Description": "Be My Baby - Intro",
                     "LengthInSeconds": 37
                   }
@@ -480,12 +480,12 @@
                 "Name": "Be My Baby - Loop",
                 "Description": "Be My Baby - Loop (Audio only)",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson3_Activity2.png",
+                "ImageUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/Lesson3_Activity2.png",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "Be My Baby - Loop",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_0min_59sec_Lesson3_Activity2_BeMyBaby_Loop.mp4",
+                    "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/V_0min_59sec_Lesson3_Activity2_BeMyBaby_Loop.mp4",
                     "Description": "Be My Baby - Loop (Audio only) ",
                     "LengthInSeconds": 59
                   }
@@ -499,12 +499,12 @@
                 "Name": "Lovely Day - Intro",
                 "Description": "Lovely Day - Intro",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson3_Activity3.png",
+                "ImageUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/Lesson3_Activity3.png",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "Be My Baby - Loop",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_0min_41sec_Lesson3_Activity3_LovelyDay_Intro.mp4",
+                    "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/V_0min_41sec_Lesson3_Activity3_LovelyDay_Intro.mp4",
                     "Description": "Lovely Day - Intro",
                     "LengthInSeconds": 41
                   }
@@ -518,12 +518,12 @@
                 "Name": "Lovely Day - Loop",
                 "Description": "Lovely Day - Loop (Audio only)",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson3_Activity4.png",
+                "ImageUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/Lesson3_Activity4.png",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "Lovely Day - Loop",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_13sec_Lesson3_Activity4_LovelyDay_Loop.mp4",
+                    "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/V_1min_13sec_Lesson3_Activity4_LovelyDay_Loop.mp4",
                     "Description": "Lovely Day - Loop (Audio only)",
                     "LengthInSeconds": 73
                   }
@@ -537,12 +537,12 @@
                 "Name": "Hotel California - Intro",
                 "Description": "Hotel California - Intro",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson3_Activity5.png",
+                "ImageUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/Lesson3_Activity5.png",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "Be My Baby - Loop",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_0min_42sec_Lesson3_Activity5_HotelCalifornia_Intro-captioned.mp4",
+                    "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/V_0min_42sec_Lesson3_Activity5_HotelCalifornia_Intro-captioned.mp4",
                     "Description": "Hotel California - Intro",
                     "LengthInSeconds": 42
                   }
@@ -556,12 +556,12 @@
                 "Name": "Hotel California - Loop",
                 "Description": "Hotel California - Loop (Audio only)",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson3_Activity6.png",
+                "ImageUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/Lesson3_Activity6.png",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "Hotel California - Loop",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_40sec_Lesson3_Activity6_HotelCalifornia_Loop.mp4",
+                    "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/V_1min_40sec_Lesson3_Activity6_HotelCalifornia_Loop.mp4",
                     "Description": "Hotel California - Loop (Audio only)",
                     "LengthInSeconds": 100
                   }
@@ -575,12 +575,12 @@
                 "Name": "The Way You Make Me Feel - Intro",
                 "Description": "The Way You Make Me Feel - Intro",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson3_Activity7.png",
+                "ImageUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/Lesson3_Activity7.png",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "Be My Baby - Loop",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_0min_50sec_Lesson3_Activity7_TheWayYouMakeMeFeel_Intro-captioned.mp4",
+                    "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/V_0min_50sec_Lesson3_Activity7_TheWayYouMakeMeFeel_Intro-captioned.mp4",
                     "Description": "The Way You Make Me Feel - Intro",
                     "LengthInSeconds": 50
                   }
@@ -594,12 +594,12 @@
                 "Name": "The Way You Make Me Feel - Loop",
                 "Description": "The Way You Make Me Feel  - Loop (Audio only)",
                 "BackgroundColor": "#fc5c65",
-                "ImageUrl": "https://malstorecdn.azureedge.net/assets/lessons/Lesson3_Activity8.png",
+                "ImageUrl": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/Lesson3_Activity8.png",
                 "Videos": [
                   {
                     "_id": 1,
                     "Name": "The Way You Make Me Feel - Loop",
-                    "Url": "https://malstorecdn.azureedge.net/assets/lessons/V_1min_25sec_Lesson3_Activity8_TheWayYouMakeMeFeel_Loop.mp4",
+                    "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/lessons/V_1min_25sec_Lesson3_Activity8_TheWayYouMakeMeFeel_Loop.mp4",
                     "Description": "The Way You Make Me Feel - Loop(Audio only)",
                     "LengthInSeconds": 85
                   }
@@ -621,7 +621,7 @@
         {
           "_id": 1,
           "Name": "Golden Microphone",
-          "Url": "https://malstorecdn.azureedge.net/assets/trophy/golden_mic.png",
+          "Url": "https://malstorecdn-bdcqfyhtgzefetgv.z01.azurefd.net/assets/trophy/golden_mic.png",
           "Description": "",
           "ScoreThrehold": 1000
         }
