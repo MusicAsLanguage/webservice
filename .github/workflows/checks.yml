@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
         with:
-          python-version: '3.12'
+          python-version: '3.14'
           cache: pip
           cache-dependency-path: |
             requirements.txt
@@ -47,7 +47,7 @@ jobs:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
         with:
-          python-version: '3.12'
+          python-version: '3.14'
           cache: pip
           cache-dependency-path: |
             requirements.txt
@@ -69,11 +69,24 @@ jobs:
         run: docker build --tag mal-service:ci .
       - name: Smoke-test installed runtime dependencies
         run: |
+          docker run --rm --entrypoint python mal-service:ci -c "import sys, sysconfig; assert sys.version_info[:2] == (3, 14), sys.version; assert not sysconfig.get_config_var('Py_GIL_DISABLED'); print(sys.version)"
           docker run --rm --entrypoint python mal-service:ci -m pip check
           docker run --rm --entrypoint python mal-service:ci -c "import whisper; import app"
           docker run --rm --entrypoint python mal-service:ci -c "import numpy as np; import whisper; audio = np.zeros(16000, dtype=np.float32); mel = whisper.log_mel_spectrogram(audio); assert tuple(mel.shape) == (80, 100); assert mel.isfinite().all()"
           docker run --rm --entrypoint ffmpeg mal-service:ci -version
           docker run --rm --entrypoint gunicorn mal-service:ci --version
+      - name: Smoke-test Gunicorn HTTP startup
+        run: |
+          trap 'docker logs mal-service-smoke; docker rm --force mal-service-smoke' EXIT
+          docker run --detach --name mal-service-smoke \
+            --publish 127.0.0.1:8000:8000 \
+            --env APP_ENV=test \
+            --env MONGODB_SETTINGS=mongodb://127.0.0.1:27017/mal_runtime_smoke \
+            mal-service:ci
+          response=$(curl --fail --silent --show-error --retry 10 --retry-delay 1 \
+            --retry-connrefused --retry-all-errors --retry-max-time 30 --max-time 5 \
+            http://127.0.0.1:8000/resetPwd/runtime-smoke)
+          printf '%s' "$response" | grep -F 'value="runtime-smoke"'
 
   gate:
     name: Quality gate
