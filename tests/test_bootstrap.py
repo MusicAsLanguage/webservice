@@ -5,9 +5,11 @@ from unittest.mock import Mock, patch
 
 import pytest
 from mongoengine import get_db
+from pymongo.errors import ConfigurationError
 
 from app import create_app
 from config import load_config
+from database.db import initialize_db
 from tests.base_case import BaseCase
 
 
@@ -16,9 +18,40 @@ def test_import_does_not_connect_or_import_whisper():
         sys.executable, "-c",
         "import sys; import app; from mongoengine.connection import _connections; "
         "assert not _connections; assert 'whisper' not in sys.modules; "
-        "assert 'torch' not in sys.modules",
+        "assert 'torch' not in sys.modules; assert 'flask_mongoengine' not in sys.modules",
     ], capture_output=True, text=True, timeout=30)
     assert result.returncode == 0, result.stderr
+
+
+@pytest.mark.parametrize("settings,expected", [
+    (
+        "mongodb://localhost/service",
+        {"host": "mongodb://localhost/service", "serverSelectionTimeoutMS": 5000},
+    ),
+    (
+        {"db": "service", "host": "mongodb://localhost", "connect": False},
+        {
+            "db": "service", "host": "mongodb://localhost", "connect": False,
+            "serverSelectionTimeoutMS": 5000,
+        },
+    ),
+    (
+        {"host": "mongodb://localhost/service", "serverSelectionTimeoutMS": 1234},
+        {"host": "mongodb://localhost/service", "serverSelectionTimeoutMS": 1234},
+    ),
+])
+def test_direct_mongoengine_connection_preserves_settings(settings, expected):
+    original = settings.copy() if isinstance(settings, dict) else settings
+    with patch("database.db.connect") as connect:
+        assert initialize_db(settings) is connect.return_value
+        connect.assert_called_once_with(**expected)
+    assert settings == original
+
+
+def test_direct_mongoengine_configuration_errors_are_not_hidden():
+    with patch("database.db.connect", side_effect=ConfigurationError("invalid configuration")):
+        with pytest.raises(ConfigurationError, match="invalid configuration"):
+            initialize_db("mongodb://localhost/service")
 
 
 def test_configuration_is_read_at_factory_time(monkeypatch):
