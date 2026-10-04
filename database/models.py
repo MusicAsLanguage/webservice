@@ -8,7 +8,8 @@ class User(Document):
     name = StringField(required=True, max_length=100)
     email = EmailField(required=True, unique=True, max_length=100)
     password = StringField(required=True, min_length=6, max_length=100)
-    score = IntField(required=False, default=0)
+    score = IntField(required=False, default=0, min_value=0)
+    auth_version = IntField(default=0, min_value=0)
     UpdateTime = DateTimeField(required=False, default=datetime.utcnow)
 
     def hash_password(self):
@@ -82,21 +83,23 @@ class Program(Document):
     RewardConfig = EmbeddedDocumentField(RewardConfig)
 
 class ActivityStatus(Document):
+    meta = {"indexes": [{"fields": ["User", "ActivityId", "LessonId"], "unique": True}]}
     #scale 0-10, 0 means not started, 10 means completed
-    CompletionStatus = IntField(required=True)
+    CompletionStatus = IntField(required=True, min_value=0, max_value=10)
     User = ReferenceField(User, required=True, dbref=True)
     ActivityId = IntField(required=True)
     LessonId = IntField(required=True)
-    Repeats = IntField(required=False, default=0)
+    Repeats = IntField(required=False, default=0, min_value=0)
     UpdateTime = DateTimeField(required=False, default=datetime.utcnow)
 
 class SongPlayingStatus(Document):   
+    meta = {"indexes": [{"fields": ["User", "SongName"], "unique": True}]}
     User = ReferenceField(User, required=True, dbref=True)
     SongName = StringField(required=True, max_length=128)
     Category = StringField(required=True, max_length=50)
     #scale 0-10, 0 means not started, 10 means completed
-    CompletionStatus = IntField(required=True)
-    Repeats = IntField(required=False, default=0)
+    CompletionStatus = IntField(required=True, min_value=0, max_value=10)
+    Repeats = IntField(required=False, default=0, min_value=0)
     UpdateTime = DateTimeField(required=False, default=datetime.utcnow)
 
 class IncomeMessage(Document):

@@ -5,14 +5,12 @@
 
 version: 2
 updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "daily"
-    assignees: # Specify assignees for pull requests
-      - '${{secrets.PR_APPROVER_1}}'
-      - '${{secrets.PR_APPROVER_2}}'
-    reviewers: # Specify reviewers for pull requests
-      - '${{secrets.PR_APPROVER_1}}'
-      - '${{secrets.PR_APPROVER_2}}'

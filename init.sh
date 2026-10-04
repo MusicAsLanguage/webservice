@@ -5,4 +5,6 @@ echo "Starting SSH ..."
 service ssh start
 
 cd /app
-python app.py
+exec gunicorn --bind 0.0.0.0:8000 --workers "${WEB_CONCURRENCY:-1}" \
+    --worker-class gthread --threads 4 --timeout 180 \
+    --access-logfile - --error-logfile - wsgi:app
