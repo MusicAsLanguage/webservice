@@ -122,7 +122,10 @@ external email provider or mailbox.
 Both PR-to-test and main-to-PPE workflows call the reusable
 `.github/workflows/checks.yml` workflow **before** building, pushing, or deploying.
 It requires Ruff, the complete pytest suite against both mongomock and MongoDB 7,
-and at least **90% combined statement/branch coverage**. A failed, cancelled, or
+at least **90% combined statement/branch coverage**, and a production container
+build with runtime import/tool smoke checks. The container check installs the
+real speech dependencies without downloading model weights, catching packaging
+failures that injected transcription tests cannot detect. A failed, cancelled, or
 skipped check cannot satisfy the final `Quality gate` job. Tests do not need
 deployment secrets; fork and Dependabot PRs run checks but skip deployment.
 

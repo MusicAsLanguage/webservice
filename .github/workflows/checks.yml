@@ -59,10 +59,24 @@ jobs:
           name: coverage-${{ matrix.database }}
           path: coverage.xml
 
+  container:
+    name: Container build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build production image
+        run: docker build --tag mal-service:ci .
+      - name: Smoke-test installed runtime dependencies
+        run: |
+          docker run --rm --entrypoint python mal-service:ci -c "import whisper; import app"
+          docker run --rm --entrypoint ffmpeg mal-service:ci -version
+          docker run --rm --entrypoint gunicorn mal-service:ci --version
+
   gate:
     name: Quality gate
     if: ${{ always() }}
-    needs: [lint, tests]
+    needs: [lint, tests, container]
     runs-on: ubuntu-latest
     timeout-minutes: 1
     steps:
@@ -70,4 +84,8 @@ jobs:
         env:
           LINT_RESULT: ${{ needs.lint.result }}
           TEST_RESULT: ${{ needs.tests.result }}
-        run: test "$LINT_RESULT" = success && test "$TEST_RESULT" = success
+          CONTAINER_RESULT: ${{ needs.container.result }}
+        run: |
+          test "$LINT_RESULT" = success &&
+          test "$TEST_RESULT" = success &&
+          test "$CONTAINER_RESULT" = success
