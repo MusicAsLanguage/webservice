@@ -1,9 +1,12 @@
 # MusicAsLanguage web service
 
 Flask/MongoEngine API for lessons, progress, accounts, messages, and speech scoring.
-Python 3.12 is the supported development, deployment, and CI runtime. NumPy 2.5.3
-requires Python 3.12 or newer; recreate existing Python 3.11 virtual environments
-with Python 3.12 before installing the updated dependencies.
+Standard (GIL-enabled) CPython 3.14 is the supported development, deployment, and
+CI runtime; free-threaded builds are not supported. Recreate virtual environments
+built with an older interpreter using Python 3.14 before installing dependencies.
+The development requirements use pytest 8.4.2 and Ruff 0.14.14 for supported
+Python 3.14 testing and linting. Runtime dependency pins, including NumPy 2.5.3
+and Whisper 20250625, are unchanged.
 
 The service uses Flask 3.1.3, Werkzeug 3.1.9, and MongoEngine 0.29.3 directly.
 The obsolete `flask-mongoengine` wrapper was removed in
@@ -19,14 +22,14 @@ Flask's default JSON provider and the existing API serialization are unchanged.
 Create a virtual environment and install the development dependencies:
 
 ```powershell
-py -3.12 -m venv .venv
+py -3.14 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements-dev.txt
 python -m pytest --cov --cov-report=term-missing
 ruff check .
 ```
 
-On Linux, create the environment with `python3.12 -m venv .venv` and activate it
+On Linux, create the environment with `python3.14 -m venv .venv` and activate it
 with `source .venv/bin/activate`; the pip, pytest, and Ruff commands are the same.
 Windows CMD users can use `setup_venv.bat` and `test.bat`.
 
@@ -152,13 +155,21 @@ failures that injected transcription tests cannot detect. A failed, cancelled, o
 skipped check cannot satisfy the final `Quality gate` job. Tests do not need
 deployment secrets; fork and Dependabot PRs run checks but skip deployment.
 
+The container gate also verifies the standard Python 3.14 interpreter and starts
+the actual production entrypoint, including SSH and Gunicorn's threaded workers.
+A bounded HTTP request must render the password-reset form with its supplied
+token. This startup smoke uses test configuration and a container-local MongoDB
+URI; rendering the form does not access MongoDB, send email, or download a model.
+The smoke container is logged and removed on both success and failure. Full API
+behavior and readiness are covered separately against both database backends.
+
 To also block merging failing PRs, configure the repository's `main` branch
 ruleset/protection to require the `Checks / Quality gate` status check after its
 first run. Workflow dependencies gate deployment; they do not themselves change
 GitHub branch-protection settings.
 
-The container uses the official `python:3.12-slim` image from Docker Hub; the
-previous Microsoft mirror does not provide the Python 3.12 slim tag.
+The container uses the official `python:3.14-slim` image from Docker Hub, not a
+Microsoft mirror or Azure's built-in Python stack.
 It uses Gunicorn rather than Flask's development server, with one
 worker and four threads by default. `WEB_CONCURRENCY` controls worker count;
 each worker loads its own speech model, so size this against available memory.
