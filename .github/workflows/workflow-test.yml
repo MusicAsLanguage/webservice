@@ -22,7 +22,7 @@ jobs:
     env:
       AZURE_WEBAPP_NAME: mal-test
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: azure/docker-login@v2
         with:
           login-server: malcontainerregistry.azurecr.io

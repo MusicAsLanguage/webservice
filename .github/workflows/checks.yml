@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
-          python-version: '3.11'
+          python-version: '3.12'
           cache: pip
           cache-dependency-path: |
             requirements.txt
@@ -44,17 +44,17 @@ jobs:
     env:
       TEST_MONGODB_URI: ${{ matrix.database == 'mongodb' && 'mongodb://127.0.0.1:27017' || '' }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
-          python-version: '3.11'
+          python-version: '3.12'
           cache: pip
           cache-dependency-path: |
             requirements.txt
             requirements-dev.txt
       - run: python -m pip install -r requirements-dev.txt
       - run: python -m pytest --cov --cov-report=term-missing --cov-report=xml -q
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: coverage-${{ matrix.database }}
           path: coverage.xml
@@ -64,12 +64,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Build production image
         run: docker build --tag mal-service:ci .
       - name: Smoke-test installed runtime dependencies
         run: |
+          docker run --rm --entrypoint python mal-service:ci -m pip check
           docker run --rm --entrypoint python mal-service:ci -c "import whisper; import app"
+          docker run --rm --entrypoint python mal-service:ci -c "import numpy as np; import whisper; audio = np.zeros(16000, dtype=np.float32); mel = whisper.log_mel_spectrogram(audio); assert tuple(mel.shape) == (80, 100); assert mel.isfinite().all()"
           docker run --rm --entrypoint ffmpeg mal-service:ci -version
           docker run --rm --entrypoint gunicorn mal-service:ci --version
 

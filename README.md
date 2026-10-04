@@ -1,21 +1,23 @@
 # MusicAsLanguage web service
 
 Flask/MongoEngine API for lessons, progress, accounts, messages, and speech scoring.
-Python 3.11 is the supported deployment and CI runtime.
+Python 3.12 is the supported development, deployment, and CI runtime. NumPy 2.5.3
+requires Python 3.12 or newer; recreate existing Python 3.11 virtual environments
+with Python 3.12 before installing the updated dependencies.
 
 ## Development and tests
 
 Create a virtual environment and install the development dependencies:
 
 ```powershell
-py -3.11 -m venv .venv
+py -3.12 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements-dev.txt
 python -m pytest --cov --cov-report=term-missing
 ruff check .
 ```
 
-On Linux, create the environment with `python3.11 -m venv .venv` and activate it
+On Linux, create the environment with `python3.12 -m venv .venv` and activate it
 with `source .venv/bin/activate`; the pip, pytest, and Ruff commands are the same.
 Windows CMD users can use `setup_venv.bat` and `test.bat`.
 
@@ -123,8 +125,10 @@ Both PR-to-test and main-to-PPE workflows call the reusable
 `.github/workflows/checks.yml` workflow **before** building, pushing, or deploying.
 It requires Ruff, the complete pytest suite against both mongomock and MongoDB 7,
 at least **90% combined statement/branch coverage**, and a production container
-build with runtime import/tool smoke checks. The container check installs the
-real speech dependencies without downloading model weights, catching packaging
+build with dependency consistency, runtime import/tool, and Whisper audio-processing
+smoke checks. The container check installs the real speech dependencies and converts
+a NumPy audio array into a finite, correctly shaped Whisper mel spectrogram without
+downloading model weights, catching packaging and NumPy/PyTorch compatibility
 failures that injected transcription tests cannot detect. A failed, cancelled, or
 skipped check cannot satisfy the final `Quality gate` job. Tests do not need
 deployment secrets; fork and Dependabot PRs run checks but skip deployment.
@@ -134,7 +138,9 @@ ruleset/protection to require the `Checks / Quality gate` status check after its
 first run. Workflow dependencies gate deployment; they do not themselves change
 GitHub branch-protection settings.
 
-The container uses Gunicorn rather than Flask's development server, with one
+The container uses the official `python:3.12-slim` image from Docker Hub; the
+previous Microsoft mirror does not provide the Python 3.12 slim tag.
+It uses Gunicorn rather than Flask's development server, with one
 worker and four threads by default. `WEB_CONCURRENCY` controls worker count;
 each worker loads its own speech model, so size this against available memory.
 The readiness endpoint checks MongoDB, not email-provider or model availability.

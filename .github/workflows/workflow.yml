@@ -20,7 +20,7 @@ jobs:
       AZURE_WEBAPP_NAME: malservice
       SLOT_NAME: ppe
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: azure/docker-login@v2
         with:
           login-server: malcontainerregistry.azurecr.io
