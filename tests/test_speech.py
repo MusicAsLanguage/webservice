@@ -77,6 +77,59 @@ def test_upload_size_is_limited(app, client, case, login):
     case.transcriber.assert_not_called()
 
 
+@pytest.mark.parametrize("size", [500_001, 10 * 1024 * 1024 - 1024])
+def test_large_audio_is_not_rejected_by_non_file_field_limit(app, client, case, login, size):
+    headers, _, user_id = login()
+    assert app.config["MAX_FORM_MEMORY_SIZE"] == 500_000
+    assert app.config["MAX_CONTENT_LENGTH"] == 10 * 1024 * 1024
+    audio = b"a" * size
+    paths = []
+
+    def transcribe(path, maximum):
+        assert path.read_bytes() == audio
+        paths.append(path)
+        return "hello"
+
+    case.transcriber.side_effect = transcribe
+    form = {"speech_text": "hello", "music_file": (io.BytesIO(audio), "audio.wav")}
+    response = client.post("/api/user/speechScore", headers=headers, data=form)
+    assert response.status_code == 200
+    assert response.json == {"text": "hello", "score": 10}
+    assert User.objects.get(id=user_id).score == 10
+    case.transcriber.assert_called_once()
+    assert all(not path.parent.exists() for path in paths)
+
+
+@pytest.mark.parametrize("limit", ["field", "parts", "request"])
+def test_default_multipart_limits_return_json_without_scoring(app, client, case, login, limit):
+    headers, _, user_id = login()
+    form = speech_data()
+    if limit == "field":
+        assert app.config["MAX_FORM_MEMORY_SIZE"] == 500_000
+        form["speech_text"] = "x" * 500_001
+    elif limit == "parts":
+        assert app.config["MAX_FORM_PARTS"] == 1000
+        form.update({f"extra_{index}": "x" for index in range(999)})
+    else:
+        assert app.config["MAX_CONTENT_LENGTH"] == 10 * 1024 * 1024
+        form["music_file"] = (io.BytesIO(b"a" * (10 * 1024 * 1024)), "audio.wav")
+
+    response = client.post("/api/user/speechScore", headers=headers, data=form)
+    assert response.status_code == 413
+    assert response.json == {"message": "The data value transmitted exceeds the capacity limit."}
+    case.transcriber.assert_not_called()
+    assert User.objects.get(id=user_id).score == 0
+
+
+def test_speech_text_limit_counts_unicode_characters(client, case, login):
+    headers, _, _ = login()
+    text = "\u00e9" * 2000
+    case.transcriber.return_value = text
+    response = client.post("/api/user/speechScore", headers=headers, data=speech_data(text))
+    assert response.status_code == 200
+    assert response.json == {"text": text, "score": 10}
+
+
 def test_concurrent_speech_rewards_are_not_lost(app, login):
     headers, _, user_id = login()
 

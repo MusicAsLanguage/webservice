@@ -5,6 +5,15 @@ Python 3.12 is the supported development, deployment, and CI runtime. NumPy 2.5.
 requires Python 3.12 or newer; recreate existing Python 3.11 virtual environments
 with Python 3.12 before installing the updated dependencies.
 
+The service uses Flask 3.1.3, Werkzeug 3.1.9, and MongoEngine 0.29.3 directly.
+The obsolete `flask-mongoengine` wrapper was removed in
+[the direct MongoEngine migration](https://github.com/MusicAsLanguage/webservice/commit/5ffdd2061595a0c098cf0b63b3d2636f869581a5)
+and is not required. `database.db.initialize_db` passes a MongoDB URI or a copied
+settings dictionary to `mongoengine.connect`, preserving explicit options and
+defaulting `serverSelectionTimeoutMS` to 5,000 ms. Connections remain available
+across requests; the test fixtures explicitly disconnect after database cleanup.
+Flask's default JSON provider and the existing API serialization are unchanged.
+
 ## Development and tests
 
 Create a virtual environment and install the development dependencies:
@@ -63,8 +72,18 @@ The model loads lazily on the first valid speech request, once per process.
 Provision/cache Whisper's `tiny` model before serving traffic if outbound model
 downloads are unavailable. Only one transcription runs per process; concurrent
 speech requests receive 503 rather than accumulating in an unbounded queue.
-Uploads are limited to 10 MiB, audio to 120 seconds, and text to 2,000 characters.
+Upload requests, including their multipart envelope, are limited to 10 MiB,
+audio to 120 seconds, and text to 2,000 characters.
 Temporary audio is removed on success and failure; raw transcripts are not logged.
+
+The [Flask 3.1 multipart parser defaults](https://flask.palletsprojects.com/en/stable/config/#MAX_FORM_MEMORY_SIZE)
+are retained: each non-file field is limited to 500,000 bytes and a request to
+1,000 parts (`MAX_FORM_MEMORY_SIZE` and `MAX_FORM_PARTS`). Exceeding either parser
+limit or the total request limit returns the existing JSON error shape with HTTP
+413 before transcription or scoring. Audio files larger than 500,000 bytes remain
+accepted within the total request limit; the field limit is not a file-size limit.
+The application's 2,000-character speech-text validation still returns HTTP 400
+for text that passes parsing but exceeds that application limit.
 
 The development Docker helpers forward `MONGODB_SETTINGS` and `SEND_GRID_KEY`
 from the caller instead of embedding database credentials. For Docker Desktop,
