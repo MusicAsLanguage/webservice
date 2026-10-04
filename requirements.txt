@@ -1,10 +1,10 @@
 flask==3.0.3
 Flask-Caching==2.3.0
-mongoengine==0.29.1
+mongoengine==0.29.3
 Flask-Bcrypt==1.0.1
 flask-jwt-extended==4.6.0
 flask-restful==0.3.10
-sendgrid==6.11.0
+sendgrid==6.12.5
 Werkzeug==3.0.1
 WTForms==3.1.2
 gunicorn==23.0.0; sys_platform != "win32"
