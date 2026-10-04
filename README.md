@@ -138,7 +138,9 @@ ruleset/protection to require the `Checks / Quality gate` status check after its
 first run. Workflow dependencies gate deployment; they do not themselves change
 GitHub branch-protection settings.
 
-The container uses Gunicorn rather than Flask's development server, with one
+The container uses the official `python:3.12-slim` image from Docker Hub; the
+previous Microsoft mirror does not provide the Python 3.12 slim tag.
+It uses Gunicorn rather than Flask's development server, with one
 worker and four threads by default. `WEB_CONCURRENCY` controls worker count;
 each worker loads its own speech model, so size this against available memory.
 The readiness endpoint checks MongoDB, not email-provider or model availability.

@@ -53,7 +53,7 @@ def test_container_gate_builds_image_and_imports_real_speech_dependencies():
 
 def test_development_ci_and_container_use_numpy_compatible_python():
     root = WORKFLOWS.parents[1]
-    assert (root / "Dockerfile").read_text().splitlines()[0].endswith("python:3.12-slim")
+    assert (root / "Dockerfile").read_text().splitlines()[0] == "FROM python:3.12-slim"
     config = tomllib.loads((root / "pyproject.toml").read_text())
     assert config["tool"]["ruff"]["target-version"] == "py312"
     assert "py -3.12 -m venv .venv" in (root / "setup_venv.bat").read_text()

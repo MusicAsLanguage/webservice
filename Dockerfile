@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/mirror/docker/library/python:3.12-slim
+FROM python:3.12-slim
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends ffmpeg openssh-server dialog \
