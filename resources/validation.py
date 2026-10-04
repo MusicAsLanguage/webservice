@@ -22,12 +22,20 @@ def json_body(required, optional=()):
 def text(value, maximum=100):
     if not isinstance(value, str) or not value.strip() or len(value) > maximum:
         raise SchemaValidationError
-    return value
+    return unicode_text(value)
 
 
-def password_value(value):
-    if not isinstance(value, str) or not 6 <= len(value) <= 100:
+def password_value(value, minimum=6):
+    if not isinstance(value, str) or not minimum <= len(value) <= 100:
         raise SchemaValidationError
+    return unicode_text(value)
+
+
+def unicode_text(value):
+    try:
+        value.encode("utf-8")
+    except UnicodeEncodeError:
+        raise SchemaValidationError from None
     return value
 
 

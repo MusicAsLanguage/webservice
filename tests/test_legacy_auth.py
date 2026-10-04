@@ -67,6 +67,20 @@ def test_unicode_passwords_are_not_normalized_or_prefix_compared(client):
     assert client.post("/api/auth/login", json={**payload, "password": "e\u0301" * 40}).status_code == 401
 
 
+@pytest.mark.parametrize("password", ["valid\ud800", "valid\udfff", None, "", "x" * 101])
+def test_invalid_password_encodings_are_client_errors_without_mutation(app, client, login, password):
+    _, _, user_id = login()
+    original = User.objects.get(id=user_id).password
+    for path, payload in [
+        ("/api/auth/signup", {"name": "New", "email": "new@example.test"}),
+        ("/api/auth/login", {"email": "jane@example.test"}),
+        ("/api/auth/resetPwd", {"reset_token": reset_token(app, user_id)}),
+    ]:
+        response = client.post(path, json={**payload, "password": password})
+        assert response.status_code == 400
+    assert User.objects.count() == 1 and User.objects.get(id=user_id).password == original
+
+
 def test_reset_never_persists_plaintext(app, client, login, monkeypatch):
     _, _, user_id = login()
     collection = User._get_collection()

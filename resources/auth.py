@@ -8,7 +8,7 @@ from flask_restful import Resource
 from mongoengine.errors import NotUniqueError
 
 from database.models import User
-from resources.errors import EmailAlreadyExistsError, SchemaValidationError, UnauthorizedError
+from resources.errors import EmailAlreadyExistsError, UnauthorizedError
 from resources.validation import LEGACY_USER_FIELDS, json_body, password_value, text
 from services.auth_service import access_identity, user_claims
 
@@ -33,9 +33,7 @@ class SignupApi(Resource):
 class LoginApi(Resource):
     def post(self):
         body = json_body({"email", "password"}, LEGACY_USER_FIELDS)
-        email, password = text(body["email"]), body["password"]
-        if not isinstance(password, str) or not 1 <= len(password) <= 100:
-            raise SchemaValidationError
+        email, password = text(body["email"]), password_value(body["password"], minimum=1)
         user = User.objects(email=email).first()
         if user is None or not user.check_password(password):
             raise UnauthorizedError

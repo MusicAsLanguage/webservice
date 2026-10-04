@@ -264,6 +264,7 @@ def test_documented_message_boundary(client, login):
     headers, _, _ = login()
     assert client.post("/api/msg/send", headers=headers, json={"Msg": "x" * 10000}).status_code == 200
     assert client.post("/api/msg/send", headers=headers, json={"Msg": "x" * 10001}).status_code == 400
+    assert client.post("/api/msg/send", headers=headers, json={"Msg": "bad\ud800"}).status_code == 400
 
 
 def test_score_and_message_ownership_cannot_be_selected_by_legacy_metadata(client, login):
