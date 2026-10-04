@@ -1,79 +1,76 @@
-from flask import Flask, request, Response, render_template, flash
-from flask_bcrypt import Bcrypt
-from flask_jwt_extended import JWTManager
-from flask_restful import Api
-
 import logging
-import logging.config
 import os
-from database.db import initialize_db
-from resources.errors import errors
-from resources.reset_pwd_form import PasswordResetForm
-from jwt.exceptions import DecodeError, InvalidTokenError
+
+from flask import Flask, Response, current_app, flash, render_template, request
+from flask_bcrypt import Bcrypt
+from flask_jwt_extended import JWTManager, jwt_required
+from mongoengine import get_db
+
 from cache import cache
-import config
-
-logging.config.fileConfig("logging.conf")
-logger = logging.getLogger("web")
-
-
-app = Flask(__name__)
-
-configs = {
-    "dev": config.DevelopmentConfig,
-    "test": config.TestingConfig,
-    "prod": config.ProductionConfig
-}
-
-#get APP_ENV from environment setting, dev/test/prod, default to dev if not set
-env = os.getenv('APP_ENV', 'test')
-logger.info("Running mode:" + env)
-app.config.from_object(configs[env])
-
-api = Api(app, errors=errors)
-bcrypt = Bcrypt(app)
-jwt = JWTManager(app)
-
-initialize_db(app.config['MONGODB_SETTINGS'])
-logger.info("DB connected!")
-
-from resources.routes import initialize_routes
-initialize_routes(api)
-
-app.config['CACHE_TYPE'] = 'simple'
-cache.init_app(app)
-
-@app.route("/clearCache")
-def clear_cache():
-    with app.app_context():
-        cache.clear()
-    return Response("Cache cleared!", status=200, mimetype='application/json')
-
-@app.route("/resetPwd/<token>", methods=["GET"])
-def reset_pwd_form(token):
-    form = PasswordResetForm(reset_token=token)
-    return render_template('web/pwd_reset.html', form=form)
-
+from config import load_config, validate_config
+from database.db import initialize_db
+from database.maintenance import prepare_indexes
 from database.utils import db_reset_pwd
-@app.route("/resetPwd", methods=["POST"])
-def reset_pwd_action():
-    form = PasswordResetForm(request.form)    
-    password = request.form['password']
-    token = request.form['reset_token']
-    if form.validate():
-        try:
-            db_reset_pwd(token, password)
-        except (DecodeError, InvalidTokenError):
-            flash('Error: Invalid reset token, please request password reset again in the app.')
-        except Exception as e:
-            flash('Error: Unknown server error, please request password reset again in the app.')
-        # Save the comment here.
-        flash('Password has been reset!')
-    else:
-        flash('Error: Password length must >= 6 and <= 100!')
-    
-    return render_template('web/pwd_reset.html', form=form)
+from resources.errors import ApiError, ServiceApi, error_response
+from resources.reset_pwd_form import PasswordResetForm
+from resources.routes import initialize_routes
+from services.auth_service import initialize_jwt, require_admin
+from services.speech_service import WhisperTranscriber
+
+
+def create_app(environment=None, overrides=None):
+    environment = environment or os.getenv("APP_ENV", "dev")
+    app = Flask(__name__)
+    app.config.from_mapping(load_config(environment))
+    app.config.update(overrides or {})
+    validate_config(app, environment)
+
+    Bcrypt(app)
+    initialize_jwt(JWTManager(app))
+    initialize_db(app.config["MONGODB_SETTINGS"])
+    cache.init_app(app)
+    app.extensions["transcriber"] = app.config.get("TRANSCRIBER") or WhisperTranscriber()
+    initialize_routes(ServiceApi(app))
+    app.cli.add_command(prepare_indexes)
+    app.register_error_handler(Exception, error_response)
+
+    @app.get("/health/ready")
+    def ready():
+        get_db().command("ping")
+        return {"status": "ready"}
+
+    @app.get("/clearCache")
+    @jwt_required()
+    def clear_cache():
+        require_admin()
+        cache.clear()
+        return Response("Cache cleared!", status=200, mimetype="application/json")
+
+    @app.get("/resetPwd/<token>")
+    def reset_pwd_form(token):
+        form = PasswordResetForm(reset_token=token)
+        return render_template("web/pwd_reset.html", form=form)
+
+    @app.post("/resetPwd")
+    def reset_pwd_action():
+        form = PasswordResetForm(request.form)
+        if form.validate():
+            try:
+                db_reset_pwd(form.reset_token.data, form.password.data)
+            except ApiError as error:
+                flash(f"Error: {error.message}")
+            except Exception:
+                current_app.logger.exception("Password reset failed")
+                flash("Error: Unknown server error, please request password reset again in the app.")
+            else:
+                flash("Password has been reset!")
+        else:
+            flash("Error: A reset token and a password of 6 to 100 characters are required.")
+        return render_template("web/pwd_reset.html", form=form)
+
+    return app
+
 
 if __name__ == "__main__":
-    logger.info("server starts at port 8000")
-    app.run(host='0.0.0.0', port=8000)
+    logging.basicConfig(level=logging.INFO)
+    create_app().run(host="0.0.0.0", port=8000)

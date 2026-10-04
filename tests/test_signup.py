@@ -43,8 +43,8 @@ class TestUserSignup(BaseCase):
         response = self.app.post('/api/auth/signup', headers={"Content-Type": "application/json"}, data=payload)
 
         # Then
-        self.assertEqual("Something went wrong", response.json['message'])
-        self.assertEqual(500, response.status_code)
+        self.assertEqual("Request is missing required fields", response.json['message'])
+        self.assertEqual(400, response.status_code)
 
     def test_signup_without_password(self):
         #Given
@@ -56,8 +56,8 @@ class TestUserSignup(BaseCase):
         response = self.app.post('/api/auth/signup', headers={"Content-Type": "application/json"}, data=payload)
 
         # Then
-        self.assertEqual('Something went wrong', response.json['message'])
-        self.assertEqual(500, response.status_code)
+        self.assertEqual('Request is missing required fields', response.json['message'])
+        self.assertEqual(400, response.status_code)
 
     def test_creating_already_existing_user(self):
         #Given

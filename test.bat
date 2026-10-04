@@ -1,2 +1,3 @@
-set APP_ENV=test
-.venv\scripts\activate & python -m unittest
+@echo off
+.venv\Scripts\python.exe -m pytest --cov --cov-report=term-missing %*
+exit /b %ERRORLEVEL%

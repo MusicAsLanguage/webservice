@@ -1,2 +1,2 @@
 set APP_ENV=dev
-.venv\scripts\activate & flask run
+.venv\Scripts\python.exe -m flask --app app:create_app run --port 8000

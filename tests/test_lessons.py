@@ -1,5 +1,4 @@
 import json
-import os
 from tests.base_case import BaseCase
 
 class TestLessonsAPI(BaseCase):
