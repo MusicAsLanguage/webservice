@@ -73,11 +73,16 @@ python -m pip install -r requirements-speech.txt
 
 The model loads lazily on the first valid speech request, once per process.
 Provision/cache Whisper's `tiny` model before serving traffic if outbound model
-downloads are unavailable. Only one transcription runs per process; concurrent
-speech requests receive 503 rather than accumulating in an unbounded queue.
+downloads are unavailable. Only one speech request parses/saves audio, decodes, and transcribes per process;
+concurrent speech requests receive 503 before multipart parsing rather than
+accumulating files or waiting in an unbounded queue. The lazy model also retains
+its own inference lock.
 Upload requests, including their multipart envelope, are limited to 10 MiB,
 audio to 120 seconds, and text to 2,000 characters.
 Temporary audio is removed on success and failure; raw transcripts are not logged.
+`MAX_SPEECH_UPLOAD_BYTES` applies only to speech, not lesson publication or other
+JSON APIs. An explicitly configured Flask `MAX_CONTENT_LENGTH` can impose a
+smaller deployment-wide limit; no deployment-wide limit is set by this service.
 
 The [Flask 3.1 multipart parser defaults](https://flask.palletsprojects.com/en/stable/config/#MAX_FORM_MEMORY_SIZE)
 are retained: each non-file field is limited to 500,000 bytes and a request to
@@ -94,7 +99,15 @@ use `host.docker.internal` instead of `localhost` in the database URI.
 
 ## API compatibility and behavior
 
-Existing API routes, field casing, and success response shapes are retained:
+Compatibility means the following legacy methods, field casing, valid payload
+encodings, success status/envelopes, and MongoEngine extended-JSON shapes remain
+supported. It does **not** mean restoring insecure behavior or accepting every
+input that accidentally succeeded before validation existed. The frozen
+[`tests/fixtures/legacy_contracts.json`](tests/fixtures/legacy_contracts.json)
+records the pre-refactor `70e0251` source/blob IDs and independently reproduced
+model/error output. It is not regenerated from the current API. The contract
+suite exercises all 16 REST resources and all three original web routes;
+readiness is tested separately.
 
 | Request | Example body / behavior |
 |---|---|
@@ -103,12 +116,63 @@ Existing API routes, field casing, and success response shapes are retained:
 | `POST /api/auth/tokenRefresh` | Refresh token in the Bearer authorization header |
 | `GET /api/lesson/getLessons` | Public lesson metadata |
 | `POST /api/lesson/createLessons` | Administrator-only array of programs |
+| `POST /api/auth/forgotPwd` | `{"email":"jane@example.com"}`; `{"status":"Password reset email has been sent to jane@example.com"}` |
+| `POST /api/auth/resetPwd` | `{"reset_token":"...","password":"new-password"}`; `{"status":"Password reset was successful!"}` |
+| `GET /api/activity/getStatus` | Array of the caller's activity records |
+| `POST /api/activity/updateStatus` | `{"ActivityId":"1","LessonId":"2","CompletionStatus":"5"}`; `{"id":"<object-id>"}` |
+| `GET /api/activity/getSongPlayingStatus` | Array of the caller's song records |
+| `POST /api/activity/updateSongPlayingStatus` | `{"SongName":"Song","Category":"Beginner","CompletionStatus":5}`; `{"id":"<object-id>"}` |
+| `GET /api/user/getUserScore` | `{"score":0}` |
+| `POST /api/user/updateUserScore` | `{"score":"100"}` replaces the caller's score; `{"success":true}` |
+| `DELETE /api/user/deleteUserAndData` | `{"success":true}` after stored account data is deleted |
+| `POST /api/msg/send` | `{"Msg":"Hello"}`; `{"id":"<object-id>"}` |
+| `POST /api/user/speechScore` | Multipart `speech_text` and `music_file`; `{"text":"recognized text","score":10}` |
+| `GET /clearCache` | Exact administrator membership required; literal `Cache cleared!`, legacy JSON content type |
+| `GET /resetPwd/<token>` | HTML form containing the supplied token |
+| `POST /resetPwd` | Form `reset_token` and `password`; HTML with success **only** after a successful reset |
 | `GET /health/ready` | 200 only when MongoDB responds |
 
-Invalid/missing JSON fields now return 4xx instead of 500. Unknown or server-owned
-fields are rejected. Completion status is an integer from 0 to 10; repeats and
-scores must be nonnegative integers. Signup and reset validate passwords before
-hashing: 6 to 100 characters, with a 72-byte UTF-8 maximum imposed by bcrypt.
+Successful requests above return 200. Signup returns `{"id":"<object-id>"}`;
+login returns `token` and `refresh_token`, refresh returns `token`; publication
+returns the legacy stringified numeric array, e.g. `{"id":"[1, 2]"}`.
+Lists remain arrays, IDs use `{"$oid":"..."}`, references use
+`{"$ref":"user","$id":{"$oid":"..."}}`, and dates use integer epoch milliseconds
+in `{"$date":...}`. Program IDs are numeric, not generated ObjectIds.
+Omitted optional lesson fields are absent, not newly introduced `null` values;
+list defaults remain `[]` and activity `PracticeMode` defaults to `false`.
+
+Progress IDs, repeats and scores accept nonnegative signed-64-bit integers,
+ASCII decimal strings (including surrounding whitespace, sign and leading zeros),
+and exactly integral JSON numbers within the safe floating-point integer range
+0 through 9,007,199,254,740,991. Completion status is limited to 0 through 10.
+Booleans, fractional values, exponent/decimal strings, negative values and
+overflow are rejected instead of being truncated or silently coerced.
+`Repeats` still defaults to zero. Category is required for a new song record;
+omitting it on an existing record preserves its value. An explicit category
+change remains supported as introduced in #62; unlike the original implementation,
+it is no longer silently ignored.
+
+Known harmless metadata is accepted but **never trusted or persisted**:
+signup ignores `id`, `_id`, `UpdateTime`; login additionally ignores `name` and
+`score`; forgot/reset ignore those same user metadata fields (reset also ignores
+`email`). Progress ignores `id`, `_id`, `User`, `UpdateTime`; score ignores those
+fields plus `name`/`email`; messages ignore `id`, `_id`, `User`.
+Original model constructors accepted `id`, not `_id`; tolerating `_id` is an
+additional safe serialization-round-trip convenience. Authentication state,
+deletion fields, privileges and truly unknown fields are rejected. Initial signup
+score is server-owned. Caller-supplied IDs cannot select/overwrite another account
+or record, and caller timestamps never replace server progress timestamps.
+
+Signup/reset support **6 to 100 characters**, including Unicode and whitespace;
+there is no 72-byte rejection. New passwords use a self-versioned
+`$bcrypt-sha256$` hash: bcrypt of the hexadecimal SHA-256 of the entire UTF-8
+password. Different long suffixes are compared correctly; passwords are never
+stored in plaintext or normalized. Existing bcrypt hashes retain their historical
+72-byte truncation semantics, including a Unicode character cut at that boundary.
+Those old hashes inherently cannot distinguish suffixes after byte 72; a password
+reset migrates to full-password comparison. Login also verifies historical short
+passwords (1 to 100 characters), but new passwords must meet the 6-character
+minimum. Hash/version/lifecycle internals do not appear in access-token user JSON.
 
 New access tokens expire after one hour and refresh tokens after 30 days.
 Clients must refresh expired access tokens. Existing serialized-user identities
@@ -118,7 +182,18 @@ to invalidate that user's sessions. Signing-key rotation forces users to log in.
 
 Password-reset tokens have a separate purpose, expire after 24 hours, are
 single-use, and cannot authorize API access. Password reset invalidates both
-access and refresh tokens for the user. Old reset links must be requested again.
+access and refresh tokens for the user. A narrowly identified old reset link is
+still accepted: signed access token, plain ObjectId subject, `fresh=false`, no
+purpose/version claims, and an **exact 24-hour** issued-at-to-expiry lifetime,
+not expired, for an existing non-deleting user still at auth version zero.
+The old issuer's links therefore age out within 24 hours after that issuer is
+retired; this is not a new indefinite token format. Other purpose-less plain-ID
+access tokens are rejected, not treated as sessions. Old serialized-user access
+tokens (including no-expiry tokens) and plain-ID refresh tokens remain session-only.
+Session/refresh tokens cannot reset passwords; reset links cannot use any
+authenticated API. Missing, partial, null or ill-typed purpose/version claims
+cannot bypass these distinctions. Reused/revoked/expired/deleted-user reset links
+must be requested again.
 Failure to send a confirmation email is logged but does not undo a completed
 password change. Likewise, a saved message remains successful if its notification
 email fails; the delivery failure is logged.
@@ -138,8 +213,57 @@ invalidates the current worker immediately, and other workers expire within that
 TTL. `/clearCache` requires an exact administrator email match.
 
 Account deletion removes activity progress, song progress, and stored messages
-before deleting the user. It does not remove copies already delivered to an
-external email provider or mailbox.
+before deleting the user. It first atomically marks the user as deleting, blocking
+new authenticated work except deletion retries. Short owned-data writes acquire
+an atomic admission count on the user; deletion returns **409** while these drain
+and can be retried with the same access token. A normal write error releases its
+admission. No admission is held while transcribing or contacting email providers.
+Cleanup failure leaves the deleting user in place and returns an explicit error;
+retry resumes safely, including concurrent already-authenticated delete requests.
+Once removed, all tokens return 401 (reset links return 403), not a fake successful
+authenticated retry. A fresh login can obtain a deletion-only session when a
+partially deleted account's access token has expired.
+
+This is not a multi-document transaction or a crash-proof distributed lock.
+A worker crash or uncertain database acknowledgement can leave a nonzero
+admission count. **Never expire/reset it automatically:** a still-running writer
+could otherwise recreate records after deletion. Recovery requires stopping
+**all** API workers and any other database writers, confirming there are no
+in-flight writes, then running the account-scoped command with the intended
+environment configuration:
+
+```powershell
+flask --app app:create_app recover-deletion --user-id <object-id> --writers-stopped
+```
+
+It refuses absent/non-deleting accounts, invalid IDs and missing confirmation;
+it resets only that deleting account's count and finishes its owned-data cleanup.
+Back up data first; retry under the same outage if cleanup fails, and restart
+workers only afterward. The flag is an operator assertion, not automatic proof
+that other processes are stopped. Never use manual broad counter resets.
+Email already sent or in flight is not recalled; external mailbox/provider copies
+are outside stored-account deletion.
+
+### Intentional security and error-contract exceptions
+
+Malformed/missing JSON now returns 400 (wrong media type 415), not an accidental
+500. Established domain errors retain `{"message":"...","status":400}` (or
+401/403/409/500/503 as applicable), restoring the original Flask-RESTful mapping's
+numeric `status` field without removing #62's `message`. JWT failures deliberately
+return 401 `{"message":"Invalid or missing token"}` rather than the old RESTful
+500. HTTP/parser errors use `{"message":"..."}` and their HTTP status; reset form
+errors are rendered in HTML. Unexpected service failures are logged, not exposed
+to callers. Clients should use HTTP status and allow additive error fields.
+
+Administrator substring matches, unauthenticated cache clearing, caller-controlled
+ownership/IDs/auth state, plaintext password writes and reset-token API access
+remain prohibited. Speech requires nonblank text, at most 2,000 characters,
+10 MiB multipart requests and 120 seconds of audio; malformed/empty audio is a
+client error, overload returns 503, and total score overflow is rejected.
+Messages require nonblank text of at most **10,000 characters**; this explicit
+anti-abuse limit was not present in the original implementation. Existing clients
+depending on unsafe coercion, unrestricted messages or out-of-range inputs need
+to handle these errors; compatibility is not claimed for those cases.
 
 ## CI and deployment gates
 
@@ -187,8 +311,14 @@ Before deploying this version:
    `PUBLIC_BASE_URL` (the public HTTPS origin), and `ADMIN_USERS` (comma-separated
    exact email addresses). Production fails startup when required settings are
    absent. Keep an existing valid JWT signing key if retaining current sessions
-   is required.
+   is required. The 32-character check is a startup policy, **not** automatic key
+   rotation: strong existing values remain unchanged. Short/missing legacy
+   settings require an operator-managed upgrade; there is no zero-configuration
+   production compatibility claim. Do not rotate keys merely to deploy this code.
 3. Set `SEND_GRID_KEY` for email delivery. Missing configuration fails explicitly;
    development/tests do not silently report successful delivery.
-4. Confirm mobile clients handle refresh, the new validation responses, and the
-   documented password limits before promoting to production.
+4. Confirm mobile clients handle refresh, explicit validation/overload errors,
+   deletion retries and the documented input boundaries before promotion. Retire
+   all old writers before enabling the deletion admission protocol; an older
+   worker cannot honor its marker. New fields default safely on existing users;
+   no bulk user rewrite or password/token invalidation is required.

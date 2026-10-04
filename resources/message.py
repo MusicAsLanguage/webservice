@@ -5,16 +5,18 @@ from flask_jwt_extended import current_user, jwt_required
 from flask_restful import Resource
 
 from database.models import IncomeMessage
-from resources.validation import json_body, text
+from resources.validation import LEGACY_RECORD_FIELDS, json_body, text
 from services.mail_service import send_email
+from services.user_service import user_write
 
 
 class SendMsgApi(Resource):
     @jwt_required()
     def post(self):
-        body = json_body({"Msg"})
+        body = json_body({"Msg"}, LEGACY_RECORD_FIELDS - {"UpdateTime"})
         user = current_user._get_current_object()
-        message = IncomeMessage(Msg=text(body["Msg"], 10000), User=user).save()
+        with user_write(user):
+            message = IncomeMessage(Msg=text(body["Msg"], 10000), User=user).save()
         try:
             send_email(
                 "Message from " + user.name + "<" + user.email + ">",

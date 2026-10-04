@@ -1,7 +1,6 @@
 from copy import deepcopy
 
 import pytest
-from mongoengine.queryset import QuerySet
 
 from database.models import Program
 
@@ -59,14 +58,15 @@ def test_partial_database_failure_clears_cache_and_keeps_old_documents(client, l
     payload = [{"_id": 1, "Name": "One"}, {"_id": 2, "Name": "Two"}]
     assert client.post("/api/lesson/createLessons", headers=headers, json=payload).status_code == 200
     assert len(client.get("/api/lesson/getLessons").json) == 2
-    original = QuerySet.modify
+    collection = Program._get_collection()
+    original = collection.replace_one
 
-    def fail_second_program(query, **kwargs):
-        if kwargs.get("set__Name") == "Changed Two":
+    def fail_second_program(query, replacement, **kwargs):
+        if replacement["Name"] == "Changed Two":
             raise RuntimeError("Database write failed")
-        return original(query, **kwargs)
+        return original(query, replacement, **kwargs)
 
-    monkeypatch.setattr(QuerySet, "modify", fail_second_program)
+    monkeypatch.setattr(collection, "replace_one", fail_second_program)
     updated = [{"_id": 1, "Name": "Changed One"}, {"_id": 2, "Name": "Changed Two"}]
     assert client.post("/api/lesson/createLessons", headers=headers, json=updated).status_code == 500
     names = {item["Name"] for item in client.get("/api/lesson/getLessons").json}

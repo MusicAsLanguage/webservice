@@ -1,5 +1,6 @@
 import logging
 import os
+from threading import Lock
 
 from flask import Flask, Response, current_app, flash, render_template, request
 from flask_bcrypt import Bcrypt
@@ -9,7 +10,7 @@ from mongoengine import get_db
 from cache import cache
 from config import load_config, validate_config
 from database.db import initialize_db
-from database.maintenance import prepare_indexes
+from database.maintenance import prepare_indexes, recover_deletion
 from database.utils import db_reset_pwd
 from resources.errors import ApiError, ServiceApi, error_response
 from resources.reset_pwd_form import PasswordResetForm
@@ -30,8 +31,10 @@ def create_app(environment=None, overrides=None):
     initialize_db(app.config["MONGODB_SETTINGS"])
     cache.init_app(app)
     app.extensions["transcriber"] = app.config.get("TRANSCRIBER") or WhisperTranscriber()
+    app.extensions["speech_lock"] = Lock()
     initialize_routes(ServiceApi(app))
     app.cli.add_command(prepare_indexes)
+    app.cli.add_command(recover_deletion)
     app.register_error_handler(Exception, error_response)
 
     @app.get("/health/ready")

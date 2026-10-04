@@ -5,9 +5,10 @@ from flask_restful import Resource
 from cache import cache
 from database.models import ActivityStatus, Program, SongPlayingStatus
 from resources.errors import SchemaValidationError
-from resources.validation import integer, json_body, text
+from resources.validation import LEGACY_RECORD_FIELDS, integer, json_body, text
 from services.auth_service import require_admin
 from services.progress_service import update_progress
+from services.user_service import user_write
 
 
 @cache.cached(key_prefix="lesson_metadata")
@@ -39,13 +40,8 @@ class CreateLessonsApi(Resource):
                 raise SchemaValidationError
         try:
             for program in programs:
-                Program.objects(_id=program._id).modify(
-                    upsert=True,
-                    set__Name=program.Name,
-                    set__Description=program.Description,
-                    set__Songs=program.Songs,
-                    set__Phases=program.Phases,
-                    set__RewardConfig=program.RewardConfig,
+                Program._get_collection().replace_one(
+                    {"_id": program._id}, program.to_mongo(), upsert=True,
                 )
         finally:
             # A database failure can leave a partially applied batch; never keep its old cache.
@@ -63,7 +59,9 @@ class GetActivityStatusApi(Resource):
 class UpdateActivityStatusApi(Resource):
     @jwt_required()
     def post(self):
-        body = json_body({"CompletionStatus", "ActivityId", "LessonId"}, {"Repeats"})
+        body = json_body(
+            {"CompletionStatus", "ActivityId", "LessonId"}, {"Repeats"} | LEGACY_RECORD_FIELDS,
+        )
         status = ActivityStatus(
             User=current_user._get_current_object(),
             CompletionStatus=integer(body["CompletionStatus"], maximum=10),
@@ -72,7 +70,8 @@ class UpdateActivityStatusApi(Resource):
             Repeats=integer(body.get("Repeats", 0)),
         )
         status.validate()
-        saved = update_progress(status, ("User", "ActivityId", "LessonId"))
+        with user_write(current_user):
+            saved = update_progress(status, ("User", "ActivityId", "LessonId"))
         return {"id": str(saved.id)}, 200
 
 
@@ -86,14 +85,18 @@ class GetSongPlayingStatusApi(Resource):
 class UpdateSongPlayingStatusApi(Resource):
     @jwt_required()
     def post(self):
-        body = json_body({"CompletionStatus", "SongName", "Category"}, {"Repeats"})
+        body = json_body(
+            {"CompletionStatus", "SongName"}, {"Repeats", "Category"} | LEGACY_RECORD_FIELDS,
+        )
         status = SongPlayingStatus(
             User=current_user._get_current_object(),
             CompletionStatus=integer(body["CompletionStatus"], maximum=10),
             SongName=text(body["SongName"], 128),
-            Category=text(body["Category"], 50),
+            Category=text(body["Category"], 50) if "Category" in body else None,
             Repeats=integer(body.get("Repeats", 0)),
         )
-        status.validate()
-        saved = update_progress(status, ("User", "SongName"))
+        if "Category" in body:
+            status.validate()
+        with user_write(current_user):
+            saved = update_progress(status, ("User", "SongName"))
         return {"id": str(saved.id)}, 200

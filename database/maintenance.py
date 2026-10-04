@@ -1,7 +1,9 @@
 import click
+from bson import ObjectId
 from mongoengine import get_db
 
-from database.models import ActivityStatus, SongPlayingStatus
+from database.models import ActivityStatus, SongPlayingStatus, User
+from services.user_service import delete_account
 
 
 @click.command("prepare-indexes")
@@ -24,3 +26,19 @@ def prepare_indexes():
     ActivityStatus.ensure_indexes()
     SongPlayingStatus.ensure_indexes()
     click.echo("Progress indexes are ready")
+
+
+@click.command("recover-deletion")
+@click.option("--user-id", required=True)
+@click.option("--writers-stopped", is_flag=True, help="Confirm ALL service writers are stopped.")
+def recover_deletion(user_id, writers_stopped):
+    """Recover one interrupted deletion, only during a confirmed writer outage."""
+    if not writers_stopped:
+        raise click.ClickException("Stop ALL service writers, then pass --writers-stopped")
+    if not ObjectId.is_valid(user_id):
+        raise click.ClickException("A valid user ID is required")
+    user = User.objects(id=user_id, deletion_started=True).modify(new=True, set__active_writes=0)
+    if user is None:
+        raise click.ClickException("No deleting account has this ID; nothing was changed")
+    delete_account(user.id)
+    click.echo("Account deletion completed")

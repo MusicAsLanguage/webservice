@@ -1,6 +1,13 @@
+import math
+import re
+
 from flask import request
 
 from resources.errors import SchemaValidationError
+
+
+LEGACY_RECORD_FIELDS = {"id", "_id", "User", "UpdateTime"}
+LEGACY_USER_FIELDS = {"id", "_id", "name", "score", "UpdateTime"}
 
 
 def json_body(required, optional=()):
@@ -19,13 +26,24 @@ def text(value, maximum=100):
 
 
 def password_value(value):
-    text(value)
-    if len(value) < 6 or len(value.encode("utf-8")) > 72:
+    if not isinstance(value, str) or not 6 <= len(value) <= 100:
         raise SchemaValidationError
     return value
 
 
 def integer(value, minimum=0, maximum=2**63 - 1):
+    if isinstance(value, str):
+        value = value.strip()
+        if not re.fullmatch(r"[+-]?[0-9]+", value):
+            raise SchemaValidationError
+        digits = value.lstrip("+-").lstrip("0") or "0"
+        if len(digits) > 19:
+            raise SchemaValidationError
+        value = int(("-" if value.startswith("-") else "") + digits)
+    elif type(value) is float:
+        if not math.isfinite(value) or not value.is_integer() or abs(value) > 2**53 - 1:
+            raise SchemaValidationError
+        value = int(value)
     if type(value) is not int or value < minimum or value > maximum:
         raise SchemaValidationError
     return value

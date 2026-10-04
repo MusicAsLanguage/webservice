@@ -6,7 +6,7 @@ from database.models import User
 @pytest.mark.parametrize("payload", [
     None, [], {}, {"email": "bad"}, {"name": "Jane", "email": "bad", "password": "123456"},
     {"name": "Jane", "email": "jane@example.test", "password": "short"},
-    {"name": "Jane", "email": "jane@example.test", "password": "x" * 73},
+    {"name": "Jane", "email": "jane@example.test", "password": "x" * 101},
     {"name": "Jane", "email": "jane@example.test", "password": 123456},
     {"name": "", "email": "jane@example.test", "password": "password"},
     {"name": "Jane", "email": "jane@example.test", "password": "password", "score": 100},
@@ -20,7 +20,7 @@ def test_invalid_signup_does_not_create_user(client, payload):
     assert User.objects.count() == 0
 
 
-@pytest.mark.parametrize("value", [-1, "100", 1.5, True, None, 2**63])
+@pytest.mark.parametrize("value", [-1, "100.5", 1.5, True, None, 2**63])
 def test_score_rejects_invalid_values(client, login, value):
     headers, _, user_id = login()
     response = client.post("/api/user/updateUserScore", headers=headers, json={"score": value})
@@ -51,5 +51,5 @@ def test_unexpected_errors_are_logged_without_exposing_details(client, login, mo
     monkeypatch.setattr(User, "update", fail)
     response = client.post("/api/user/updateUserScore", headers=headers, json={"score": 1})
     assert response.status_code == 500
-    assert response.json == {"message": "Something went wrong"}
+    assert response.json == {"message": "Something went wrong", "status": 500}
     assert "private database details" in caplog.text

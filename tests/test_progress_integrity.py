@@ -30,7 +30,7 @@ def test_concurrent_progress_writes_are_unique(app, login, endpoint, model, payl
     assert saved.CompletionStatus == saved.Repeats % 11
 
 
-@pytest.mark.parametrize("value", [-1, 11, "5", 5.5, True, None])
+@pytest.mark.parametrize("value", [-1, 11, "5.5", 5.5, True, None])
 def test_progress_bounds(client, login, value):
     headers, _, _ = login()
     for endpoint, payload in [
