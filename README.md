@@ -147,16 +147,18 @@ and exactly integral JSON numbers within the safe floating-point integer range
 0 through 9,007,199,254,740,991. Completion status is limited to 0 through 10.
 Booleans, fractional values, exponent/decimal strings, negative values and
 overflow are rejected instead of being truncated or silently coerced.
-`Repeats` still defaults to zero. Category is required for a new song record;
-omitting it on an existing record preserves its value. An explicit category
+`Repeats` still defaults to zero when omitted or explicitly `null`. Category is
+required for a new song record; omitting it or sending `null` on an existing
+record preserves its value. An explicit non-null category
 change remains supported as introduced in #62; unlike the original implementation,
 it is no longer silently ignored.
 
 Known harmless metadata is accepted but **never trusted or persisted**:
 signup ignores `id`, `_id`, `UpdateTime`; login additionally ignores `name` and
-`score`; forgot/reset ignore those same user metadata fields (reset also ignores
-`email`). Progress ignores `id`, `_id`, `User`, `UpdateTime`; score ignores those
-fields plus `name`/`email`; messages ignore `id`, `_id`, `User`.
+`score`; forgot/reset ignore those same user metadata fields (forgot also ignores
+an unused `password`, while reset requires `password` and ignores `email`).
+Progress ignores `id`, `_id`, `User`, `UpdateTime`; score ignores those fields
+plus `name`/`email`/`password`; messages ignore `id`, `_id`, `User`.
 Original model constructors accepted `id`, not `_id`; tolerating `_id` is an
 additional safe serialization-round-trip convenience. Authentication state,
 deletion fields, privileges and truly unknown fields are rejected. Initial signup
@@ -173,6 +175,15 @@ Those old hashes inherently cannot distinguish suffixes after byte 72; a passwor
 reset migrates to full-password comparison. Login also verifies historical short
 passwords (1 to 100 characters), but new passwords must meet the 6-character
 minimum. Hash/version/lifecycle internals do not appear in access-token user JSON.
+
+This is **client API compatibility**, not backward readability by old server
+binaries. Once new `$bcrypt-sha256$` hashes are written, older builds without this
+verifier cannot authenticate those accounts. Do not mix old/new authentication
+workers. Any rollback must retain the new hash reader; hashes cannot be converted
+back to legacy bcrypt without the users' passwords. Deploy compatible readers
+everywhere before allowing new-format writes: pause traffic, stop old workers,
+replace all instances, then resume traffic. There is no mixed-version writer
+switch in this release.
 
 New access tokens expire after one hour and refresh tokens after 30 days.
 Clients must refresh expired access tokens. Existing serialized-user identities

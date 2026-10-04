@@ -187,6 +187,33 @@ def test_song_category_can_be_omitted_only_on_update(client, login):
     assert SongPlayingStatus.objects.first().Category == "Beginner"
     assert client.post(path, headers=headers, json={**payload, "Category": "Intermediate"}).json == first.json
     assert SongPlayingStatus.objects.first().Category == "Intermediate"
+    assert client.post(path, headers=headers, json={
+        **payload, "Category": None, "Repeats": None,
+    }).json == first.json
+    saved = SongPlayingStatus.objects.first()
+    assert saved.Category == "Intermediate" and saved.Repeats == 0
+
+
+def test_explicit_null_repeats_retains_original_zero_default(client, login):
+    headers, _, _ = login()
+    payload = {"ActivityId": 1, "LessonId": 2, "CompletionStatus": 5, "Repeats": None}
+    path = "/api/activity/updateStatus"
+    first = client.post(path, headers=headers, json=payload)
+    assert first.status_code == 200 and ActivityStatus.objects.first().Repeats == 0
+    assert client.post(path, headers=headers, json={**payload, "Repeats": 3}).json == first.json
+    assert client.post(path, headers=headers, json=payload).json == first.json
+    assert ActivityStatus.objects.first().Repeats == 0
+
+
+def test_forgot_and_score_ignore_harmless_full_user_dto_fields(client, login):
+    headers, _, user_id = login()
+    payload = deepcopy(CONTRACT["user"])
+    payload["password"] = "unused-legacy-field"
+    payload["score"] = "10"
+    assert client.post("/api/auth/forgotPwd", json=payload).status_code == 200
+    assert client.post("/api/user/updateUserScore", headers=headers, json=payload).status_code == 200
+    user = User.objects.get(id=user_id)
+    assert user.score == 10 and user.check_password("test-password")
 
 
 def test_program_replacement_preserves_baseline_missing_fields_and_clears_stale_data(client, login):

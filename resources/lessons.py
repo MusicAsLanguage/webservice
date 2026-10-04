@@ -67,7 +67,7 @@ class UpdateActivityStatusApi(Resource):
             CompletionStatus=integer(body["CompletionStatus"], maximum=10),
             ActivityId=integer(body["ActivityId"]),
             LessonId=integer(body["LessonId"]),
-            Repeats=integer(body.get("Repeats", 0)),
+            Repeats=integer(0 if body.get("Repeats") is None else body["Repeats"]),
         )
         status.validate()
         with user_write(current_user):
@@ -92,10 +92,10 @@ class UpdateSongPlayingStatusApi(Resource):
             User=current_user._get_current_object(),
             CompletionStatus=integer(body["CompletionStatus"], maximum=10),
             SongName=text(body["SongName"], 128),
-            Category=text(body["Category"], 50) if "Category" in body else None,
-            Repeats=integer(body.get("Repeats", 0)),
+            Category=text(body["Category"], 50) if body.get("Category") is not None else None,
+            Repeats=integer(0 if body.get("Repeats") is None else body["Repeats"]),
         )
-        if "Category" in body:
+        if status.Category is not None:
             status.validate()
         with user_write(current_user):
             saved = update_progress(status, ("User", "SongName"))

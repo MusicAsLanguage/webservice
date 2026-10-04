@@ -7,7 +7,7 @@ from resources.errors import SchemaValidationError
 
 
 LEGACY_RECORD_FIELDS = {"id", "_id", "User", "UpdateTime"}
-LEGACY_USER_FIELDS = {"id", "_id", "name", "score", "UpdateTime"}
+LEGACY_USER_FIELDS = {"id", "_id", "name", "password", "score", "UpdateTime"}
 
 
 def json_body(required, optional=()):
