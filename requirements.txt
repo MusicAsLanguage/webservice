@@ -1,6 +1,6 @@
 flask==3.0.3
 Flask-Caching==2.3.0
-mongoengine==0.29.1
+mongoengine==0.29.3
 Flask-Bcrypt==1.0.1
 flask-jwt-extended==4.6.0
 flask-restful==0.3.10
