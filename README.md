@@ -81,8 +81,21 @@ Upload requests, including their multipart envelope, are limited to 10 MiB,
 audio to 120 seconds, and text to 2,000 characters.
 Temporary audio is removed on success and failure; raw transcripts are not logged.
 `MAX_SPEECH_UPLOAD_BYTES` applies only to speech, not lesson publication or other
-JSON APIs. An explicitly configured Flask `MAX_CONTENT_LENGTH` can impose a
-smaller deployment-wide limit; no deployment-wide limit is set by this service.
+JSON APIs. Ordinary JSON endpoints (including public signup, login, forgot/reset
+password) and the web password-reset form have a separate **256 KiB** request-body
+limit (`MAX_JSON_BODY_BYTES`). Administrator lesson publication has a separate
+**16 MiB** allowance (`MAX_LESSON_BODY_BYTES`), so large lesson batches do not
+inherit the smaller JSON or speech ceilings. These limits apply to the encoded
+body **before** JSON/form parsing; oversized requests return HTTP 413 with
+`{"message":"The data value transmitted exceeds the capacity limit."}` without
+database mutations or email delivery. A 10,000-character message still fits even
+when supplementary Unicode characters use JSON escapes.
+
+An explicitly configured Flask `MAX_CONTENT_LENGTH` can impose a smaller
+deployment-wide limit on any of these routes, including a zero-byte limit;
+only `None` means no additional global cap. Limits are configurable through
+application configuration but should remain finite. An upstream proxy limit is
+also recommended; the application does not depend on one being present.
 
 The [Flask 3.1 multipart parser defaults](https://flask.palletsprojects.com/en/stable/config/#MAX_FORM_MEMORY_SIZE)
 are retained: each non-file field is limited to 500,000 bytes and a request to
@@ -277,6 +290,10 @@ Messages require nonblank text of at most **10,000 characters**; this explicit
 anti-abuse limit was not present in the original implementation. Existing clients
 depending on unsafe coercion, unrestricted messages or out-of-range inputs need
 to handle these errors; compatibility is not claimed for those cases.
+The pre-parsing 256 KiB ordinary JSON/form and 16 MiB lesson request limits are
+also deliberate resource-protection boundaries. Requests beyond them must be
+reduced or, for lesson publication, split into separately validated batches;
+the service does not claim support for unlimited legacy request sizes.
 
 ## CI and deployment gates
 

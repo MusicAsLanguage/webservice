@@ -17,6 +17,8 @@ def load_config(environment):
         "JWT_REFRESH_TOKEN_EXPIRES": timedelta(days=30),
         "CACHE_TYPE": "SimpleCache",
         "CACHE_DEFAULT_TIMEOUT": 60,
+        "MAX_JSON_BODY_BYTES": 256 * 1024,
+        "MAX_LESSON_BODY_BYTES": 16 * 1024 * 1024,
         "MAX_SPEECH_UPLOAD_BYTES": 10 * 1024 * 1024,
         "MAX_SPEECH_TEXT_LENGTH": 2000,
         "MAX_AUDIO_SECONDS": 120,

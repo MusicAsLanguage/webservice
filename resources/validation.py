@@ -1,7 +1,8 @@
 import math
 import re
 
-from flask import request
+from flask import current_app, request
+from werkzeug.exceptions import RequestEntityTooLarge
 
 from resources.errors import SchemaValidationError
 
@@ -10,7 +11,25 @@ LEGACY_RECORD_FIELDS = {"id", "_id", "User", "UpdateTime"}
 LEGACY_USER_FIELDS = {"id", "_id", "name", "password", "score", "UpdateTime"}
 
 
+def limit_request_body(maximum):
+    configured_limit = request.max_content_length
+    request.max_content_length = (
+        maximum if configured_limit is None else min(configured_limit, maximum)
+    )
+    if request.content_length in (None, 0) and request.environ.get("wsgi.input_terminated"):
+        # Probe one extra byte: Werkzeug can otherwise silently truncate an unknown-length stream.
+        limit = request.max_content_length
+        request.max_content_length = limit + 1
+        try:
+            data = request.get_data()
+        finally:
+            request.max_content_length = limit
+        if len(data) > limit:
+            raise RequestEntityTooLarge
+
+
 def json_body(required, optional=()):
+    limit_request_body(current_app.config["MAX_JSON_BODY_BYTES"])
     body = request.get_json()
     if not isinstance(body, dict) or not set(required) <= body.keys():
         raise SchemaValidationError

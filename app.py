@@ -15,6 +15,7 @@ from database.utils import db_reset_pwd
 from resources.errors import ApiError, ServiceApi, error_response
 from resources.reset_pwd_form import PasswordResetForm
 from resources.routes import initialize_routes
+from resources.validation import limit_request_body
 from services.auth_service import initialize_jwt, require_admin
 from services.speech_service import WhisperTranscriber
 
@@ -56,6 +57,7 @@ def create_app(environment=None, overrides=None):
 
     @app.post("/resetPwd")
     def reset_pwd_action():
+        limit_request_body(app.config["MAX_JSON_BODY_BYTES"])
         form = PasswordResetForm(request.form)
         if form.validate():
             try:

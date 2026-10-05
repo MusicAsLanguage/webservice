@@ -1,11 +1,11 @@
-from flask import Response, request
+from flask import Response, current_app, request
 from flask_jwt_extended import current_user, jwt_required
 from flask_restful import Resource
 
 from cache import cache
 from database.models import ActivityStatus, Program, SongPlayingStatus
 from resources.errors import SchemaValidationError
-from resources.validation import LEGACY_RECORD_FIELDS, integer, json_body, text
+from resources.validation import LEGACY_RECORD_FIELDS, integer, json_body, limit_request_body, text
 from services.auth_service import require_admin
 from services.progress_service import update_progress
 from services.user_service import user_write
@@ -25,6 +25,7 @@ class CreateLessonsApi(Resource):
     @jwt_required()
     def post(self):
         require_admin()
+        limit_request_body(current_app.config["MAX_LESSON_BODY_BYTES"])
         body = request.get_json()
         if not isinstance(body, list) or any(not isinstance(p, dict) for p in body):
             raise SchemaValidationError

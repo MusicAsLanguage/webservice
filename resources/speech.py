@@ -8,7 +8,7 @@ from mongoengine import Q
 
 from database.models import User
 from resources.errors import SchemaValidationError, ServiceUnavailableError
-from resources.validation import text
+from resources.validation import limit_request_body, text
 from services.speech_service import levenshtein_distance, score_speech
 from services.user_service import user_write
 
@@ -28,10 +28,7 @@ class SpeechScoreApi(Resource):
             lock.release()
 
     def transcribe(self):
-        upload_limit = current_app.config["MAX_SPEECH_UPLOAD_BYTES"]
-        request.max_content_length = min(
-            request.max_content_length or upload_limit, upload_limit,
-        )
+        limit_request_body(current_app.config["MAX_SPEECH_UPLOAD_BYTES"])
         expected = text(request.form.get("speech_text"), current_app.config["MAX_SPEECH_TEXT_LENGTH"])
         audio = request.files.get("music_file")
         if audio is None or not audio.filename:
