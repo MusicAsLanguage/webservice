@@ -185,8 +185,10 @@ everywhere before allowing new-format writes: pause traffic, stop old workers,
 replace all instances, then resume traffic. There is no mixed-version writer
 switch in this release.
 
-New access tokens expire after one hour and refresh tokens after 30 days.
-Clients must refresh expired access tokens. Existing serialized-user identities
+Both access and refresh tokens returned by **login expire after 30 days**.
+Access tokens issued by `tokenRefresh` expire after one hour; refreshing does not
+extend the original refresh token's expiry. Clients must refresh expired access
+tokens and log in again after the refresh token expires. Existing serialized-user identities
 remain supported. Existing non-expiring tokens are not retroactively expired:
 rotate the signing key to invalidate them globally, or reset a user's password
 to invalidate that user's sessions. Signing-key rotation forces users to log in.

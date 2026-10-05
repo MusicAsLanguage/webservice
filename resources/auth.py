@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from flask_jwt_extended import (
     create_access_token,
     create_refresh_token,
@@ -40,7 +42,8 @@ class LoginApi(Resource):
         claims = user_claims(user)
         return {
             "token": create_access_token(
-                identity=access_identity(user), fresh=True, additional_claims=claims
+                identity=access_identity(user), fresh=True, additional_claims=claims,
+                expires_delta=timedelta(days=30),
             ),
             "refresh_token": create_refresh_token(
                 identity=str(user.id), additional_claims=claims

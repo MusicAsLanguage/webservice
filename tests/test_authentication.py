@@ -1,5 +1,5 @@
 import json
-from datetime import timedelta
+from datetime import datetime, timedelta
 
 import pytest
 from flask_jwt_extended import create_access_token, decode_token
@@ -12,12 +12,46 @@ def test_tokens_expire_and_do_not_contain_password_hash(app, client, login):
     with app.app_context():
         access = decode_token(tokens["token"])
         refresh = decode_token(tokens["refresh_token"])
-    assert access["exp"] - access["iat"] == 3600
+    assert access["exp"] - access["iat"] == 30 * 24 * 3600
     assert refresh["exp"] - refresh["iat"] == 30 * 24 * 3600
     assert json.loads(access["sub"])["password"] == ""
     assert "auth_version" not in json.loads(access["sub"])
     assert User.objects.get(id=user_id).check_password("test-password")
     assert client.get("/api/user/getUserScore", headers=headers).status_code == 200
+
+
+def test_refreshed_access_token_still_expires_after_one_hour(app, client, login):
+    _, tokens, _ = login()
+    response = client.post("/api/auth/tokenRefresh", headers={
+        "Authorization": "Bearer " + tokens["refresh_token"],
+    })
+    assert response.status_code == 200
+    assert set(response.json) == {"token"}
+    with app.app_context():
+        access = decode_token(response.json["token"])
+    assert access["exp"] - access["iat"] == 3600
+    assert access["fresh"] is False
+    assert access["purpose"] == "session"
+
+
+@pytest.mark.parametrize("age,status", [(30 * 24 * 3600 - 1, 200), (30 * 24 * 3600, 401)])
+def test_both_login_tokens_remain_valid_until_thirty_days(app, client, login, monkeypatch, age, status):
+    _, tokens, _ = login()
+    with app.app_context():
+        claims = {name: decode_token(token) for name, token in tokens.items()}
+    class Clock(datetime):
+        @classmethod
+        def now(cls, tz=None):
+            return cls.fromtimestamp(issued_at + age, tz)
+
+    monkeypatch.setattr("jwt.api_jwt.datetime", Clock)
+    monkeypatch.setattr("flask_jwt_extended.tokens.datetime", Clock)
+    for name, method, path in [
+        ("token", client.get, "/api/user/getUserScore"),
+        ("refresh_token", client.post, "/api/auth/tokenRefresh"),
+    ]:
+        issued_at = claims[name]["iat"]
+        assert method(path, headers={"Authorization": "Bearer " + tokens[name]}).status_code == status
 
 
 @pytest.mark.parametrize("identity", ["not-an-id", "{}", "[]", '{"_id": null}'])
