@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from flask_jwt_extended import (
     create_access_token,
     create_refresh_token,
@@ -9,13 +11,13 @@ from mongoengine.errors import NotUniqueError
 
 from database.models import User
 from resources.errors import EmailAlreadyExistsError, UnauthorizedError
-from resources.validation import json_body, password_value, text
+from resources.validation import LEGACY_USER_FIELDS, json_body, password_value, text
 from services.auth_service import access_identity, user_claims
 
 
 class SignupApi(Resource):
     def post(self):
-        body = json_body({"name", "email", "password"})
+        body = json_body({"name", "email", "password"}, {"id", "_id", "UpdateTime"})
         user = User(
             name=text(body["name"]),
             email=text(body["email"]),
@@ -32,15 +34,16 @@ class SignupApi(Resource):
 
 class LoginApi(Resource):
     def post(self):
-        body = json_body({"email", "password"}, {"name"})
-        email, password = text(body["email"]), text(body["password"])
+        body = json_body({"email", "password"}, LEGACY_USER_FIELDS)
+        email, password = text(body["email"]), password_value(body["password"], minimum=1)
         user = User.objects(email=email).first()
-        if user is None or len(password.encode("utf-8")) > 72 or not user.check_password(password):
+        if user is None or not user.check_password(password):
             raise UnauthorizedError
         claims = user_claims(user)
         return {
             "token": create_access_token(
-                identity=access_identity(user), fresh=True, additional_claims=claims
+                identity=access_identity(user), fresh=True, additional_claims=claims,
+                expires_delta=timedelta(days=30),
             ),
             "refresh_token": create_refresh_token(
                 identity=str(user.id), additional_claims=claims

@@ -7,15 +7,15 @@ from flask_restful import Resource
 from database.models import User
 from database.utils import db_reset_pwd
 from resources.errors import EmailDoesnotExistsError
-from resources.validation import json_body, password_value, text
+from resources.validation import LEGACY_USER_FIELDS, json_body, password_value, text
 from services.mail_service import send_email
 
 
 class ForgotPassword(Resource):
     def post(self):
-        body = json_body({"email"})
+        body = json_body({"email"}, LEGACY_USER_FIELDS)
         email = text(body["email"])
-        user = User.objects(email=email).first()
+        user = User.objects(email=email, deletion_started__ne=True).first()
         if user is None:
             raise EmailDoesnotExistsError
         token = create_access_token(
@@ -37,6 +37,6 @@ class ForgotPassword(Resource):
 
 class ResetPassword(Resource):
     def post(self):
-        body = json_body({"reset_token", "password"})
+        body = json_body({"reset_token", "password"}, LEGACY_USER_FIELDS | {"email"})
         db_reset_pwd(text(body["reset_token"], 8192), password_value(body["password"]))
         return {"status": "Password reset was successful!"}, 200

@@ -52,7 +52,7 @@ def test_session_tokens_cannot_reset_password(client, login):
     assert User.objects.get(id=user_id).check_password("test-password")
 
 
-@pytest.mark.parametrize("password", ["short", "", "x" * 73, None])
+@pytest.mark.parametrize("password", ["short", "", "x" * 101, None])
 def test_reset_validates_before_mutating(app, client, login, password):
     _, _, user_id = login()
     assert client.post("/api/auth/resetPwd", json={

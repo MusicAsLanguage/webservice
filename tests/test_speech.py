@@ -81,7 +81,7 @@ def test_upload_size_is_limited(app, client, case, login):
 def test_large_audio_is_not_rejected_by_non_file_field_limit(app, client, case, login, size):
     headers, _, user_id = login()
     assert app.config["MAX_FORM_MEMORY_SIZE"] == 500_000
-    assert app.config["MAX_CONTENT_LENGTH"] == 10 * 1024 * 1024
+    assert app.config["MAX_SPEECH_UPLOAD_BYTES"] == 10 * 1024 * 1024
     audio = b"a" * size
     paths = []
 
@@ -111,7 +111,7 @@ def test_default_multipart_limits_return_json_without_scoring(app, client, case,
         assert app.config["MAX_FORM_PARTS"] == 1000
         form.update({f"extra_{index}": "x" for index in range(999)})
     else:
-        assert app.config["MAX_CONTENT_LENGTH"] == 10 * 1024 * 1024
+        assert app.config["MAX_SPEECH_UPLOAD_BYTES"] == 10 * 1024 * 1024
         form["music_file"] = (io.BytesIO(b"a" * (10 * 1024 * 1024)), "audio.wav")
 
     response = client.post("/api/user/speechScore", headers=headers, data=form)
@@ -138,5 +138,60 @@ def test_concurrent_speech_rewards_are_not_lost(app, login):
             return client.post("/api/user/speechScore", headers=headers, data=speech_data()).status_code
 
     with ThreadPoolExecutor(max_workers=8) as executor:
-        assert list(executor.map(award, range(24))) == [200] * 24
-    assert User.objects.get(id=user_id).score == 240
+        results = list(executor.map(award, range(24)))
+    assert set(results) <= {200, 503}
+    assert results.count(200) > 0
+    assert User.objects.get(id=user_id).score == results.count(200) * 10
+
+
+def test_busy_speech_request_is_rejected_before_parsing_upload(app, client, case, login):
+    headers, _, _ = login()
+    app.extensions["speech_lock"].acquire()
+    try:
+        response = client.post("/api/user/speechScore", headers=headers, data=b"malformed")
+        assert response.status_code == 503
+        case.transcriber.assert_not_called()
+    finally:
+        app.extensions["speech_lock"].release()
+    assert client.post("/api/user/speechScore", headers=headers, data=speech_data()).status_code == 200
+
+
+@pytest.mark.parametrize("actual,status", [(None, 500), ("x" * 2001, 400), ("", 200)])
+def test_transcriber_output_validation_releases_lock_and_cleans_audio(
+    app, client, case, login, actual, status,
+):
+    headers, _, user_id = login()
+    paths = []
+
+    def transcribe(path, _):
+        paths.append(path)
+        return actual
+
+    case.transcriber.side_effect = transcribe
+    response = client.post("/api/user/speechScore", headers=headers, data=speech_data())
+    assert response.status_code == status
+    assert User.objects.get(id=user_id).score == 0
+    assert not app.extensions["speech_lock"].locked()
+    assert all(not path.parent.exists() for path in paths)
+
+
+def test_speech_increment_does_not_overflow_storage(client, login):
+    headers, _, user_id = login()
+    User.objects(id=user_id).update_one(set__score=2**63 - 1)
+    assert client.post("/api/user/speechScore", headers=headers, data=speech_data()).status_code == 400
+    assert User.objects.get(id=user_id).score == 2**63 - 1
+
+
+def test_speech_increment_preserves_default_score_on_legacy_documents(client, login):
+    headers, _, user_id = login()
+    User.objects(id=user_id).update_one(unset__score=1)
+    assert client.post("/api/user/speechScore", headers=headers, data=speech_data()).status_code == 200
+    assert User.objects.get(id=user_id).score == 10
+
+
+def test_speech_never_logs_transcript(client, case, login, caplog):
+    headers, _, _ = login()
+    case.transcriber.return_value = "private recognized phrase"
+    response = client.post("/api/user/speechScore", headers=headers, data=speech_data("private input"))
+    assert response.status_code == 200
+    assert "private recognized phrase" not in caplog.text and "private input" not in caplog.text

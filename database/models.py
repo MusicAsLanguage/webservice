@@ -1,6 +1,6 @@
 from mongoengine import Document, StringField, EmailField, IntField, URLField, EmbeddedDocument, \
       EmbeddedDocumentField, EmbeddedDocumentListField, DateTimeField, BooleanField, ReferenceField, FloatField
-from flask_bcrypt import generate_password_hash, check_password_hash
+from services.password_service import generate_password_hash, check_password_hash
 from datetime import datetime
 
 
@@ -10,6 +10,8 @@ class User(Document):
     password = StringField(required=True, min_length=6, max_length=100)
     score = IntField(required=False, default=0, min_value=0)
     auth_version = IntField(default=0, min_value=0)
+    deletion_started = BooleanField(default=False)
+    active_writes = IntField(default=0, min_value=0)
     UpdateTime = DateTimeField(required=False, default=datetime.utcnow)
 
     def hash_password(self):

@@ -3,6 +3,7 @@ from flask_jwt_extended.exceptions import JWTExtendedException
 from flask_restful import Api
 from jwt import PyJWTError
 from mongoengine.errors import FieldDoesNotExist, NotUniqueError, ValidationError
+from pymongo.errors import DuplicateKeyError
 from werkzeug.exceptions import HTTPException
 
 
@@ -45,22 +46,33 @@ class ServiceUnavailableError(ApiError):
     message = "Service temporarily unavailable"
 
 
+class ConflictError(ApiError):
+    status = 409
+    message = "Account deletion is waiting for in-flight writes; retry deletion"
+
+
 def error_response(error):
+    legacy_envelope = True
     if isinstance(error, ApiError):
         status, message = error.status, error.message
     elif isinstance(error, (FieldDoesNotExist, ValidationError)):
         status, message = 400, SchemaValidationError.message
-    elif isinstance(error, NotUniqueError):
+    elif isinstance(error, (NotUniqueError, DuplicateKeyError)):
         status, message = 409, "A record with these identifiers already exists"
     elif isinstance(error, (JWTExtendedException, PyJWTError)):
         status, message = 401, "Invalid or missing token"
+        legacy_envelope = False
     elif isinstance(error, HTTPException):
         status, message = error.code, error.description
+        legacy_envelope = False
     else:
         status, message = 500, InternalServerError.message
     if status >= 500:
         current_app.logger.error("Request failed", exc_info=error)
-    return jsonify(message=message), status
+    body = {"message": message}
+    if legacy_envelope:
+        body["status"] = status
+    return jsonify(body), status
 
 
 class ServiceApi(Api):

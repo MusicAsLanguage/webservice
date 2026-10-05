@@ -1,0 +1,66 @@
+{
+  "evidence": {
+    "commit": "70e02517237c48f7a3728aabaf86e9269be48076",
+    "routes_blob": "7585a1cc403696deac2abfbadc02436584bb4624",
+    "models_blob": "ccc8f4bbfc9a76115171645d0fccd716c562cbf1",
+    "errors_blob": "061cc04067b8c8ebf7357383ba35580981371081",
+    "method": "Manually frozen from original resource source; model JSON and domain error envelope independently reproduced with the original definitions, supported MongoEngine, Flask-RESTful 0.3.10 and a disposable mongomock database. Not generated from current resources.",
+    "metadata": "Original constructors accept id, User and UpdateTime where declared, not the serialized _id alias. Ignoring _id on input is an additive round-trip convenience, not a claimed baseline behavior.",
+    "tokens": "Original login: serialized-user sub, access, fresh=true, no exp/purpose/version. Refresh: plain-ID sub, refresh, no exp/purpose/version. Reset: plain-ID sub, access, fresh=false, exp=iat+86400, no purpose/version."
+  },
+  "routes": {
+    "/api/auth/signup": "POST",
+    "/api/auth/login": "POST",
+    "/api/auth/tokenRefresh": "POST",
+    "/api/auth/forgotPwd": "POST",
+    "/api/auth/resetPwd": "POST",
+    "/api/lesson/getLessons": "GET",
+    "/api/lesson/createLessons": "POST",
+    "/api/activity/getStatus": "GET",
+    "/api/activity/updateStatus": "POST",
+    "/api/activity/getSongPlayingStatus": "GET",
+    "/api/activity/updateSongPlayingStatus": "POST",
+    "/api/user/getUserScore": "GET",
+    "/api/user/updateUserScore": "POST",
+    "/api/user/deleteUserAndData": "DELETE",
+    "/api/msg/send": "POST",
+    "/api/user/speechScore": "POST",
+    "/clearCache": "GET",
+    "/resetPwd/<token>": "GET",
+    "/resetPwd": "POST"
+  },
+  "user": {
+    "_id": {"$oid": "507f1f77bcf86cd799439011"},
+    "name": "Jane",
+    "email": "jane@example.test",
+    "password": "",
+    "score": 0,
+    "UpdateTime": {"$date": 1577934245000}
+  },
+  "activity": {
+    "_id": {"$oid": "507f1f77bcf86cd799439012"},
+    "CompletionStatus": 5,
+    "User": {"$ref": "user", "$id": {"$oid": "507f1f77bcf86cd799439011"}},
+    "ActivityId": 1,
+    "LessonId": 2,
+    "Repeats": 0,
+    "UpdateTime": {"$date": 1577934245000}
+  },
+  "song": {
+    "_id": {"$oid": "507f1f77bcf86cd799439012"},
+    "User": {"$ref": "user", "$id": {"$oid": "507f1f77bcf86cd799439011"}},
+    "SongName": "Song",
+    "Category": "Beginner",
+    "CompletionStatus": 5,
+    "Repeats": 0,
+    "UpdateTime": {"$date": 1577934245000}
+  },
+  "program_replacement": {"_id": 1, "Name": "Replacement", "Songs": [], "Phases": []},
+  "errors": {
+    "schema": {"message": "Request is missing required fields", "status": 400},
+    "duplicate_email": {"message": "User with given email address already exists", "status": 400},
+    "login": {"message": "Invalid username or password", "status": 401},
+    "reset_token": {"message": "Invalid token", "status": 403},
+    "server": {"message": "Something went wrong", "status": 500}
+  }
+}
