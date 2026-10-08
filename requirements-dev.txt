@@ -2,5 +2,5 @@
 mongomock==4.3.0
 pytest==8.4.2
 pytest-cov==7.1.0
-ruff==0.14.14
+ruff==0.16.10
 PyYAML==6.0.3
